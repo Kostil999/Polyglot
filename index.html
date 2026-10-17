@@ -3,7 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#EEF1F5">
+<meta name="theme-color" content="#17202B">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="apple-touch-icon.png">
+<style>html{color-scheme:light}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font-size:14px}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
 <title>Полиглот DE·FR</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -16,6 +21,7 @@
   --bg:#EEF1F5; --surface:#FFFFFF; --ink:#151D29; --muted:#5B6677; --rule:#D7DDE6; --soft:#E3E8EF;
   --de:#C7401F; --de-soft:#F7E2DB; --fr:#2A55D4; --fr-soft:#DEE6FA;
   --ok:#17905A; --ok-soft:#DDF3E7; --bad:#CF3636; --bad-soft:#FBE1E1; --gold:#E39A12;
+  --gm:#2B63C9; --gf:#C8323C; --gn:#1F8A55; --gp:#6B7586;
   --acc:var(--de); --acc-soft:var(--de-soft);
   --f-display:"Unbounded","Arial Black",system-ui,sans-serif;
   --f-body:"Onest",-apple-system,"Segoe UI",Roboto,sans-serif;
@@ -23,11 +29,11 @@
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#0E131A; --surface:#172029; --ink:#E7ECF3; --muted:#94A0B1; --rule:#2A3543; --soft:#202B37;
   --de:#F27A55; --de-soft:#3A221C; --fr:#7393F6; --fr-soft:#1E2847;
-  --ok:#3CC483; --ok-soft:#173326; --bad:#F06A6A; --bad-soft:#3A1E21; --gold:#F2B33D; color-scheme:dark}}
+  --ok:#3CC483; --ok-soft:#173326; --bad:#F06A6A; --bad-soft:#3A1E21; --gold:#F2B33D; --gm:#7FA6F2; --gf:#F27D84; --gn:#58C98D; --gp:#9AA4B4; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0E131A; --surface:#172029; --ink:#E7ECF3; --muted:#94A0B1; --rule:#2A3543; --soft:#202B37;
   --de:#F27A55; --de-soft:#3A221C; --fr:#7393F6; --fr-soft:#1E2847;
-  --ok:#3CC483; --ok-soft:#173326; --bad:#F06A6A; --bad-soft:#3A1E21; --gold:#F2B33D; color-scheme:dark}
+  --ok:#3CC483; --ok-soft:#173326; --bad:#F06A6A; --bad-soft:#3A1E21; --gold:#F2B33D; --gm:#7FA6F2; --gf:#F27D84; --gn:#58C98D; --gp:#9AA4B4; color-scheme:dark}
 :root.fr{--acc:var(--fr); --acc-soft:var(--fr-soft)}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font:16px/1.45 var(--f-body);-webkit-tap-highlight-color:transparent}
@@ -161,7 +167,7 @@ nav.tabs button[aria-current="page"]{color:var(--acc)}
 .l-head{display:flex;align-items:center;gap:12px;padding-block:12px}
 .x{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;color:var(--muted);flex:none}
 .x svg{width:22px;height:22px;stroke:currentColor;stroke-width:2.5;fill:none;stroke-linecap:round}
-.l-head .bar{flex:1;height:14px;border-radius:8px}
+.l-head .bar{flex:1;height:14px;border-radius:8px;background:var(--rule)}
 .l-body{flex:1;overflow-y:auto;padding-block:10px 20px;display:flex;flex-direction:column;gap:18px}
 .l-body .wrap{width:100%}
 .label{font:700 12px var(--f-display);letter-spacing:.06em;text-transform:uppercase;color:var(--acc)}
@@ -211,6 +217,44 @@ nav.tabs button[aria-current="page"]{color:var(--acc)}
 .sheet .in{background:var(--surface);width:100%;max-width:540px;margin:0 auto;border-radius:22px 22px 0 0;padding:22px max(16px,env(safe-area-inset-right,0px)) calc(18px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:grid;gap:12px}
 .sheet h3{margin:0;font:700 20px var(--f-display)}
 .sheet p{margin:0;color:var(--muted)}
+
+/* teaching UI */
+.art{font-weight:700} .g-m{color:var(--gm)} .g-f{color:var(--gf)} .g-n{color:var(--gn)} .g-pl{color:var(--gp)}
+.pl{font-size:12px;font-weight:600;color:var(--gp);border:1px solid var(--rule);border-radius:6px;padding:1px 5px;margin-left:4px;white-space:nowrap}
+.legend{display:flex;gap:6px 12px;flex-wrap:wrap;margin:-4px 0 10px;font-size:13px;color:var(--muted)}
+.rule{display:grid;gap:10px;font-size:15px;line-height:1.5}
+.rule p{margin:0;max-width:62ch}
+.rule b{font-weight:700}
+.rex{display:flex;gap:10px;align-items:flex-start;background:var(--bg);border-radius:12px;padding:10px 12px}
+.rex>div{display:grid;gap:1px;min-width:0}
+.rex>div>b{font-weight:600;overflow-wrap:anywhere}
+.rex>div>span{color:var(--muted);font-size:14px}
+.tip .rule{margin-top:8px}
+.say.sm{width:32px;height:32px;border-radius:10px}
+.say.sm svg{width:17px;height:17px}
+.learn{background:var(--surface);border-radius:22px;padding:26px 20px;display:grid;justify-items:center;gap:10px;text-align:center;border:2px solid var(--rule);box-shadow:0 3px 0 var(--rule)}
+.say.big{width:64px;height:64px;border-radius:20px;background:var(--acc);color:#fff}
+.say.big svg{width:30px;height:30px}
+.lw{font:600 30px/1.2 var(--f-body);text-wrap:balance;overflow-wrap:anywhere}
+.lw.phrase{font-size:24px}
+.lt{font-size:18px;color:var(--muted)}
+.gchip{font:700 11px var(--f-display);letter-spacing:.05em;text-transform:uppercase;padding:5px 9px;border-radius:8px;background:var(--soft)}
+.lex{display:flex;gap:10px;align-items:flex-start;background:var(--surface);border-radius:14px;padding:12px 14px}
+.lex>div{display:grid;gap:2px;min-width:0}
+.lex>div>b{font-weight:600}
+.lex>div>span{color:var(--muted);font-size:14px}
+.gapline{line-height:1.6}
+.blank{display:inline-block;min-width:84px;border-bottom:3px solid var(--acc);color:var(--acc);text-align:center;padding:0 6px;margin:0 2px}
+.blank.ok{color:var(--ok);border-color:var(--ok)} .blank.bad{color:var(--bad);border-color:var(--bad)}
+.keys .hintbtn{background:var(--acc-soft);color:var(--acc);padding:0 12px;font-size:14px;margin-left:auto}
+.fb small{font-size:13px;color:var(--muted)}
+.fb-row{display:flex;gap:10px}
+.fb-row .btn{flex:1}
+.fb-row .rulebtn{flex:0 0 auto;width:auto;padding:0 16px;background:var(--surface)!important;color:var(--ink)!important;box-shadow:none!important}
+.fb-row .rulebtn svg{width:18px;height:18px}
+.sheet .in{max-height:88vh;overflow-y:auto}
+.sheet-body p{margin:0 0 6px;color:var(--muted)}
+.sheet-body .rule p{color:var(--ink)}
 </style>
 
 <div class="wrap">
@@ -222,14 +266,22 @@ nav.tabs button[aria-current="page"]{color:var(--acc)}
 <div id="sheet"></div>
 
 <script>
-/* ---------- course data: "target | перевод" ---------- */
+/* ---------- course data ----------
+   words / sentences: "target | перевод"
+   gaps: "предложение с ___ | ответ | неверный1, неверный2 | перевод"
+   rule: абзацы; строка "• пример — перевод" = пример с озвучкой; **жирный** */
 const P = t => t.trim().split('\n').map(l => l.split('|').map(x => x.trim()));
-const U = (id, title, tip, w, s) => ({ id, title, tip, w: P(w), s: P(s) });
+const PG = t => t.trim().split('\n').map(l => { const [d,a,w,r] = l.split('|').map(x => x.trim());
+  return [d.replace('___', a), r, d, a, w.split(',').map(x => x.trim())]; });
+const U = (id, title, rule, w, s, g) => ({ id, title, rule: rule.trim(), w: P(w), s: P(s), g: PG(g) });
 
-const COURSES = {
- de: { name:'Немецкий', short:'DE', voice:'de-DE', inLang:'по-немецки', keys:['ä','ö','ü','ß','Ä','Ö','Ü'], levels:[
-  { id:'A2', units:[
-   U('de-a2-1','Работа и смены','Глаголы с отделяемой приставкой: anfangen → «Die Schicht fängt um sechs an». Приставка уходит в конец предложения.',`
+const DE_A2 = [
+U('de-a2-1','Работа и смены',`
+**Отделяемые приставки.** У многих глаголов есть приставка: an-fangen, auf-hören, ab-holen. В обычном предложении она отрывается и уходит в самый конец.
+• Die Schicht fängt um sechs an. — Смена начинается в шесть.
+• Ich höre um zwei auf. — Я заканчиваю в два.
+В инфинитиве и после модальных глаголов приставка остаётся на месте:
+• Ich muss früh anfangen. — Мне нужно рано начинать.`,`
 die Schicht | смена
 der Feierabend | конец рабочего дня
 der Kollege | коллега
@@ -244,8 +296,18 @@ Ich habe heute Frühschicht. | У меня сегодня утренняя см�
 Die Pause dauert dreißig Minuten. | Перерыв длится тридцать минут.
 Mein Kollege kommt immer pünktlich. | Мой коллега всегда приходит вовремя.
 Nach der Nachtschicht schlafe ich lange. | После ночной смены я долго сплю.
-Wann fängt deine Schicht an? | Когда начинается твоя смена?`),
-   U('de-a2-2','В магазине','После mit всегда Dativ: mit der Karte, mit dem Auto, mit den Kollegen.',`
+Wann fängt deine Schicht an? | Когда начинается твоя смена?`,`
+Die Schicht fängt um sechs ___. | an | auf, ab | Смена начинается в шесть.
+Wann hörst du heute ___? | auf | an, aus | Когда ты сегодня заканчиваешь?
+Ich ___ heute Nachtschicht. | habe | hat, bin | У меня сегодня ночная смена.`),
+
+U('de-a2-2','В магазине',`
+**Dativ после mit.** Предлог mit всегда требует дательного падежа. Артикли меняются так: der → dem, die → der, das → dem, во множественном числе → den.
+• mit der Karte — картой
+• mit dem Auto — на машине
+• mit den Kollegen — с коллегами
+В магазине к вам обращаются на «Вы»: глагол стоит первым, потом Sie.
+• Brauchen Sie eine Tüte? — Вам нужен пакет?`,`
 die Kasse | касса
 der Einkaufswagen | тележка для покупок
 das Angebot | акция, предложение
@@ -260,11 +322,20 @@ Brauchen Sie eine Tüte? | Вам нужен пакет?
 Ich bezahle mit Karte. | Я плачу картой.
 Das Brot ist heute im Angebot. | Хлеб сегодня по акции.
 Die Flaschen bringe ich zum Pfandautomaten. | Бутылки я отношу в автомат для залога.
-Das Gemüse hier ist frisch und günstig. | Овощи здесь свежие и недорогие.`),
-   U('de-a2-3','Квартира и ведомства','Вежливая просьба: глагол + Sie + bitte. «Füllen Sie bitte das Formular aus».',`
+Das Gemüse hier ist frisch und günstig. | Овощи здесь свежие и недорогие.`,`
+Ich bezahle mit ___ Karte. | der | die, den | Я плачу картой.
+Ich fahre mit ___ Auto zum Supermarkt. | dem | das, den | Я еду в супермаркет на машине.
+___ Sie eine Tüte? | Brauchen | Braucht, Brauche | Вам нужен пакет?`),
+
+U('de-a2-3','Квартира и ведомства',`
+**Вежливая просьба на «Вы».** Глагол ставится на первое место, за ним Sie, и почти всегда добавляют bitte.
+• Füllen Sie bitte das Formular aus. — Заполните, пожалуйста, бланк.
+• Unterschreiben Sie bitte hier. — Распишитесь, пожалуйста, здесь.
+**müssen** — «нужно, обязан». Второй глагол уходит в конец без изменений:
+• Hier müssen Sie unterschreiben. — Здесь вам нужно расписаться.`,`
 der Vermieter | арендодатель
 die Miete | арендная плата
-die Nebenkosten | коммунальные платежи
+die Nebenkosten | коммунальные платежи (мн. ч.)
 der Termin | запись, встреча
 das Formular | бланк
 die Anmeldung | регистрация по месту жительства
@@ -276,8 +347,18 @@ Ich brauche einen Termin beim Bürgeramt. | Мне нужна запись в б
 Bitte füllen Sie das Formular aus. | Пожалуйста, заполните бланк.
 Die Nebenkosten sind in der Miete enthalten. | Коммунальные платежи включены в аренду.
 Hier müssen Sie unterschreiben. | Здесь вам нужно расписаться.
-Haben Sie Ihren Ausweis dabei? | У вас с собой удостоверение?`),
-   U('de-a2-4','У врача','«Mir tut der Kopf weh» — у меня болит голова. Тот, у кого болит, стоит в Dativ: mir, dir, ihm.',`
+Haben Sie Ihren Ausweis dabei? | У вас с собой удостоверение?`,`
+Füllen Sie bitte den Antrag ___. | aus | an, auf | Заполните, пожалуйста, заявление.
+Hier müssen Sie ___. | unterschreiben | unterschreibt, unterschrieben | Здесь вам нужно расписаться.
+Ich brauche einen ___ beim Bürgeramt. | Termin | Miete, Ausweis | Мне нужна запись в бюро граждан.`),
+
+U('de-a2-4','У врача',`
+**Что болит: wehtun + Dativ.** Человек, у которого болит, стоит в дательном падеже: mir, dir, ihm, ihr, uns.
+• Mir tut der Kopf weh. — У меня болит голова.
+• Ihm tun die Füße weh. — У него болят ноги.
+Если болит что-то одно — tut, если несколько — tun.
+**sollten** — мягкий совет, «вам следует»:
+• Sie sollten sich ausruhen. — Вам следует отдохнуть.`,`
 der Arzt | врач
 die Praxis | врачебный кабинет
 die Apotheke | аптека
@@ -292,8 +373,17 @@ Ich bin seit gestern krank. | Я болею со вчерашнего дня.
 Mir tut der Kopf weh. | У меня болит голова.
 Mit dem Rezept gehen Sie zur Apotheke. | С рецептом вы идёте в аптеку.
 Ich brauche eine Krankmeldung für meinen Chef. | Мне нужен больничный для начальника.
-Sie sollten sich ausruhen. | Вам следует отдохнуть.`),
-   U('de-a2-5','Поездки и выходные','Perfekt: haben или sein + Partizip II в самом конце. «Ich habe gebucht», но «Ich bin gefahren».',`
+Sie sollten sich ausruhen. | Вам следует отдохнуть.`,`
+___ tut der Rücken weh. | Mir | Ich, Mich | У меня болит спина.
+Mir ___ die Füße weh. | tun | tut, tust | У меня болят ноги.
+Sie ___ zum Arzt gehen. | sollten | solltest, sollt | Вам следует пойти к врачу.`),
+
+U('de-a2-5','Поездки и выходные',`
+**Perfekt — прошедшее время для разговора.** haben или sein + причастие (Partizip II) в самом конце.
+• Ich habe die Unterkunft gebucht. — Я забронировал жильё.
+С sein идут глаголы движения и смены состояния: fahren, gehen, kommen, umsteigen.
+• Wir sind nach Trier gefahren. — Мы съездили в Трир.
+Причастие строится так: ge- + основа + -t (buchen → gebucht) или ge- + основа + -en (fahren → gefahren).`,`
 der Bahnhof | вокзал
 die Verspätung | опоздание
 umsteigen | делать пересадку
@@ -308,8 +398,20 @@ Der Zug hat zwanzig Minuten Verspätung. | Поезд опаздывает на 
 In Saarbrücken müssen wir umsteigen. | В Саарбрюккене нам нужно пересесть.
 Am Wochenende machen wir einen Ausflug. | На выходных мы едем на экскурсию.
 Der Zug fährt von Gleis drei ab. | Поезд отправляется с третьего пути.
-Ich habe die Unterkunft schon gebucht. | Я уже забронировал жильё.`),
-   U('de-a2-6','Время и встречи','«Um halb drei» — это 2:30, а не 3:30: немцы говорят «половина до трёх».',`
+Ich habe die Unterkunft schon gebucht. | Я уже забронировал жильё.`,`
+Ich habe das Hotel schon ___. | gebucht | buchen, bucht | Я уже забронировал отель.
+Wir ___ nach Trier gefahren. | sind | haben, hat | Мы съездили в Трир.
+Der Zug hat zehn Minuten ___. | Verspätung | Gleis, Fahrkarte | Поезд опаздывает на десять минут.`),
+
+U('de-a2-6','Время и встречи',`
+**Как называть время.** В разговоре немцы считают к следующему часу:
+• halb drei — половина третьего (2:30)
+• Viertel nach sechs — четверть седьмого (6:15)
+• Viertel vor sieben — без четверти семь (6:45)
+**Предлоги времени:** um + час, am + день, im + месяц.
+• um acht — в восемь
+• am Montag — в понедельник
+• im Mai — в мае`,`
 die Uhrzeit | время (на часах)
 halb | половина
 das Viertel | четверть
@@ -324,8 +426,18 @@ Es ist halb drei. | Сейчас половина третьего.
 Können wir den Termin verschieben? | Можем ли мы перенести встречу?
 Ich muss leider absagen. | К сожалению, мне придётся отменить.
 Wir treffen uns um Viertel nach sechs. | Мы встречаемся в четверть седьмого.
-Übermorgen habe ich frei. | Послезавтра у меня выходной.`),
-   U('de-a2-7','Погода','Для погоды подлежащее всегда es: es regnet, es schneit, es ist kalt.',`
+Übermorgen habe ich frei. | Послезавтра у меня выходной.`,`
+Wir treffen uns ___ acht Uhr. | um | am, im | Мы встречаемся в восемь часов.
+___ Montag habe ich frei. | Am | Um, Im | В понедельник у меня выходной.
+Mein Urlaub beginnt ___ Mai. | im | am, um | Мой отпуск начинается в мае.`),
+
+U('de-a2-7','Погода',`
+**Безличное es.** Когда говорим о погоде, подлежащее — всегда es, хотя в русском его нет.
+• Es regnet. — Идёт дождь.
+• Es ist kalt. — Холодно.
+**werden** — «становиться»: так говорят о переменах.
+• Es wird warm. — Становится тепло.
+• Im Winter wird es früh dunkel. — Зимой рано темнеет.`,`
 das Wetter | погода
 der Regen | дождь
 der Schnee | снег
@@ -340,8 +452,16 @@ Heute ist das Wetter schön. | Сегодня хорошая погода.
 Es regnet schon den ganzen Tag. | Дождь идёт уже весь день.
 Im Winter wird es früh dunkel. | Зимой рано темнеет.
 Vergiss deinen Regenschirm nicht! | Не забудь свой зонт!
-Morgen soll es warm werden. | Завтра обещают тепло.`),
-   U('de-a2-8','Телефон и сообщения','По телефону представляются фамилией: «Hier ist Müller» или «Müller, guten Tag».',`
+Morgen soll es warm werden. | Завтра обещают тепло.`,`
+___ schneit seit heute Morgen. | Es | Er, Das | Снег идёт с сегодняшнего утра.
+Im Herbst ___ es schnell kalt. | wird | werden, wirst | Осенью быстро холодает.
+Nimm deinen ___ mit, es regnet! | Regenschirm | Schnee, Wind | Возьми зонт, идёт дождь!`),
+
+U('de-a2-8','Телефон и сообщения',`
+**Вежливость через könnten.** «Können Sie…?» — «Можете…?» звучит прямо, «Könnten Sie…?» — «Не могли бы вы…?» — мягко.
+• Können Sie das wiederholen? — Можете это повторить?
+• Könnten Sie mich zurückrufen? — Не могли бы вы мне перезвонить?
+По телефону представляются фамилией: «Müller, guten Tag» или «Hier ist Müller».`,`
 anrufen | звонить
 zurückrufen | перезванивать
 die Nachricht | сообщение
@@ -356,8 +476,18 @@ Kann ich Sie später zurückrufen? | Могу я вам перезвонить �
 Ich habe Sie leider nicht erreicht. | К сожалению, я не смог до вас дозвониться.
 Die Leitung ist besetzt. | Линия занята.
 Sag mir bitte Bescheid. | Дай мне, пожалуйста, знать.
-Können Sie das bitte wiederholen? | Не могли бы вы это повторить?`),
-   U('de-a2-9','Кухня и еда','Ich mag Käse — я люблю сыр. Ich möchte einen Kaffee — я хотел бы кофе (вежливая просьба).',`
+Können Sie das bitte wiederholen? | Не могли бы вы это повторить?`,`
+___ Sie mich bitte zurückrufen? | Könnten | Konnten, Könntest | Не могли бы вы мне перезвонить?
+Ich rufe dich morgen ___. | an | auf, ab | Я позвоню тебе завтра.
+Die Leitung ist leider ___. | besetzt | erreicht, verbunden | Линия, к сожалению, занята.`),
+
+U('de-a2-9','Кухня и еда',`
+**mögen и möchten.** mögen — любить вообще, möchten — хотеть сейчас (вежливо).
+• Ich mag Käse. — Я люблю сыр.
+• Ich möchte einen Kaffee. — Я бы хотел кофе.
+**Винительный падеж (Akkusativ).** Меняется только мужской род: der → den, ein → einen. Женский и средний не меняются.
+• Ich nehme den Salat. — Я беру салат.
+• Ich koche eine Suppe. — Я варю суп.`,`
 kochen | готовить
 das Frühstück | завтрак
 das Mittagessen | обед
@@ -372,8 +502,16 @@ Was gibt es zum Abendessen? | Что на ужин?
 Ich koche heute Kartoffelsuppe. | Сегодня я варю картофельный суп.
 Das Essen war sehr lecker. | Еда была очень вкусной.
 Danke, ich bin schon satt. | Спасибо, я уже наелся.
-Zum Frühstück esse ich Brot mit Käse. | На завтрак я ем хлеб с сыром.`),
-   U('de-a2-10','Банк и почта','Überweisen — перевести деньги на другой счёт, abheben — снять наличные.',`
+Zum Frühstück esse ich Brot mit Käse. | На завтрак я ем хлеб с сыром.`,`
+Ich ___ einen Tee, bitte. | möchte | mag, möchten | Я бы хотел чаю, пожалуйста.
+Ich brauche ___ Topf. | einen | ein, eine | Мне нужна кастрюля.
+Danke, ich bin wirklich ___. | satt | lecker, frisch | Спасибо, я правда наелся.`),
+
+U('de-a2-10','Банк и почта',`
+**Модальный глагол + инфинитив в конце.** müssen, können, möchten, wollen стоят на втором месте, а смысловой глагол — в самом конце.
+• Ich muss ein Paket abholen. — Мне нужно забрать посылку.
+• Ich möchte ein Konto eröffnen. — Я хотел бы открыть счёт.
+**Разница:** überweisen — перевести деньги на другой счёт, abheben — снять наличные.`,`
 das Konto | банковский счёт
 überweisen | переводить деньги
 abheben | снимать (деньги)
@@ -388,10 +526,21 @@ Ich möchte ein Konto eröffnen. | Я хотел бы открыть счёт.
 Wo ist der nächste Geldautomat? | Где ближайший банкомат?
 Ich muss ein Paket abholen. | Мне нужно забрать посылку.
 Die Überweisung dauert einen Tag. | Перевод занимает один день.
-Was kostet eine Briefmarke nach Russland? | Сколько стоит марка в Россию?`)
-  ]},
-  { id:'B1', units:[
-   U('de-b1-1','Своё мнение','После deshalb и trotzdem глагол стоит сразу за ними: «Trotzdem gehen wir spazieren».',`
+Was kostet eine Briefmarke nach Russland? | Сколько стоит марка в Россию?`,`
+Ich muss heute Geld ___. | abheben | hebe ab, abgehoben | Мне сегодня нужно снять деньги.
+Ich möchte die Miete ___. | überweisen | überweise, überwiesen | Я хотел бы перевести арендную плату.
+Gibt es hier eine ___? | Gebühr | Paket, Konto | Здесь есть комиссия?`)
+];
+
+const DE_B1 = [
+U('de-b1-1','Своё мнение',`
+**Порядок слов после deshalb, trotzdem, dann.** Эти слова занимают первое место, глагол идёт сразу за ними, а подлежащее — после глагола.
+• Ich bin müde, deshalb bleibe ich zu Hause. — Я устал, поэтому остаюсь дома.
+• Es regnet, trotzdem gehen wir spazieren. — Идёт дождь, но мы всё равно идём гулять.
+**Чтобы высказать мнение:**
+• Meiner Meinung nach … — По моему мнению …
+• Ich finde, dass … — Я считаю, что …
+• Ich bin dagegen. — Я против.`,`
 meiner Meinung nach | по моему мнению
 überzeugen | убеждать
 der Vorteil | преимущество
@@ -406,8 +555,18 @@ Meiner Meinung nach ist das eine gute Idee. | По моему мнению, эт
 Der größte Vorteil ist die Zeit. | Самое большое преимущество — время.
 Ich stimme dir völlig zu. | Я полностью с тобой согласен.
 Es regnet, trotzdem gehen wir spazieren. | Идёт дождь, тем не менее мы идём гулять.
-Das hat mich nicht überzeugt. | Это меня не убедило.`),
-   U('de-b1-2','Карьера и обучение','sich bewerben auf + Akkusativ — на вакансию; bei + Dativ — в компанию.',`
+Das hat mich nicht überzeugt. | Это меня не убедило.`,`
+Ich bin müde, deshalb ___ zu Hause. | bleibe ich | ich bleibe, bleiben ich | Я устал, поэтому остаюсь дома.
+Es ist kalt, trotzdem ___ joggen. | gehe ich | ich gehe, gehen ich | Холодно, тем не менее я иду на пробежку.
+Ich stimme Ihnen völlig ___. | zu | an, ab | Я полностью с вами согласен.`),
+
+U('de-b1-2','Карьера и обучение',`
+**Глаголы с предлогами.** Многие глаголы требуют своего предлога, их учат вместе:
+• sich bewerben auf + Akk. — подавать заявку на
+• sich interessieren für + Akk. — интересоваться
+• verantwortlich sein für + Akk. — отвечать за
+• teilnehmen an + Dat. — участвовать в
+Возвратное sich меняется по лицам: ich bewerbe mich, du bewirbst dich, er bewirbt sich.`,`
 die Weiterbildung | повышение квалификации
 die Umschulung | переподготовка
 die Bewerbung | заявка на работу
@@ -422,8 +581,18 @@ Ich habe mich auf die Stelle beworben. | Я подал заявку на эту 
 Morgen habe ich ein Vorstellungsgespräch. | Завтра у меня собеседование.
 Die Umschulung dauert zwei Jahre. | Переподготовка длится два года.
 Ich bin für die Planung verantwortlich. | Я отвечаю за планирование.
-Schicken Sie uns bitte Ihren Lebenslauf. | Пришлите нам, пожалуйста, ваше резюме.`),
-   U('de-b1-3','Придаточные предложения','С weil, dass, obwohl, ob спрягаемый глагол уходит в конец: «…, weil ich hier arbeite».',`
+Schicken Sie uns bitte Ihren Lebenslauf. | Пришлите нам, пожалуйста, ваше резюме.`,`
+Er hat ___ auf die Stelle beworben. | sich | ihn, ihm | Он подал заявку на эту вакансию.
+Sie ist ___ das Team verantwortlich. | für | an, auf | Она отвечает за команду.
+Ich interessiere mich ___ Logistik. | für | an, über | Я интересуюсь логистикой.`),
+
+U('de-b1-3','Придаточные предложения',`
+**Глагол в конце придаточного.** После weil, dass, obwohl, wenn, ob спрягаемый глагол уходит в самый конец.
+• Ich lerne Deutsch, weil ich hier arbeite. — …потому что я здесь работаю.
+• Ich glaube, dass er recht hat. — Я думаю, что он прав.
+Если придаточное стоит первым, главное начинается с глагола:
+• Obwohl ich müde bin, gehe ich zum Sport. — Хотя я устал, я иду на спорт.
+**als или wenn?** als — один раз в прошлом, wenn — каждый раз или в будущем.`,`
 weil | потому что
 dass | что (союз)
 obwohl | хотя
@@ -438,8 +607,17 @@ Ich lerne Deutsch, weil ich hier arbeite. | Я учу немецкий, пото
 Ich glaube, dass er recht hat. | Я думаю, что он прав.
 Obwohl ich müde bin, gehe ich zum Sport. | Хотя я устал, я иду на спорт.
 Weißt du, ob der Laden heute offen ist? | Ты знаешь, открыт ли магазин сегодня?
-Als ich nach Deutschland kam, sprach ich kaum Deutsch. | Когда я приехал в Германию, я почти не говорил по-немецки.`),
-   U('de-b1-4','Чувства и отношения','sich freuen auf — ждать с радостью (будущее), sich freuen über — радоваться случившемуся.',`
+Als ich nach Deutschland kam, sprach ich kaum Deutsch. | Когда я приехал в Германию, я почти не говорил по-немецки.`,`
+Ich bleibe zu Hause, weil ___. | ich krank bin | ich bin krank, bin ich krank | Я остаюсь дома, потому что болею.
+___ ich ein Kind war, wohnte ich in Moskau. | Als | Wenn, Ob | Когда я был ребёнком, я жил в Москве.
+Ich weiß nicht, ___ er heute kommt. | ob | dass, wenn | Я не знаю, придёт ли он сегодня.`),
+
+U('de-b1-4','Чувства и отношения',`
+**Возвратные глаголы.** sich меняется по лицам: ich freue mich, du freust dich, er freut sich, wir freuen uns.
+**auf или über?**
+• Ich freue mich auf den Urlaub. — Жду отпуска (он впереди).
+• Ich freue mich über das Geschenk. — Радуюсь подарку (он уже есть).
+Ещё пары: stolz sein auf — гордиться, sich ärgern über — злиться из-за.`,`
 sich freuen | радоваться
 sich ärgern | злиться
 enttäuscht | разочарованный
@@ -454,9 +632,18 @@ Ich freue mich auf das Wochenende. | Я с нетерпением жду вых�
 Ich vermisse meine Familie sehr. | Я очень скучаю по своей семье.
 Sie ist stolz auf ihren Sohn. | Она гордится своим сыном.
 Wir haben uns im Urlaub verliebt. | Мы влюбились во время отпуска.
-Ärgere dich nicht darüber. | Не злись из-за этого.`),
-   U('de-b1-5','Новости и медиа','Passiv: werden + Partizip II. «Die Straße wird gesperrt» — улицу перекрывают.',`
-die Nachrichten | новости
+Ärgere dich nicht darüber. | Не злись из-за этого.`,`
+Ich freue mich ___ den Urlaub. | auf | über, für | Я с нетерпением жду отпуска.
+Danke! Ich freue mich ___ das Geschenk. | über | auf, an | Спасибо! Я рад подарку.
+Wir freuen ___ sehr. | uns | sich, euch | Мы очень рады.`),
+
+U('de-b1-5','Новости и медиа',`
+**Пассив: werden + Partizip II.** Важно действие, а не тот, кто его делает.
+• Die Straße wird gesperrt. — Улицу перекрывают.
+• Das Gesetz wurde geändert. — Закон изменили.
+Настоящее время — wird / werden, прошедшее — wurde / wurden.
+**laut** — «согласно»: laut einer Umfrage — согласно опросу.`,`
+die Nachrichten | новости (мн. ч.)
 die Zeitung | газета
 der Artikel | статья
 berichten | сообщать
@@ -470,8 +657,18 @@ Ich lese die Nachrichten auf dem Handy. | Я читаю новости в тел
 Die Straße wird morgen gesperrt. | Улицу завтра перекроют.
 Davon habe ich aus der Zeitung erfahren. | Я узнал об этом из газеты.
 Laut einer Umfrage arbeiten viele im Homeoffice. | Согласно опросу, многие работают из дома.
-Im Radio wurde über den Stau berichtet. | По радио сообщили о пробке.`),
-   U('de-b1-6','Экология','Совет через sollte: «Man sollte Müll trennen» — следует сортировать мусор.',`
+Im Radio wurde über den Stau berichtet. | По радио сообщили о пробке.`,`
+Die Brücke ___ nächste Woche repariert. | wird | werden, hat | Мост отремонтируют на следующей неделе.
+Gestern ___ über den Unfall berichtet. | wurde | wird, würde | Вчера сообщили об аварии.
+Das Gesetz wurde ___. | geändert | ändern, ändert | Закон изменили.`),
+
+U('de-b1-6','Экология',`
+**man — «люди вообще».** Глагол с man стоит в 3-м лице единственного числа, как с er.
+• In Deutschland trennt man den Müll. — В Германии сортируют мусор.
+**sollte — совет:** Man sollte … — следует …, Wir sollten … — нам стоит …
+• Man sollte kein Wasser verschwenden. — Не стоит тратить воду впустую.
+**Сравнение:** прилагательное + -er + als.
+• Das Fahrrad ist nachhaltiger als das Auto. — Велосипед экологичнее машины.`,`
 die Umwelt | окружающая среда
 der Müll | мусор
 trennen | сортировать, разделять
@@ -486,8 +683,17 @@ In Deutschland trennt man den Müll. | В Германии сортируют м
 Wir sollten mehr Strom sparen. | Нам следует больше экономить электричество.
 Plastik gehört in die gelbe Tonne. | Пластик выбрасывают в жёлтый бак.
 Man sollte kein Wasser verschwenden. | Не стоит тратить воду впустую.
-Das Fahrrad ist nachhaltiger als das Auto. | Велосипед экологичнее машины.`),
-   U('de-b1-7','Жалобы и ремонт','Вежливая жалоба через Konjunktiv II: «Könnten Sie bitte…», «Ich hätte gern…».',`
+Das Fahrrad ist nachhaltiger als das Auto. | Велосипед экологичнее машины.`,`
+Hier ___ man nicht rauchen. | darf | dürfen, darfst | Здесь нельзя курить.
+Der Zug ist schneller ___ der Bus. | als | wie, dann | Поезд быстрее автобуса.
+Wir ___ weniger Plastik kaufen. | sollten | sollte, solltet | Нам стоит покупать меньше пластика.`),
+
+U('de-b1-7','Жалобы и ремонт',`
+**Konjunktiv II для вежливости.** Так просьба звучит мягко и профессионально:
+• Könnten Sie bitte einen Handwerker schicken? — Не могли бы вы прислать мастера?
+• Ich hätte gern eine Lösung. — Я бы хотел получить решение.
+• Würden Sie das bitte prüfen? — Не проверите ли вы это?
+Формы: können → könnten, haben → hätte, werden → würde.`,`
 die Beschwerde | жалоба
 sich beschweren | жаловаться
 kaputt | сломанный
@@ -502,8 +708,17 @@ Die Heizung ist schon wieder kaputt. | Отопление снова слома�
 Könnten Sie bitte einen Handwerker schicken? | Не могли бы вы прислать мастера?
 Ich möchte mich beschweren. | Я хотел бы пожаловаться.
 Kann ich das Gerät umtauschen? | Могу я обменять этот прибор?
-Es ist leider dringend. | К сожалению, это срочно.`),
-   U('de-b1-8','Планы и мечты','Мечта через Konjunktiv II: «Wenn ich Zeit hätte, würde ich reisen».',`
+Es ist leider dringend. | К сожалению, это срочно.`,`
+Ich ___ gern eine Lösung. | hätte | hatte, hätten | Я бы хотел получить решение.
+___ Sie das bitte prüfen? | Würden | Wurden, Würdest | Не проверите ли вы это?
+Die Waschmaschine ist ___. | kaputt | dringend, fertig | Стиральная машина сломалась.`),
+
+U('de-b1-8','Планы и мечты',`
+**Нереальное условие: wenn + Konjunktiv II.** Так говорят о мечтах и гипотезах.
+• Wenn ich Zeit hätte, würde ich mehr reisen. — Если бы у меня было время, я бы больше путешествовал.
+• Wenn ich reich wäre, würde ich ein Haus kaufen. — Если бы я был богат, купил бы дом.
+Формы: haben → hätte, sein → wäre, остальные — würde + инфинитив.
+**zu + инфинитив:** Mein Ziel ist es, gut Deutsch zu sprechen.`,`
 der Traum | мечта
 das Ziel | цель
 planen | планировать
@@ -518,10 +733,430 @@ Wenn ich Zeit hätte, würde ich mehr reisen. | Если бы у меня был
 Mein Ziel ist es, gut Deutsch zu sprechen. | Моя цель — хорошо говорить по-немецки.
 Ich möchte mein Französisch verbessern. | Я хочу улучшить свой французский.
 Das schaffst du bestimmt! | Ты точно справишься!
-Eines Tages mache ich mich selbstständig. | Однажды я открою своё дело.`)
-  ]},
-  { id:'PRO', units:[
-   U('de-pro-1','Склад и паллеты','Составные слова берут род последнего слова: die Palette + der Platz = der Palettenplatz.',`
+Eines Tages mache ich mich selbstständig. | Однажды я открою своё дело.`,`
+Wenn ich mehr Geld ___, würde ich ein Auto kaufen. | hätte | habe, hatte | Если бы у меня было больше денег, я бы купил машину.
+Wenn ich reich ___, würde ich ein Haus kaufen. | wäre | war, bin | Если бы я был богат, я бы купил дом.
+Ich plane, im Sommer nach Paris ___ fahren. | zu | um, für | Я планирую летом поехать в Париж.`)
+];
+const DE_B2 = [
+U('de-b2-1','Аргументы и дискуссия',`
+**Двойные союзы.** Помогают строить рассуждение:
+• einerseits … andererseits — с одной стороны … с другой
+• nicht nur … sondern auch — не только … но и
+• sowohl … als auch — как … так и
+• entweder … oder — либо … либо
+• weder … noch — ни … ни
+После einerseits и andererseits глагол стоит сразу на втором месте: Einerseits ist das teuer, andererseits …
+**Genitiv** в письменной речи: die Ursache des Problems — причина проблемы.`,`
+die These | тезис
+das Argument | аргумент
+einerseits | с одной стороны
+andererseits | с другой стороны
+die Folge | последствие
+die Ursache | причина
+widersprechen | возражать
+berücksichtigen | учитывать
+die Voraussetzung | предпосылка, условие
+nachvollziehen | понимать (ход мыслей)`,`
+Einerseits ist das teuer, andererseits spart es Zeit. | С одной стороны, это дорого, с другой — экономит время.
+Da muss ich Ihnen widersprechen. | Здесь я вынужден вам возразить.
+Wir sollten auch die Kosten berücksichtigen. | Нам следует учитывать и расходы.
+Ihr Argument kann ich gut nachvollziehen. | Ваш аргумент мне вполне понятен.
+Die Ursache des Problems ist noch unklar. | Причина проблемы пока неясна.`,`
+Das ist nicht nur günstig, ___ auch praktisch. | sondern | aber, oder | Это не только недорого, но и практично.
+Ich trinke weder Kaffee ___ Tee. | noch | oder, und | Я не пью ни кофе, ни чай.
+Die Folgen ___ Entscheidung sind schwer abzuschätzen. | der | die, den | Последствия этого решения трудно оценить.`),
+
+U('de-b2-2','Коллектив и руководство',`
+**Окончания прилагательных после ein / eine.** Если артикль не показал род, его показывает окончание прилагательного:
+• ein zuverlässiger Kollege — надёжный коллега (м. р.)
+• eine zuverlässige Kollegin — надёжная коллега (ж. р.)
+• ein zuverlässiges Team — надёжная команда (ср. р.)
+После der / die / das почти всегда -e:
+• der neue Kollege, die neue Kollegin, das neue Team`,`
+die Zusammenarbeit | сотрудничество
+die Führungskraft | руководитель
+die Verantwortung | ответственность
+delegieren | делегировать
+die Rückmeldung | обратная связь
+die Belastung | нагрузка
+sich einarbeiten | осваиваться на новом месте
+die Leistung | производительность, результат
+der Konflikt | конфликт
+zuverlässig | надёжный`,`
+Ich arbeite mich gerade in das neue System ein. | Я сейчас осваиваю новую систему.
+Die Belastung im Team ist zu hoch. | Нагрузка в команде слишком высока.
+Könnten Sie mir eine Rückmeldung geben? | Не могли бы вы дать мне обратную связь?
+Sie ist eine sehr zuverlässige Kollegin. | Она очень надёжная коллега.
+Wir müssen diesen Konflikt gemeinsam lösen. | Мы должны решить этот конфликт вместе.`,`
+Er ist ein ___ Kollege. | zuverlässiger | zuverlässige, zuverlässigen | Он надёжный коллега.
+Wir haben ein ___ Team. | starkes | starker, starke | У нас сильная команда.
+Der ___ Chef ist sehr freundlich. | neue | neuer, neuen | Новый начальник очень дружелюбный.`),
+
+U('de-b2-3','Деньги и договоры',`
+**Относительные придаточные (Relativsätze).** Местоимение берёт род от слова, к которому относится, а падеж — из своего придаточного. Глагол — в конце.
+• der Vertrag, den ich unterschrieben habe — договор, который я подписал
+• die Versicherung, die ich gekündigt habe — страховка, которую я расторг
+• das Konto, das ich eröffnet habe — счёт, который я открыл
+С предлогом предлог стоит перед местоимением:
+• die Bank, bei der ich mein Konto habe — банк, в котором у меня счёт`,`
+die Steuer | налог
+das Einkommen | доход
+die Ausgaben | расходы (мн. ч.)
+die Versicherung | страховка
+der Vertrag | договор
+kündigen | расторгать
+der Kredit | кредит
+die Zinsen | проценты (мн. ч.)
+sparen auf | копить на
+sich lohnen | окупаться, иметь смысл`,`
+Das ist die Versicherung, die ich gekündigt habe. | Это страховка, которую я расторг.
+Die Bank, bei der ich mein Konto habe, ist teuer. | Банк, в котором у меня счёт, дорогой.
+Wir sparen auf eine neue Wohnung. | Мы копим на новую квартиру.
+Lohnt sich dieser Vertrag überhaupt? | Имеет ли этот договор вообще смысл?
+Die Zinsen sind wieder gestiegen. | Проценты снова выросли.`,`
+Das ist der Vertrag, ___ ich unterschrieben habe. | den | der, dem | Это договор, который я подписал.
+Der Kollege, ___ ich geholfen habe, ist neu. | dem | den, der | Коллега, которому я помог, новенький.
+Die Firma, für ___ ich arbeite, ist groß. | die | der, das | Фирма, на которую я работаю, большая.`),
+
+U('de-b2-4','Технологии',`
+**Пассив с модальными глаголами.** Модальный глагол на втором месте, в конце — Partizip II + werden.
+• Die Software muss aktualisiert werden. — Программу нужно обновить.
+• Das Passwort sollte geändert werden. — Пароль следует изменить.
+• Die App kann heruntergeladen werden. — Приложение можно скачать.
+Это типичный язык инструкций, писем и новостей.`,`
+die Digitalisierung | цифровизация
+die Anwendung | приложение, применение
+das Gerät | устройство
+herunterladen | скачивать
+speichern | сохранять
+das Passwort | пароль
+die Daten | данные (мн. ч.)
+die Sicherheitslücke | уязвимость
+aktualisieren | обновлять
+künstliche Intelligenz | искусственный интеллект`,`
+Die Software muss regelmäßig aktualisiert werden. | Программу нужно регулярно обновлять.
+Das Passwort sollte geändert werden. | Пароль следует изменить.
+Die Daten werden in der Cloud gespeichert. | Данные хранятся в облаке.
+Künstliche Intelligenz verändert viele Berufe. | Искусственный интеллект меняет многие профессии.
+Die Anwendung kann kostenlos heruntergeladen werden. | Приложение можно скачать бесплатно.`,`
+Das Gerät muss neu gestartet ___. | werden | wird, worden | Устройство нужно перезапустить.
+Die Datei ___ nicht geöffnet werden. | kann | können, kannst | Файл не удаётся открыть.
+Alle Daten werden automatisch ___. | gespeichert | speichern, speichert | Все данные сохраняются автоматически.`),
+
+U('de-b2-5','Здоровье и образ жизни',`
+**um … zu, ohne … zu, statt … zu** — инфинитивные обороты. zu стоит прямо перед последним глаголом.
+• Um fit zu bleiben, … — Чтобы оставаться в форме, …
+• …, ohne genug zu schlafen. — …, не высыпаясь.
+• Statt Kaffee zu trinken, … — Вместо того чтобы пить кофе, …
+У отделяемых глаголов zu встаёт внутрь: aufzustehen, einzuschlafen.
+um … zu — только при одном и том же подлежащем. Если разные — damit: Ich koche, damit du isst.`,`
+die Ernährung | питание
+sich bewegen | двигаться
+der Schlafmangel | недосып
+die Erschöpfung | сильная усталость
+vorbeugen | предотвращать
+die Gewohnheit | привычка
+ausgewogen | сбалансированный
+verzichten auf | отказываться от
+die Vorsorge | профилактика
+sich erholen | восстанавливаться`,`
+Um fit zu bleiben, bewege ich mich jeden Tag. | Чтобы оставаться в форме, я двигаюсь каждый день.
+Er arbeitet nachts, ohne genug zu schlafen. | Он работает ночью, не высыпаясь.
+Statt Kaffee zu trinken, gehe ich spazieren. | Вместо того чтобы пить кофе, я иду гулять.
+Ich verzichte seit einem Monat auf Zucker. | Я уже месяц отказываюсь от сахара.
+Nach der Nachtschicht brauche ich Zeit, um mich zu erholen. | После ночной смены мне нужно время, чтобы восстановиться.`,`
+Ich trinke viel Wasser, ___ gesund zu bleiben. | um | ohne, statt | Я пью много воды, чтобы оставаться здоровым.
+Er ging los, ___ zu frühstücken. | ohne | um, damit | Он ушёл, не позавтракав.
+Es fällt mir schwer, früh ___. | aufzustehen | zu aufstehen, aufstehen zu | Мне тяжело рано вставать.`),
+
+U('de-b2-6','Общество и интеграция',`
+**Konjunktiv II в прошлом** — сожаление и упущенные возможности: hätte / wäre + Partizip II.
+• Hätte ich früher Deutsch gelernt, … — Если бы я раньше выучил немецкий, …
+• Ich wäre gern mitgekommen. — Я бы с удовольствием пошёл с вами.
+• Das hätten wir besser planen sollen. — Это нам надо было лучше спланировать.
+wäre — с глаголами, которые в Perfekt идут с sein (kommen, fahren, bleiben).`,`
+die Gesellschaft | общество
+die Integration | интеграция
+die Herkunft | происхождение
+die Gleichberechtigung | равноправие
+das Vorurteil | предрассудок
+die Staatsangehörigkeit | гражданство
+das Ehrenamt | волонтёрство
+sich engagieren | участвовать, проявлять активность
+die Vielfalt | многообразие
+beitragen | вносить вклад`,`
+Hätte ich früher Deutsch gelernt, wäre vieles einfacher gewesen. | Если бы я раньше выучил немецкий, многое было бы проще.
+Sie engagiert sich ehrenamtlich im Sportverein. | Она занимается волонтёрством в спортклубе.
+Vorurteile entstehen oft aus Unwissen. | Предрассудки часто возникают из незнания.
+Jeder kann zur Integration beitragen. | Каждый может внести вклад в интеграцию.
+Die Vielfalt macht die Stadt lebendig. | Многообразие делает город живым.`,`
+___ ich das gewusst, wäre ich gekommen. | Hätte | Wäre, Würde | Если бы я это знал, я бы пришёл.
+Ich ___ gern länger geblieben. | wäre | hätte, würde | Я бы с удовольствием остался подольше.
+Wir hätten früher anfangen ___. | sollen | gesollt, sollten | Нам надо было начать раньше.`),
+
+U('de-b2-7','Жильё и право',`
+**Plusquamperfekt + nachdem.** Что случилось раньше другого события в прошлом: hatte / war + Partizip II.
+• Nachdem ich den Mangel gemeldet hatte, kam der Hausmeister. — После того как я сообщил о дефекте, пришёл управляющий.
+• Als wir ankamen, war der Zug schon abgefahren. — Когда мы пришли, поезд уже ушёл.
+**Канцелярский стиль:** betragen — составлять, gemäß — согласно, per Einschreiben — заказным письмом.`,`
+der Mietvertrag | договор аренды
+die Kaution | залог
+die Kündigungsfrist | срок расторжения
+der Mangel | недостаток, дефект
+die Mietminderung | снижение арендной платы
+die Hausordnung | правила дома
+der Anspruch | право (на что-то)
+das Einschreiben | заказное письмо
+fristgerecht | в срок
+der Rechtsanwalt | адвокат`,`
+Nachdem ich den Mangel gemeldet hatte, kam endlich der Hausmeister. | После того как я сообщил о дефекте, наконец пришёл управляющий.
+Die Kündigungsfrist beträgt drei Monate. | Срок расторжения составляет три месяца.
+Ich habe Anspruch auf die Rückzahlung der Kaution. | Я имею право на возврат залога.
+Schicken Sie die Kündigung per Einschreiben. | Отправьте уведомление о расторжении заказным письмом.
+Die Hausordnung verbietet Lärm nach 22 Uhr. | Правила дома запрещают шум после 22 часов.`,`
+Nachdem er gegessen ___, ging er schlafen. | hatte | habe, hätte | После того как он поел, он пошёл спать.
+Als wir ankamen, ___ der Zug schon abgefahren. | war | hatte, ist | Когда мы пришли, поезд уже ушёл.
+Die Kaution ___ zwei Monatsmieten. | beträgt | trägt, betrifft | Залог составляет две месячные платы.`),
+
+U('de-b2-8','Культура и досуг',`
+**Причастия как прилагательные.** Partizip I (-end) — действие идёт сейчас, Partizip II — действие уже завершено. Окончания — как у обычных прилагательных.
+• ein spannendes Buch — захватывающая книга
+• die wachsende Zahl — растущее число
+• der lange erwartete Film — долгожданный фильм
+• die ausverkaufte Aufführung — аншлаговый спектакль`,`
+die Ausstellung | выставка
+die Aufführung | спектакль, представление
+der Eintritt | вход, входной билет
+die Veranstaltung | мероприятие
+spannend | захватывающий
+die Kritik | критика, рецензия
+beeindruckend | впечатляющий
+die Neuerscheinung | новинка (книга, фильм)
+empfehlen | рекомендовать
+das Publikum | публика`,`
+Der lange erwartete Film kommt endlich ins Kino. | Долгожданный фильм наконец выходит в кино.
+Die ausverkaufte Aufführung war beeindruckend. | Аншлаговый спектакль был впечатляющим.
+Der Eintritt ist für Kinder frei. | Вход для детей бесплатный.
+Kannst du mir ein gutes Buch empfehlen? | Можешь посоветовать мне хорошую книгу?
+Die Ausstellung läuft noch bis Ende März. | Выставка идёт до конца марта.`,`
+Das ist ein sehr ___ Buch. | spannendes | spannende, gespannt | Это очень захватывающая книга.
+Die Zahl der Besucher ist ___. | gestiegen | steigend, steigen | Число посетителей выросло.
+Die ___ Preise ärgern viele Leute. | steigenden | gestiegen, steigend | Растущие цены злят многих людей.`)
+];
+
+const DE_C1 = [
+U('de-c1-1','Деловой стиль',`
+**Номинализация.** В деловой и научной речи действия превращают в существительные (часто на -ung), а то, что было дополнением, уходит в Genitiv.
+• das Projekt umsetzen → die Umsetzung des Projekts — реализация проекта
+• die Preise erhöhen → die Erhöhung der Preise — повышение цен
+• Weil gestreikt wurde … → Infolge des Streiks … — вследствие забастовки
+Предлоги с Genitiv: infolge, hinsichtlich, aufgrund, während, trotz, wegen.`,`
+die Durchführung | проведение
+die Umsetzung | реализация
+die Erhöhung | повышение
+die Senkung | снижение
+im Hinblick auf | с учётом, в отношении
+hinsichtlich | относительно
+infolge | вследствие
+erheblich | значительный
+die Maßnahme | мера
+gewährleisten | обеспечивать, гарантировать`,`
+Nach der Durchführung der Schulung wird ein Test geschrieben. | После проведения обучения пишется тест.
+Die Umsetzung des Projekts verzögert sich erheblich. | Реализация проекта значительно задерживается.
+Infolge des Streiks fielen viele Züge aus. | Вследствие забастовки было отменено много поездов.
+Hinsichtlich der Kosten gibt es noch Fragen. | Относительно расходов ещё есть вопросы.
+Diese Maßnahme soll die Sicherheit gewährleisten. | Эта мера должна обеспечить безопасность.`,`
+Aufgrund ___ Wetters fällt das Fest aus. | des | dem, das | Из-за погоды праздник отменяется.
+Die ___ der Preise ärgert die Kunden. | Erhöhung | Erhöhen, Erhöht | Повышение цен злит клиентов.
+Wir müssen die Qualität ___. | gewährleisten | gewährleistet, Gewährleistung | Мы должны обеспечить качество.`),
+
+U('de-c1-2','Косвенная речь',`
+**Konjunktiv I — косвенная речь.** Так в новостях передают чужие слова, не отвечая за их правдивость. Чаще всего встречается в 3-м лице:
+• sein → er sei: Er sagt, er sei krank. — Он говорит, что болен.
+• haben → er habe: Sie sagt, sie habe keine Zeit. — Она говорит, что у неё нет времени.
+• kommen → er komme, müssen → er müsse
+Если форма совпадает с обычной (sie haben), берут Konjunktiv II: Sie sagen, sie hätten keine Zeit.
+zufolge ставится после существительного: dem Bericht zufolge — согласно докладу.`,`
+die Pressemitteilung | пресс-релиз
+der Sprecher | представитель, пресс-секретарь
+behaupten | утверждать
+bestätigen | подтверждать
+dementieren | опровергать
+angeblich | якобы
+zufolge | согласно
+die Stellungnahme | заявление, позиция
+betonen | подчёркивать
+einräumen | признавать (неохотно)`,`
+Der Sprecher sagte, das Unternehmen sei gut aufgestellt. | Представитель сказал, что компания в хорошей форме.
+Sie behauptet, sie habe nichts davon gewusst. | Она утверждает, что ничего об этом не знала.
+Angeblich wird das Werk geschlossen. | Якобы завод закрывают.
+Dem Bericht zufolge steigen die Preise weiter. | Согласно докладу, цены продолжают расти.
+Der Minister räumte Fehler ein. | Министр признал ошибки.`,`
+Er sagt, er ___ krank. | sei | seien, sein | Он говорит, что болен.
+Die Chefin betont, sie ___ keine Zeit. | habe | haben, habest | Начальница подчёркивает, что у неё нет времени.
+Der Studie ___ schlafen viele zu wenig. | zufolge | folgend, gefolgt | Согласно исследованию, многие спят слишком мало.`),
+
+U('de-c1-3','Идиомы',`
+**Идиомы (Redewendungen).** Носители используют их постоянно, а дословный перевод не помогает — учи целиком, вместе с глаголом.
+• Ich drücke dir die Daumen. — Держу за тебя кулачки.
+• Du hast den Nagel auf den Kopf getroffen. — Ты попал в точку.
+• Das geht mir auf den Keks. — Это действует мне на нервы.
+В предложении глагол идиомы спрягается как обычно, а его вторая часть уходит в конец.`,`
+Daumen drücken | держать кулачки
+auf dem Schlauch stehen | тупить, не понимать
+ins Fettnäpfchen treten | попасть впросак
+Schwein haben | повезти
+die Nase voll haben | быть сытым по горло
+um den heißen Brei herumreden | ходить вокруг да около
+etwas auf die lange Bank schieben | откладывать в долгий ящик
+den Nagel auf den Kopf treffen | попасть в точку
+Tomaten auf den Augen haben | не замечать очевидного
+jemandem auf den Keks gehen | действовать на нервы`,`
+Ich drücke dir die Daumen für die Prüfung! | Держу за тебя кулачки на экзамене!
+Sorry, ich stehe gerade auf dem Schlauch. | Извини, я сейчас туплю.
+Da hast du aber Schwein gehabt! | Ну тебе и повезло!
+Ich habe die Nase voll von den Überstunden. | Мне надоели сверхурочные.
+Rede nicht um den heißen Brei herum! | Не ходи вокруг да около!`,`
+Du hast den Nagel auf den ___ getroffen. | Kopf | Punkt, Hut | Ты попал в точку.
+Schieb das nicht auf die lange ___! | Bank | Liste, Tafel | Не откладывай это в долгий ящик!
+Hast du ___ auf den Augen? | Tomaten | Gurken, Kartoffeln | Ты что, не видишь очевидного?`),
+
+U('de-c1-4','Экономика и бизнес',`
+**je … desto / umso** — «чем …, тем …». После je глагол уходит в конец, после desto стоит сразу за сравнением.
+• Je höher die Nachfrage ist, desto höher sind die Preise. — Чем выше спрос, тем выше цены.
+• Je früher wir anfangen, umso besser. — Чем раньше начнём, тем лучше.
+В заголовках глагол часто опускают: Je höher die Nachfrage, desto höher die Preise.`,`
+der Umsatz | оборот, выручка
+der Gewinn | прибыль
+der Wettbewerb | конкуренция
+die Nachfrage | спрос
+die Lieferkette | цепочка поставок
+der Engpass | дефицит, узкое место
+die Wettbewerbsfähigkeit | конкурентоспособность
+expandieren | расширяться
+der Standort | местоположение предприятия
+die Rendite | доходность`,`
+Je höher die Nachfrage, desto höher die Preise. | Чем выше спрос, тем выше цены.
+Der Umsatz ist im letzten Quartal gestiegen. | Выручка выросла в прошлом квартале.
+Wegen Engpässen in der Lieferkette stockt die Produktion. | Из-за перебоев в цепочке поставок производство стоит.
+Das Unternehmen will ins Ausland expandieren. | Компания хочет расшириться за рубеж.
+Der Standort Saarland hat viele Vorteile. | У Саара как места для бизнеса много преимуществ.`,`
+Je mehr ich übe, ___ besser spreche ich. | desto | als, wie | Чем больше я тренируюсь, тем лучше говорю.
+Je früher wir ___, umso besser. | anfangen | fangen an, angefangen | Чем раньше начнём, тем лучше.
+Der ___ ist im letzten Jahr gesunken. | Gewinn | Standort, Engpass | Прибыль в прошлом году снизилась.`),
+
+U('de-c1-5','Наука и исследования',`
+**Замены пассива в научном стиле:**
+• sich lassen + Infinitiv — «можно»: Das lässt sich belegen. — Это можно подтвердить.
+• sein + zu + Infinitiv — «нужно / можно»: Die Frage ist zu klären. — Вопрос нужно прояснить.
+• суффикс -bar: Das ist machbar. — Это выполнимо.
+**Устойчивые формулы:**
+• Zusammenfassend lässt sich sagen, dass … — Подводя итог, можно сказать, что …
+• Daraus folgt, dass … — Из этого следует, что …`,`
+die Untersuchung | исследование
+die Ergebnisse | результаты (мн. ч.)
+die Hypothese | гипотеза
+belegen | подтверждать (данными)
+widerlegen | опровергать
+die Stichprobe | выборка
+signifikant | значимый
+zusammenfassend | подводя итог
+die Schlussfolgerung | вывод
+darstellen | представлять, изображать`,`
+Die Ergebnisse lassen sich nicht verallgemeinern. | Результаты нельзя обобщать.
+Die Hypothese konnte nicht belegt werden. | Гипотезу не удалось подтвердить.
+Zusammenfassend lässt sich sagen, dass die Methode funktioniert. | Подводя итог, можно сказать, что метод работает.
+Die Stichprobe ist zu klein. | Выборка слишком мала.
+Die Grafik stellt die Entwicklung dar. | График показывает развитие.`,`
+Das Problem ___ sich leicht lösen. | lässt | lassen, ist | Эту проблему легко решить.
+Die Frage ist noch ___ klären. | zu | um, für | Вопрос ещё нужно прояснить.
+Daraus ___, dass die These falsch ist. | folgt | folgen, gefolgt | Из этого следует, что тезис неверен.`),
+
+U('de-c1-6','Частицы в живой речи',`
+**Модальные частицы.** Короткие слова, которые не меняют смысл, но меняют тон. Без них немецкий звучит как учебник.
+• doch / mal — смягчают просьбу: Komm doch mal vorbei! — Заходи как-нибудь!
+• ja — «ведь, как известно»: Das weißt du ja. — Ты ведь это знаешь.
+• halt / eben — «ну, так уж есть»: Das ist halt so.
+• eigentlich — «вообще-то, собственно» в вопросе: Wie heißt du eigentlich?
+• ruhig — «смело, не стесняйся»: Frag ruhig!`,`
+doch | же, ведь
+halt | просто, уж (так есть)
+eben | вот именно, просто
+mal | -ка (смягчает просьбу)
+ja | ведь (как известно)
+eigentlich | вообще-то, собственно
+wohl | наверное
+schon | уж, всё-таки
+überhaupt | вообще
+ruhig | спокойно, смело`,`
+Komm doch mal vorbei! | Заходи как-нибудь!
+Das ist halt so. | Ну, так уж есть.
+Das weißt du ja schon. | Ты ведь это уже знаешь.
+Was machst du eigentlich beruflich? | А кем ты, собственно, работаешь?
+Frag ruhig, wenn du Hilfe brauchst. | Смело спрашивай, если нужна помощь.`,`
+Hilf mir ___ mal kurz! | doch | ja, halt | Помоги-ка мне на минутку!
+Du kennst ihn ___, er ist immer pünktlich. | ja | mal, ruhig | Ты ведь его знаешь, он всегда пунктуален.
+Setz dich ___ hin! | ruhig | ja, eben | Садись, не стесняйся!`),
+
+U('de-c1-7','Переговоры и презентации',`
+**Дипломатичный тон.** На переговорах прямые формы звучат резко, поэтому используют Konjunktiv II и смягчения:
+• Ich würde vorschlagen, dass … — Я бы предложил …
+• Wäre es möglich, dass …? — Было бы возможно …?
+• Da hätte ich eine andere Sicht. — Тут у меня другой взгляд.
+**Структура презентации:** Zunächst … — Сначала …, Anschließend … — Затем …, Abschließend … — В заключение …`,`
+die Verhandlung | переговоры
+der Kompromiss | компромисс
+das Zugeständnis | уступка
+vorschlagen | предлагать
+die Bedingung | условие
+einwenden | возражать
+überzeugend | убедительный
+die Zielgruppe | целевая группа
+veranschaulichen | наглядно показывать
+abschließend | в заключение`,`
+Ich würde vorschlagen, dass wir eine Pause machen. | Я бы предложил сделать перерыв.
+Unter dieser Bedingung sind wir einverstanden. | При этом условии мы согласны.
+Darf ich kurz etwas einwenden? | Можно мне коротко возразить?
+Die Grafik veranschaulicht unsere Zahlen. | График наглядно показывает наши цифры.
+Abschließend möchte ich mich für Ihre Aufmerksamkeit bedanken. | В заключение хочу поблагодарить вас за внимание.`,`
+Ich ___ vorschlagen, den Preis zu senken. | würde | wurde, würden | Я бы предложил снизить цену.
+___ es möglich, den Termin zu verschieben? | Wäre | Würde, Hätte | Можно ли было бы перенести встречу?
+Da ___ ich eine andere Meinung. | hätte | hatte, wäre | Тут у меня было бы другое мнение.`),
+
+U('de-c1-8','Устойчивые сочетания',`
+**Nomen-Verb-Verbindungen.** В официальной речи вместо простого глагола берут пару «существительное + глагол». Глагол почти теряет смысл, главное — существительное:
+• entscheiden → eine Entscheidung treffen — принять решение
+• kritisieren → Kritik üben — критиковать
+• gelten ab … → in Kraft treten — вступить в силу
+Глагол в такой паре не угадать — учи сочетание целиком.`,`
+in Frage kommen | подходить, рассматриваться
+zur Verfügung stehen | быть в распоряжении
+in Kraft treten | вступать в силу
+Kritik üben | критиковать
+eine Entscheidung treffen | принимать решение
+Rücksicht nehmen | считаться (с кем-то)
+in Anspruch nehmen | воспользоваться
+zum Ausdruck bringen | выражать
+eine Rolle spielen | играть роль
+in Betracht ziehen | принимать во внимание`,`
+Das neue Gesetz tritt im Januar in Kraft. | Новый закон вступает в силу в январе.
+Ich stehe Ihnen gern für Fragen zur Verfügung. | Я охотно отвечу на ваши вопросы.
+Wir müssen bis Freitag eine Entscheidung treffen. | Мы должны принять решение до пятницы.
+Bitte nehmen Sie Rücksicht auf die Nachbarn. | Пожалуйста, считайтесь с соседями.
+Das Gehalt spielt für mich keine große Rolle. | Зарплата для меня не играет большой роли.`,`
+Wir müssen heute eine Entscheidung ___. | treffen | machen, nehmen | Мы должны сегодня принять решение.
+Die Regel tritt ab März in ___. | Kraft | Frage, Anspruch | Правило вступает в силу с марта.
+Diese Option kommt für uns nicht in ___. | Frage | Kraft, Betracht | Этот вариант нам не подходит.`)
+];
+
+const DE_PRO = [
+U('de-pro-1','Склад и паллеты',`
+**Составные существительные.** Немцы склеивают слова. Род берётся от последней части, а смысл читается с конца:
+• die Gabel + der Stapler → der Gabelstapler — вилочный погрузчик
+• liefern + der Schein → der Lieferschein — накладная
+• die Palette + der Platz → der Palettenplatz — место для паллеты
+**Пассив в инструкциях:** Der LKW wird verladen. — Грузовик загружают.`,`
 die Palette | паллета, поддон
 der Gabelstapler | вилочный погрузчик
 das Lager | склад
@@ -536,8 +1171,17 @@ Die Palette ist fertig gestapelt. | Паллета полностью уложе
 Der Gabelstapler bringt die Palette ins Lager. | Погрузчик везёт паллету на склад.
 Bitte die Palette mit Stretchfolie umwickeln. | Пожалуйста, обмотайте паллету стрейч-плёнкой.
 Das Etikett fehlt auf diesem Karton. | На этой коробке нет этикетки.
-Der LKW wird um zehn Uhr verladen. | Грузовик загружают в десять часов.`),
-   U('de-pro-2','Машины и неполадки','«Die Maschine steht» на производстве значит «машина остановилась», а не просто «стоит».',`
+Der LKW wird um zehn Uhr verladen. | Грузовик загружают в десять часов.`,`
+Die Kartons sind schon ___. | gestapelt | stapeln, stapelt | Коробки уже уложены.
+Die Ware ___ heute verladen. | wird | werden, hat | Товар сегодня загружают.
+Wo ist der ___ für diese Ladung? | Lieferschein | Gabelstapler, Karton | Где накладная на этот груз?`),
+
+U('de-pro-2','Машины и неполадки',`
+**Императив на «ты» — короткие команды на смене.** Берём форму du и убираем -st, само du не говорим:
+• du drückst → Drück! — Нажми!
+• du rufst an → Ruf an! — Позвони!
+• du schaltest aus → Schalt aus! — Выключи!
+На производстве «Die Maschine steht» значит «машина остановилась», а «Die Anlage läuft» — «линия работает».`,`
 die Maschine | машина, станок
 die Anlage | установка, линия
 die Störung | неполадка, сбой
@@ -552,10 +1196,19 @@ Die Anlage hat eine Störung. | На линии неполадка.
 Das Förderband steht seit zehn Minuten. | Конвейер стоит уже десять минут.
 Bitte ruf den Techniker an. | Пожалуйста, позвони технику.
 Drück sofort den Not-Aus! | Сразу нажми аварийную кнопку!
-Die Wartung ist am Freitag geplant. | Техобслуживание запланировано на пятницу.`),
-   U('de-pro-3','Охрана труда','Pflicht — обязательное требование: «Hier ist Helmpflicht» — здесь обязательна каска.',`
+Die Wartung ist am Freitag geplant. | Техобслуживание запланировано на пятницу.`,`
+___ bitte die Maschine aus! | Schalt | Schaltest, Geschaltet | Выключи, пожалуйста, машину!
+Ruf bitte den Schichtleiter ___! | an | auf, aus | Позвони, пожалуйста, начальнику смены!
+Auf dem Display steht eine ___. | Fehlermeldung | Wartung, Anlage | На дисплее сообщение об ошибке.`),
+
+U('de-pro-3','Охрана труда',`
+**Обязанности и запреты.** На табличках и в инструкциях:
+• … ist Pflicht — … обязательно: Helmpflicht — каска обязательна
+• … ist verboten — … запрещено: Rauchen verboten
+• dürfen nicht — нельзя: Hier darfst du nicht essen.
+**Возвратный глагол sich verletzen** — пораниться: Er hat sich an der Hand verletzt.`,`
 die Arbeitssicherheit | охрана труда
-die Sicherheitsschuhe | защитная обувь
+die Sicherheitsschuhe | защитная обувь (мн. ч.)
 die Schutzbrille | защитные очки
 der Gehörschutz | защита слуха
 die Warnweste | сигнальный жилет
@@ -568,8 +1221,17 @@ In der Halle sind Sicherheitsschuhe Pflicht. | В цехе обязательн�
 Trag bitte deinen Gehörschutz. | Пожалуйста, надень защиту слуха.
 Wo ist der Erste-Hilfe-Kasten? | Где аптечка?
 Ein Kollege hat sich an der Hand verletzt. | Коллега поранил руку.
-Der Notausgang muss frei bleiben. | Запасный выход должен оставаться свободным.`),
-   U('de-pro-4','Передача смены','О том, что уже случилось, рассказывают в Perfekt: «Die Linie ist um vier stehen geblieben».',`
+Der Notausgang muss frei bleiben. | Запасный выход должен оставаться свободным.`,`
+In der Halle ___ du nicht rauchen. | darfst | musst, dürfen | В цехе тебе нельзя курить.
+Ich habe ___ am Finger verletzt. | mich | mir, sich | Я поранил палец.
+Ohne Schutzbrille ist das ___. | verboten | Pflicht, vorsichtig | Без защитных очков это запрещено.`),
+
+U('de-pro-4','Передача смены',`
+**Perfekt для отчёта о смене.** Что было за смену, рассказывают в Perfekt:
+• Die Linie ist um vier stehen geblieben. — Линия остановилась в четыре.
+• Wir haben die Stückzahl erreicht. — Мы выполнили норму.
+• Ich habe alles ins Protokoll eingetragen. — Я всё внёс в журнал.
+У отделяемых глаголов ge- встаёт в середину: eintragen → eingetragen, einspringen → eingesprungen.`,`
 die Ablösung | сменщик
 der Schichtleiter | начальник смены
 die Stückzahl | количество штук
@@ -584,8 +1246,16 @@ Ich melde das dem Schichtleiter. | Я сообщу об этом начальн�
 Heute haben wir die Stückzahl erreicht. | Сегодня мы выполнили норму по количеству.
 Kannst du morgen für mich einspringen? | Можешь завтра меня подменить?
 Alles ist im Protokoll eingetragen. | Всё внесено в журнал.
-Zwei Aufträge sind noch offen. | Два заказа ещё не выполнены.`),
-   U('de-pro-5','Производство и качество','Charge — партия продукции. По номеру партии отслеживают каждую упаковку.',`
+Zwei Aufträge sind noch offen. | Два заказа ещё не выполнены.`,`
+Ich habe die Störung ins Protokoll ___. | eingetragen | eintragen, geeintragen | Я внёс неполадку в журнал.
+Gestern bin ich für Peter ___. | eingesprungen | einspringen, gesprungen ein | Вчера я подменил Петера.
+Die Linie ist um vier stehen ___. | geblieben | bleiben, geblieben ist | Линия остановилась в четыре.`),
+
+U('de-pro-5','Производство и качество',`
+**Пассив в контроле качества.** Процессы описывают без исполнителя: werden + Partizip II.
+• Beschädigte Tafeln werden aussortiert. — Повреждённые плитки отбраковываются.
+• Die Charge muss kontrolliert werden. — Партию нужно проверить.
+**Причастие как прилагательное:** beschädigt → die beschädigte Verpackung — повреждённая упаковка.`,`
 die Produktion | производство
 die Qualität | качество
 die Kontrolle | контроль
@@ -600,14 +1270,23 @@ Diese Charge muss kontrolliert werden. | Эту партию нужно пров
 Die Verpackung ist beschädigt. | Упаковка повреждена.
 Beschädigte Tafeln werden aussortiert. | Повреждённые плитки отбраковывают.
 Ohne Haarnetz darfst du nicht in die Produktion. | Без сеточки для волос в производство нельзя.
-Bitte prüf das Haltbarkeitsdatum. | Пожалуйста, проверь срок годности.`),
-   U('de-pro-6','Офис и письма','Деловое письмо: «Sehr geehrte Frau …» в начале и «Mit freundlichen Grüßen» в конце.',`
+Bitte prüf das Haltbarkeitsdatum. | Пожалуйста, проверь срок годности.`,`
+Fehlerhafte Kartons ___ aussortiert. | werden | wird, haben | Бракованные коробки отбраковывают.
+Die Ware muss noch geprüft ___. | werden | wird, worden | Товар ещё нужно проверить.
+Die ___ Verpackung muss weg. | beschädigte | beschädigt, beschädigten | Повреждённую упаковку надо убрать.`),
+
+U('de-pro-6','Офис и письма',`
+**Деловое письмо.** Обращение и прощание — готовые формулы:
+• Sehr geehrte Frau Becker, — Уважаемая госпожа Беккер,
+• Sehr geehrter Herr Schmidt, — Уважаемый господин Шмидт,
+• Mit freundlichen Grüßen — С уважением
+После запятой в обращении письмо продолжается с маленькой буквы. Sie и Ihnen в письме — всегда с большой.`,`
 die E-Mail | электронное письмо
 der Anhang | вложение
 die Besprechung | совещание
 weiterleiten | пересылать
 der Drucker | принтер
-die Unterlagen | документы
+die Unterlagen | документы (мн. ч.)
 die Frist | срок
 erinnern | напоминать
 die Abteilung | отдел
@@ -616,8 +1295,17 @@ Im Anhang finden Sie die Unterlagen. | Во вложении вы найдёте
 Ich leite Ihnen die E-Mail weiter. | Я перешлю вам это письмо.
 Wer ist dafür zuständig? | Кто за это отвечает?
 Die Besprechung fängt um zehn an. | Совещание начинается в десять.
-Die Frist endet am Freitag. | Срок истекает в пятницу.`),
-   U('de-pro-7','Договор, отпуск, зарплата','Urlaub beantragen — подать заявление на отпуск; Urlaub nehmen — взять отпуск.',`
+Die Frist endet am Freitag. | Срок истекает в пятницу.`,`
+Sehr ___ Herr Schmidt, | geehrter | geehrte, geehrten | Уважаемый господин Шмидт,
+Mit freundlichen ___ | Grüßen | Grüße, Gruß | С уважением
+Ich schicke ___ die Unterlagen morgen. | Ihnen | Sie, Ihr | Я пришлю вам документы завтра.`),
+
+U('de-pro-7','Договор, отпуск, зарплата',`
+**Сложные слова о работе** читаются с конца: der Urlaubsantrag — заявление (Antrag) на отпуск (Urlaub), die Lohnabrechnung — расчёт (Abrechnung) зарплаты (Lohn).
+Между частями часто появляется соединительная -s-:
+• die Arbeit + die Zeit → die Arbeitszeit — рабочее время
+• der Urlaub + der Antrag → der Urlaubsantrag — заявление на отпуск
+**für + Akkusativ:** Für Nachtarbeit gibt es einen Zuschlag. — За ночную работу полагается надбавка.`,`
 der Arbeitsvertrag | трудовой договор
 der Urlaubsantrag | заявление на отпуск
 die Probezeit | испытательный срок
@@ -632,8 +1320,16 @@ Ich möchte Urlaub beantragen. | Я хочу подать заявление н�
 Die Probezeit dauert sechs Monate. | Испытательный срок длится шесть месяцев.
 Für Nachtarbeit gibt es einen Zuschlag. | За ночную работу полагается надбавка.
 Mein Vertrag ist unbefristet. | Мой договор бессрочный.
-Die Lohnabrechnung kommt am Monatsende. | Расчётный лист приходит в конце месяца.`),
-   U('de-pro-8','Курсы и обучение','teilnehmen an + Dativ: «an einem Kurs teilnehmen» — участвовать в курсе.',`
+Die Lohnabrechnung kommt am Monatsende. | Расчётный лист приходит в конце месяца.`,`
+Ich habe zwei Wochen Urlaub ___. | beantragt | beantragen, beantrage | Я подал заявление на две недели отпуска.
+Für Sonntagsarbeit gibt es einen ___. | Zuschlag | Lohn, Vertrag | За работу в воскресенье полагается надбавка.
+Sein Vertrag ist nur ___. | befristet | Probezeit, Kündigung | Его договор только срочный.`),
+
+U('de-pro-8','Курсы и обучение',`
+**teilnehmen an + Dativ, sich anmelden für.**
+• Ich nehme an einem Kurs teil. — Я участвую в курсе.
+• Ich melde mich für den Kurs an. — Я записываюсь на курс.
+**Экзамен:** die Prüfung bestehen — сдать экзамен, durch die Prüfung fallen — провалить экзамен.`,`
 der Kurs | курс
 der Teilnehmer | участник
 der Dozent | преподаватель
@@ -648,12 +1344,19 @@ Der Kurs beginnt nächsten Montag. | Курс начинается в следу
 Wie viele Teilnehmer sind angemeldet? | Сколько участников записано?
 Am Ende gibt es eine Prüfung. | В конце будет экзамен.
 Er hat die Prüfung bestanden. | Он сдал экзамен.
-Nach dem Kurs bekommen Sie ein Zertifikat. | После курса вы получите сертификат.`)
-  ]}
- ]},
- fr: { name:'Французский', short:'FR', voice:'fr-FR', inLang:'по-французски', keys:['é','è','ê','à','ç','ù','û','ô','î','ë','œ'], levels:[
-  { id:'A1', units:[
-   U('fr-a1-1','Приветствия','Конечные согласные часто не читаются: в «s\'il vous plaît» не звучит t.',`
+Nach dem Kurs bekommen Sie ein Zertifikat. | После курса вы получите сертификат.`,`
+Ich nehme an ___ Kurs teil. | einem | einen, ein | Я участвую в курсе.
+Sie hat die Prüfung ___. | bestanden | bestehen, besteht | Она сдала экзамен.
+Ich melde mich für den Kurs ___. | an | ein, auf | Я записываюсь на курс.`)
+];
+const FR_A1 = [
+U('fr-a1-1','Приветствия',`
+**Ты и вы.** tu — с друзьями и семьёй, vous — с незнакомыми, на работе и когда обращаешься к нескольким людям.
+• Comment vas-tu ? — Как ты?
+• Comment allez-vous ? — Как вы?
+**Произношение:** конечные согласные обычно не читаются, а h всегда немая.
+• s'il vous plaît — [силь ву плэ], пожалуйста
+Bonjour говорят днём, bonsoir — вечером.`,`
 bonjour | здравствуйте
 salut | привет
 merci | спасибо
@@ -668,8 +1371,18 @@ Bonjour, je m'appelle Marc. | Здравствуйте, меня зовут Ма
 Comment allez-vous ? | Как у вас дела?
 Je vais bien, merci. | У меня всё хорошо, спасибо.
 Excusez-moi, où sont les toilettes ? | Извините, где туалет?
-Au revoir et à bientôt ! | До свидания и до скорого!`),
-   U('fr-a1-2','Семья','Притяжательные: mon père, ma mère, mes parents. Перед гласной даже у женского рода — mon: mon amie.',`
+Au revoir et à bientôt ! | До свидания и до скорого!`,`
+___, je m'appelle Anna. | Bonjour | Merci, Au revoir | Здравствуйте, меня зовут Анна.
+Comment ___-tu ? | vas | allez, va | Как ты?
+Ça va bien, ___ ! | merci | pardon, au revoir | Всё хорошо, спасибо!`),
+
+U('fr-a1-2','Семья',`
+**Род и артикли.** У каждого существительного есть род: le — мужской, la — женский, перед гласной — l'. Во множественном — les.
+**Притяжательные:** mon / ma / mes — мой, моя, мои; ton / ta / tes — твой; son / sa / ses — его или её.
+• mon père — мой отец
+• ma mère — моя мама
+• mes parents — мои родители
+**avoir — иметь:** j'ai, tu as, il / elle a.`,`
 la mère | мать
 le père | отец
 le frère | брат
@@ -684,8 +1397,17 @@ J'ai un frère et une sœur. | У меня есть брат и сестра.
 Ma mère habite à Moscou. | Моя мама живёт в Москве.
 Mon père est très grand. | Мой отец очень высокий.
 Nous sommes une petite famille. | Мы маленькая семья.
-Elle a deux enfants. | У неё двое детей.`),
-   U('fr-a1-3','Числа и время','Возраст называют через avoir: «J\'ai vingt ans» — буквально «я имею двадцать лет».',`
+Elle a deux enfants. | У неё двое детей.`,`
+___ sœur habite à Paris. | Ma | Mon, Mes | Моя сестра живёт в Париже.
+___ parents sont en vacances. | Mes | Ma, Mon | Мои родители в отпуске.
+Il ___ trois enfants. | a | as, ai | У него трое детей.`),
+
+U('fr-a1-3','Числа и время',`
+**Возраст через avoir.** Француз «имеет» годы: J'ai vingt ans — мне двадцать лет.
+**Время:** Il est … heures. Вопрос — Quelle heure est-il ?
+• Il est trois heures. — Сейчас три часа.
+• à dix heures — в десять часов
+**Числа 1–10:** un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix.`,`
 un | один
 deux | два
 trois | три
@@ -700,8 +1422,17 @@ Il est trois heures. | Сейчас три часа.
 J'ai vingt ans. | Мне двадцать лет.
 Le train part à dix heures. | Поезд отправляется в десять часов.
 Je travaille le matin. | Я работаю утром.
-Quelle heure est-il ? | Который час?`),
-   U('fr-a1-4','В кафе','Je voudrais — «я бы хотел». В кафе это вежливее, чем je veux.',`
+Quelle heure est-il ? | Который час?`,`
+Elle ___ trente ans. | a | est, as | Ей тридцать лет.
+Il ___ cinq heures. | est | a, et | Сейчас пять часов.
+Le cours commence ___ huit heures. | à | de, en | Занятие начинается в восемь часов.`),
+
+U('fr-a1-4','В кафе',`
+**Je voudrais** — «я бы хотел». Самая вежливая форма заказа.
+• Je voudrais un café, s'il vous plaît. — Я бы хотел кофе, пожалуйста.
+**Частичный артикль du / de la / de l'** — «немного, какое-то количество»:
+• du pain — хлеба, de la confiture — варенья, de l'eau — воды
+**prendre — брать:** je prends, tu prends, il prend.`,`
 le café | кофе
 le thé | чай
 l'eau | вода
@@ -716,8 +1447,18 @@ Je voudrais un café, s'il vous plaît. | Я бы хотел кофе, пожа�
 L'addition, s'il vous plaît. | Счёт, пожалуйста.
 Le croissant est délicieux. | Круассан очень вкусный.
 Vous avez de l'eau ? | У вас есть вода?
-Je prends le fromage et le pain. | Я беру сыр и хлеб.`),
-   U('fr-a1-5','В городе','Просьба на «вы»: Tournez, Allez — та же форма глагола, только без vous.',`
+Je prends le fromage et le pain. | Я беру сыр и хлеб.`,`
+Je ___ un thé, s'il vous plaît. | voudrais | voudrait, voulons | Я бы хотел чай, пожалуйста.
+Je mange ___ pain le matin. | du | de la, des | Утром я ем хлеб.
+Tu ___ un croissant ? | prends | prend, prenez | Ты берёшь круассан?`),
+
+U('fr-a1-5','В городе',`
+**Где? — Où est … ?** И ответы с направлениями:
+• à gauche — налево, à droite — направо, tout droit — прямо
+• près de — рядом с, loin de — далеко от
+**Повелительное наклонение на «вы»:** форма глагола без vous.
+• Tournez à gauche. — Поверните налево.
+• Allez tout droit. — Идите прямо.`,`
 la rue | улица
 la gare | вокзал
 la boulangerie | булочная
@@ -732,8 +1473,18 @@ Où est la gare ? | Где вокзал?
 Tournez à gauche. | Поверните налево.
 La boulangerie est près d'ici. | Булочная рядом отсюда.
 Allez tout droit. | Идите прямо.
-Le musée est loin. | Музей далеко.`),
-   U('fr-a1-6','Цвета и одежда','Прилагательное согласуется с родом: un pull noir, une veste noire.',`
+Le musée est loin. | Музей далеко.`,`
+___ est la pharmacie ? | Où | Quand, Comment | Где аптека?
+Tournez à ___ après la gare. | droite | droit, loin | После вокзала поверните направо.
+Continuez tout ___. | droit | droite, gauche | Продолжайте идти прямо.`),
+
+U('fr-a1-6','Цвета и одежда',`
+**Прилагательное стоит после существительного** и согласуется с ним. Женский род обычно +e, множественное +s:
+• un pull noir — чёрный свитер
+• une veste noire — чёрная куртка
+• des chaussures noires — чёрная обувь
+Если слово уже кончается на -e, оно не меняется: rouge, jaune.
+Исключение: blanc → blanche.`,`
 rouge | красный
 bleu | синий
 noir | чёрный
@@ -748,8 +1499,17 @@ Je porte une chemise blanche. | Я ношу белую рубашку.
 Ma veste est noire. | Моя куртка чёрная.
 J'aime le bleu. | Мне нравится синий цвет.
 Ces chaussures sont trop petites. | Эта обувь слишком мала.
-Il porte un pantalon vert. | Он носит зелёные брюки.`),
-   U('fr-a1-7','Дни и месяцы','Дни недели пишутся с маленькой буквы. «Le samedi» — по субботам, «samedi» — в эту субботу.',`
+Il porte un pantalon vert. | Он носит зелёные брюки.`,`
+Ma robe est ___. | verte | vert, verts | Моё платье зелёное.
+Elle a une voiture ___. | blanche | blanc, blancs | У неё белая машина.
+Mon pull est ___. | bleu | bleue, bleus | Мой свитер синий.`),
+
+U('fr-a1-7','Дни и месяцы',`
+**Дни недели пишутся с маленькой буквы.** С артиклем le — регулярно, без артикля — конкретный день:
+• le samedi — по субботам
+• samedi — в эту субботу
+**Месяцы — с en:** en mai — в мае, en janvier — в январе.
+**Отрицание ne … pas** обнимает глагол: Je ne travaille pas. — Я не работаю.`,`
 lundi | понедельник
 mardi | вторник
 mercredi | среда
@@ -764,8 +1524,17 @@ Aujourd'hui, c'est lundi. | Сегодня понедельник.
 Je ne travaille pas le samedi. | Я не работаю по субботам.
 On se voit vendredi ? | Увидимся в пятницу?
 Le dimanche, je me repose. | По воскресеньям я отдыхаю.
-Mon anniversaire est en mai. | Мой день рождения в мае.`),
-   U('fr-a1-8','Дом','Il y a — «есть, имеется»: «Il y a deux chambres» — там две комнаты.',`
+Mon anniversaire est en mai. | Мой день рождения в мае.`,`
+Je ne travaille ___ le dimanche. | pas | non, ni | Я не работаю по воскресеньям.
+Nous partons ___ juillet. | en | à, au | Мы уезжаем в июле.
+Il ___ mange pas de viande. | ne | non, pas | Он не ест мясо.`),
+
+U('fr-a1-8','Дом',`
+**Il y a** — «есть, имеется»:
+• Il y a deux chambres. — Там две комнаты.
+• Il n'y a pas de balcon. — Балкона нет.
+**Предлоги места:** dans — в, sur — на, sous — под, devant — перед, derrière — за.
+• Le chat dort sur le lit. — Кот спит на кровати.`,`
 la maison | дом
 l'appartement | квартира
 la cuisine | кухня
@@ -780,8 +1549,18 @@ Il y a deux chambres dans l'appartement. | В квартире две комна
 La cuisine est petite mais jolie. | Кухня маленькая, но красивая.
 Fermez la fenêtre, s'il vous plaît. | Закройте окно, пожалуйста.
 Le chat dort sur le lit. | Кот спит на кровати.
-J'habite dans une maison. | Я живу в доме.`),
-   U('fr-a1-9','В супермаркете','Частичный артикль: du pain, de la viande, des pommes — «немного, какое-то количество».',`
+J'habite dans une maison. | Я живу в доме.`,`
+Il y ___ une table dans la cuisine. | a | est, as | На кухне есть стол.
+Les clés sont ___ la table. | sur | dans, à | Ключи на столе.
+Le chien dort ___ la chaise. | sous | sur, dans | Собака спит под стулом.`),
+
+U('fr-a1-9','В супермаркете',`
+**Частичный артикль: du, de la, des.** Когда речь о неопределённом количестве:
+• du lait — молоко, de la viande — мясо, des pommes — яблоки
+После слова о количестве — просто de:
+• un kilo de pommes — килограмм яблок
+• beaucoup de sucre — много сахара
+**Combien coûte … ?** — Сколько стоит …?`,`
 le supermarché | супермаркет
 la pomme | яблоко
 le lait | молоко
@@ -796,8 +1575,18 @@ J'achète du lait et des pommes. | Я покупаю молоко и яблок�
 Combien coûte le poisson ? | Сколько стоит рыба?
 C'est trop cher. | Это слишком дорого.
 Où est la caisse ? | Где касса?
-Je voudrais un kilo de pommes. | Я бы хотел килограмм яблок.`),
-   U('fr-a1-10','Погода','Погоду описывают через faire: il fait beau, il fait froid. Но дождь — il pleut.',`
+Je voudrais un kilo de pommes. | Я бы хотел килограмм яблок.`,`
+J'achète ___ viande et du pain. | de la | du, des | Я покупаю мясо и хлеб.
+Il y a beaucoup ___ sucre. | de | du, des | Здесь много сахара.
+___ coûtent les pommes ? | Combien | Comment, Où | Сколько стоят яблоки?`),
+
+U('fr-a1-10','Погода',`
+**Погода через faire.** Il fait + прилагательное:
+• Il fait beau. — Хорошая погода.
+• Il fait froid. — Холодно.
+• Il fait chaud. — Жарко.
+Осадки — отдельными глаголами: il pleut — идёт дождь, il neige — идёт снег.
+**depuis** — «с, уже (сколько времени)»: Il pleut depuis ce matin. — Дождь идёт с утра.`,`
 le temps | погода
 il fait beau | хорошая погода
 il fait froid | холодно
@@ -812,10 +1601,20 @@ Quel temps fait-il ? | Какая погода?
 Aujourd'hui, il fait beau. | Сегодня хорошая погода.
 En hiver, il fait froid. | Зимой холодно.
 Il pleut depuis ce matin. | Дождь идёт с утра.
-Il y a beaucoup de vent. | Очень ветрено.`)
-  ]},
-  { id:'A2', units:[
-   U('fr-a2-1','Прошедшее время','Passé composé: avoir + причастие. Глаголы движения (aller, partir) идут с être и согласуются: elle est partie.',`
+Il y a beaucoup de vent. | Очень ветрено.`,`
+En été, il ___ chaud. | fait | est, a | Летом жарко.
+Prends un parapluie, il ___ ! | pleut | fait, pluie | Возьми зонт, идёт дождь!
+Il neige ___ hier. | depuis | pendant, dans | Снег идёт со вчерашнего дня.`)
+];
+
+const FR_A2 = [
+U('fr-a2-1','Прошедшее время',`
+**Passé composé** — основное прошедшее время: avoir + причастие.
+• J'ai mangé. — Я поел. (manger → mangé)
+• J'ai fini. — Я закончил. (finir → fini)
+Глаголы движения (aller, venir, partir, arriver) идут с être, и причастие согласуется с подлежащим:
+• Je suis allé. — Я ходил.
+• Elle est partie. — Она уехала.`,`
 hier | вчера
 j'ai mangé | я поел
 je suis allé | я ходил, ездил
@@ -830,8 +1629,16 @@ Hier, j'ai vu un bon film. | Вчера я посмотрел хороший ф�
 Je suis allé à Paris la semaine dernière. | На прошлой неделе я ездил в Париж.
 Elle est partie ce matin. | Она уехала сегодня утром.
 Nous avons déjà mangé. | Мы уже поели.
-J'ai fini mon travail. | Я закончил свою работу.`),
-   U('fr-a2-2','Работа','Транспорт: en bus, en voiture, en train — но à pied, пешком.',`
+J'ai fini mon travail. | Я закончил свою работу.`,`
+Elle est ___ hier soir. | arrivée | arrivé, arriver | Она приехала вчера вечером.
+Nous ___ allés au cinéma. | sommes | avons, êtes | Мы ходили в кино.
+Tu ___ vu ce film ? | as | es, a | Ты видел этот фильм?`),
+
+U('fr-a2-2','Работа',`
+**Глаголы на -er** спрягаются по одной схеме: travailler → je travaille, tu travailles, il travaille, nous travaillons, vous travaillez, ils travaillent.
+**Транспорт:** en bus, en voiture, en train — но à pied (пешком), à vélo.
+• Je vais au bureau en bus. — Я езжу в офис на автобусе.
+Слияния: à + le = au, à + les = aux.`,`
 le travail | работа
 le bureau | офис
 le collègue | коллега
@@ -846,8 +1653,16 @@ Je travaille dans une usine. | Я работаю на заводе.
 La réunion commence à neuf heures. | Совещание начинается в девять часов.
 Mon équipe est très sympa. | Моя команда очень приятная.
 Le patron est en vacances. | Начальник в отпуске.
-Je vais au bureau en bus. | Я езжу в офис на автобусе.`),
-   U('fr-a2-3','Путешествия','Отрицание обнимает глагол: ne … pas. «N\'oubliez pas votre passeport».',`
+Je vais au bureau en bus. | Я езжу в офис на автобусе.`,`
+Vous ___ le samedi ? | travaillez | travaillons, travailles | Вы работаете по субботам?
+Je vais à l'usine ___ voiture. | en | à, au | Я езжу на завод на машине.
+Nous ___ en équipe. | travaillons | travaillez, travaillent | Мы работаем в команде.`),
+
+U('fr-a2-3','Путешествия',`
+**Отрицание ne … pas** обнимает глагол. Перед гласной ne → n'.
+• N'oubliez pas votre passeport. — Не забудьте паспорт.
+• Je ne parle pas anglais. — Я не говорю по-английски.
+**Страны и города:** à Paris — в Париже, en France — во Франции, au Canada — в Канаде.`,`
 le billet | билет
 la valise | чемодан
 l'hôtel | отель
@@ -862,8 +1677,16 @@ J'ai réservé une chambre à l'hôtel. | Я забронировал номер
 Ma valise est trop lourde. | Мой чемодан слишком тяжёлый.
 Nous allons à la plage demain. | Завтра мы идём на пляж.
 L'avion part à midi. | Самолёт вылетает в полдень.
-N'oubliez pas votre passeport. | Не забудьте свой паспорт.`),
-   U('fr-a2-4','Планы на будущее','Ближайшее будущее: aller + инфинитив. «Je vais apprendre» — я собираюсь учить.',`
+N'oubliez pas votre passeport. | Не забудьте свой паспорт.`,`
+Je ne parle ___ anglais. | pas | rien, non | Я не говорю по-английски.
+Nous allons ___ France en été. | en | à, au | Летом мы едем во Францию.
+Il habite ___ Lyon. | à | en, au | Он живёт в Лионе.`),
+
+U('fr-a2-4','Планы на будущее',`
+**Futur proche** — ближайшее будущее: aller + инфинитив.
+• Je vais apprendre le français. — Я собираюсь учить французский.
+• Ils vont se marier. — Они собираются пожениться.
+aller: je vais, tu vas, il va, nous allons, vous allez, ils vont.`,`
 demain | завтра
 bientôt | скоро
 le projet | план, проект
@@ -878,8 +1701,17 @@ Je vais apprendre le français. | Я собираюсь учить францу�
 L'année prochaine, nous allons déménager. | В следующем году мы собираемся переехать.
 Ils vont se marier en juin. | Они собираются пожениться в июне.
 J'espère te voir bientôt. | Надеюсь скоро тебя увидеть.
-Demain, je vais acheter une voiture. | Завтра я собираюсь купить машину.`),
-   U('fr-a2-5','Здоровье','Avoir mal à: «j\'ai mal à la tête» — у меня болит голова.',`
+Demain, je vais acheter une voiture. | Завтра я собираюсь купить машину.`,`
+Tu ___ venir ce soir ? | vas | vais, va | Ты придёшь сегодня вечером?
+Nous ___ visiter Paris. | allons | allez, vont | Мы собираемся посетить Париж.
+Demain, je vais ___ du sport. | faire | fais, fait | Завтра я собираюсь заняться спортом.`),
+
+U('fr-a2-5','Здоровье',`
+**avoir mal à** — «болит». Помни слияния: à + le = au, à + les = aux.
+• J'ai mal à la tête. — У меня болит голова.
+• J'ai mal au ventre. — У меня болит живот.
+• J'ai mal aux dents. — У меня болят зубы.
+**prendre rendez-vous** — записаться на приём.`,`
 le médecin | врач
 malade | больной
 la tête | голова
@@ -894,8 +1726,17 @@ J'ai mal à la tête. | У меня болит голова.
 Je voudrais prendre rendez-vous. | Я хотел бы записаться на приём.
 Il a de la fièvre. | У него температура.
 Prenez ce médicament trois fois par jour. | Принимайте это лекарство три раза в день.
-Je suis très fatigué. | Я очень устал.`),
-   U('fr-a2-6','Телефон','Allô говорят только по телефону. «Ne quittez pas» — не кладите трубку.',`
+Je suis très fatigué. | Я очень устал.`,`
+J'ai mal ___ ventre. | au | à la, aux | У меня болит живот.
+Elle a mal ___ dents. | aux | au, à la | У неё болят зубы.
+Vous devez vous ___. | reposer | reposez, repos | Вам нужно отдохнуть.`),
+
+U('fr-a2-6','Телефон',`
+**Местоимения-дополнения стоят перед глаголом:**
+• Je vous rappelle. — Я вам перезвоню.
+• Je t'envoie un message. — Я пришлю тебе сообщение.
+me / te / nous / vous — меня / мне, тебя / тебе, нас / нам, вас / вам. Перед гласной me → m', te → t'.
+**Вопрос интонацией:** Vous pouvez répéter ? — Можете повторить?`,`
 appeler | звонить
 rappeler | перезвонить
 le portable | мобильный телефон
@@ -910,8 +1751,17 @@ Je vous rappelle plus tard. | Я вам перезвоню позже.
 Ne quittez pas, s'il vous plaît. | Не кладите трубку, пожалуйста.
 Vous pouvez répéter ? | Можете повторить?
 Je t'envoie un message. | Я пришлю тебе сообщение.
-Quel est votre numéro ? | Какой у вас номер?`),
-   U('fr-a2-7','Свободное время','jouer à — в игру или спорт (jouer au foot), jouer de — на инструменте (jouer de la guitare).',`
+Quel est votre numéro ? | Какой у вас номер?`,`
+Je ___ appelle demain. | vous | votre, vos | Я позвоню вам завтра.
+Tu ___ rappelles ce soir ? | me | moi, mon | Ты перезвонишь мне вечером?
+La ligne est ___. | occupée | occupé, occuper | Линия занята.`),
+
+U('fr-a2-7','Свободное время',`
+**jouer à и jouer de.** à — игры и спорт, de — музыкальные инструменты:
+• jouer au foot — играть в футбол
+• jouer de la guitare — играть на гитаре
+**faire du / de la** — заниматься: faire du sport, faire de la natation.
+**Частота:** trois fois par semaine — три раза в неделю.`,`
 le sport | спорт
 le foot | футбол
 la musique | музыка
@@ -926,8 +1776,16 @@ Je joue au foot le week-end. | Я играю в футбол на выходны
 Elle aime lire le soir. | Она любит читать вечером.
 On sort ce soir ? | Пойдём куда-нибудь сегодня вечером?
 Je fais du sport trois fois par semaine. | Я занимаюсь спортом три раза в неделю.
-Tu joues aux jeux vidéo ? | Ты играешь в видеоигры?`),
-   U('fr-a2-8','Жильё и аренда','Этажи считают от второго: le premier étage — это наш второй этаж, rez-de-chaussée — первый.',`
+Tu joues aux jeux vidéo ? | Ты играешь в видеоигры?`,`
+Il joue ___ tennis. | au | du, à la | Он играет в теннис.
+Elle joue ___ piano. | du | au, de la | Она играет на пианино.
+Je fais ___ natation. | de la | du, au | Я занимаюсь плаванием.`),
+
+U('fr-a2-8','Жильё и аренда',`
+**Порядковые числительные:** -ième. deux → deuxième, trois → troisième. Исключение: premier / première.
+• J'habite au troisième étage. — Я живу на четвёртом этаже: французы не считают наземный этаж.
+Rez-de-chaussée — первый (наземный) этаж.
+**ne … pas с глаголом marcher:** Le chauffage ne marche pas. — Отопление не работает.`,`
 le loyer | арендная плата
 le propriétaire | владелец
 louer | снимать, сдавать
@@ -942,10 +1800,220 @@ Le loyer est de huit cents euros. | Аренда стоит восемьсот �
 J'habite au troisième étage. | Я живу на четвёртом этаже.
 Le chauffage ne marche pas. | Отопление не работает.
 J'ai perdu mes clés. | Я потерял ключи.
-L'appartement est meublé. | Квартира меблированная.`)
-  ]},
-  { id:'PRO', units:[
-   U('fr-pro-1','Склад и логистика','Charger — грузить, décharger — разгружать. Приставка dé- часто значит обратное действие.',`
+L'appartement est meublé. | Квартира меблированная.`,`
+Il habite au ___ étage. | deuxième | deux, deuxièmes | Он живёт на третьем этаже.
+L'ascenseur ne ___ pas. | marche | marchent, marcher | Лифт не работает.
+Je ___ un appartement à Metz. | loue | louer, loué | Я снимаю квартиру в Меце.`),
+
+U('fr-a2-9','В ресторане',`
+**Вопрос с est-ce que** — самый простой способ спросить: ставим перед обычным предложением.
+• Est-ce que vous avez une table ? — У вас есть столик?
+• Qu'est-ce que vous me conseillez ? — Что вы мне посоветуете?
+**on** — «мы» в разговоре. Глагол с on — как с il: on peut, on va, on prend.
+• On peut avoir l'addition ? — Можно нам счёт?`,`
+le menu | меню (комплексное)
+l'entrée | закуска
+le plat principal | основное блюдо
+le dessert | десерт
+la carte | меню (список блюд)
+commander | заказывать
+la réservation | бронирование
+le pourboire | чаевые
+saignant | с кровью (о мясе)
+le vin | вино`,`
+J'ai une réservation pour deux personnes. | У меня бронь на двоих.
+Qu'est-ce que vous me conseillez ? | Что вы мне посоветуете?
+Je vais prendre le menu du jour. | Я возьму меню дня.
+La viande, saignante ou bien cuite ? | Мясо с кровью или хорошо прожаренное?
+On peut avoir la carte des vins ? | Можно нам винную карту?`,`
+___ que vous avez une table ? | Est-ce | Qu'est-ce, Est | У вас есть столик?
+On ___ commander ? | peut | peux, pouvons | Можно нам заказать?
+Qu'est-ce que vous ___ comme dessert ? | prenez | prends, prendre | Что вы возьмёте на десерт?`),
+
+U('fr-a2-10','Транспорт',`
+**Превосходная степень:** le / la / les plus + прилагательное.
+• l'arrêt le plus proche — ближайшая остановка
+• la ville la plus belle — самый красивый город
+**Il faut + инфинитив** — «нужно»:
+• Il faut changer à la prochaine station. — Нужно пересесть на следующей станции.`,`
+le métro | метро
+l'arrêt | остановка
+le quai | платформа
+le retard | опоздание
+la correspondance | пересадка
+le vélo | велосипед
+le permis de conduire | водительские права
+le péage | платная дорога
+l'aller-retour | билет туда и обратно
+composter | компостировать`,`
+Le train a vingt minutes de retard. | Поезд опаздывает на двадцать минут.
+Je voudrais un aller-retour pour Metz. | Я бы хотел билет туда и обратно до Меца.
+Où est l'arrêt de bus le plus proche ? | Где ближайшая автобусная остановка?
+Il faut changer à la prochaine station. | Нужно пересесть на следующей станции.
+J'ai passé mon permis de conduire. | Я сдал на права.`,`
+C'est la gare la ___ proche. | plus | très, trop | Это ближайший вокзал.
+Il ___ composter le billet. | faut | fait, faux | Нужно прокомпостировать билет.
+Le bus a dix minutes de ___. | retard | quai, vélo | Автобус опаздывает на десять минут.`),
+
+U('fr-a2-11','Эмоции и характер',`
+**être — быть:** je suis, tu es, il est, nous sommes, vous êtes, ils sont.
+**Женский род прилагательных:**
+• content → contente, fâché → fâchée
+• heureux → heureuse
+• gentil → gentille, inquiet → inquiète
+**avoir peur de** — бояться: Il a peur des chiens. — Он боится собак.`,`
+content | довольный
+triste | грустный
+fâché | сердитый
+inquiet | обеспокоенный
+fier | гордый
+la peur | страх
+heureux | счастливый
+gentil | добрый, милый
+timide | застенчивый
+drôle | смешной`,`
+Je suis content de te voir. | Я рад тебя видеть.
+Elle est un peu timide. | Она немного застенчивая.
+Il a peur des chiens. | Он боится собак.
+Ne sois pas fâché ! | Не сердись!
+Nous sommes très heureux ensemble. | Мы очень счастливы вместе.`,`
+Vous ___ très gentils. | êtes | sommes, sont | Вы очень добрые.
+Ma sœur est très ___. | heureuse | heureux, heureuses | Моя сестра очень счастлива.
+J'ai peur ___ l'avion. | de | du, à | Я боюсь летать на самолёте.`),
+
+U('fr-a2-12','Природа и прогулки',`
+**Возвратные глаголы:** se + глагол, местоимение меняется по лицам.
+• je me promène, tu te promènes, il se promène, nous nous promenons
+• перед гласной: je m'appelle, il s'habille
+**J'aimerais** — «я бы хотел» (мечта, желание):
+• J'aimerais vivre à la campagne. — Я бы хотел жить за городом.`,`
+la forêt | лес
+la montagne | гора, горы
+le lac | озеро
+la rivière | река
+la campagne | сельская местность
+le chemin | тропа, дорога
+l'arbre | дерево
+la fleur | цветок
+se promener | гулять
+la randonnée | поход`,`
+Nous faisons une randonnée en montagne. | Мы идём в поход в горы.
+Je me promène dans la forêt le dimanche. | По воскресеньям я гуляю в лесу.
+Il y a un joli lac près du village. | Рядом с деревней есть красивое озеро.
+J'aimerais vivre à la campagne. | Я бы хотел жить за городом.
+Ce chemin mène à la rivière. | Эта тропа ведёт к реке.`,`
+Tu ___ promènes souvent ? | te | se, me | Ты часто гуляешь?
+Nous nous ___ au bord du lac. | promenons | promenez, promène | Мы гуляем у озера.
+J'___ voir la mer. | aimerais | aimerait, aimons | Я бы хотел увидеть море.`)
+];
+
+const FR_B1 = [
+U('fr-b1-1','Своё мнение',`
+**Выражение мнения.** После je pense que / je crois que — обычное изъявительное наклонение:
+• Je pense qu'il a raison. — Я думаю, что он прав.
+После отрицания и сомнения — subjonctif:
+• Je ne pense pas qu'il ait raison. — Не думаю, что он прав.
+**Связки:** cependant / pourtant — однако, donc — поэтому, d'ailleurs — к тому же.`,`
+à mon avis | по-моему
+je pense que | я думаю, что
+d'accord | согласен
+l'avantage | преимущество
+l'inconvénient | недостаток
+cependant | однако
+donc | поэтому, значит
+pourtant | тем не менее
+convaincre | убеждать
+il me semble que | мне кажется, что`,`
+À mon avis, c'est une bonne idée. | По-моему, это хорошая идея.
+Je ne suis pas d'accord avec toi. | Я с тобой не согласен.
+Le principal avantage, c'est le prix. | Главное преимущество — цена.
+Il pleut, pourtant nous sortons. | Идёт дождь, тем не менее мы выходим.
+Je ne pense pas qu'il ait raison. | Я не думаю, что он прав.`,`
+Je pense qu'elle ___ raison. | a | ait, est | Я думаю, что она права.
+Je ne crois pas qu'il ___ raison. | ait | a, est | Я не думаю, что он прав.
+Il est malade, ___ il reste à la maison. | donc | pourtant, cependant | Он болен, поэтому остаётся дома.`),
+
+U('fr-b1-2','Воспоминания',`
+**Imparfait и passé composé.** Imparfait — фон, привычка, описание в прошлом; passé composé — одно завершённое событие.
+• Quand j'étais petit, j'habitais à Moscou. — Когда я был маленьким, я жил в Москве.
+• Il lisait quand le téléphone a sonné. — Он читал (фон), когда зазвонил телефон (событие).
+Окончания imparfait: -ais, -ais, -ait, -ions, -iez, -aient. être → j'étais.`,`
+l'enfance | детство
+autrefois | раньше, когда-то
+souvent | часто
+le souvenir | воспоминание
+grandir | расти
+l'école | школа
+le quartier | район
+se souvenir | помнить
+d'habitude | обычно
+tout à coup | вдруг`,`
+Quand j'étais petit, j'habitais à Moscou. | Когда я был маленьким, я жил в Москве.
+D'habitude, nous allions chez ma grand-mère. | Обычно мы ездили к бабушке.
+Je me souviens de mon école. | Я помню свою школу.
+Il lisait quand tout à coup le téléphone a sonné. | Он читал, когда вдруг зазвонил телефон.
+Autrefois, le quartier était plus calme. | Раньше район был спокойнее.`,`
+Quand il ___ jeune, il jouait au foot. | était | a été, est | Когда он был молод, он играл в футбол.
+Je dormais quand tu ___ appelé. | as | avais, es | Я спал, когда ты позвонил.
+Avant, nous ___ souvent à la mer. | allions | sommes allés, allons | Раньше мы часто ездили на море.`),
+
+U('fr-b1-3','Работа и карьера',`
+**Futur simple** — обычное будущее: инфинитив + -ai, -as, -a, -ons, -ez, -ont.
+• je travaillerai, tu travailleras, il travaillera
+Неправильные: être → je serai, avoir → j'aurai, aller → j'irai, faire → je ferai.
+**Si + présent → futur:**
+• Si j'obtiens le poste, je déménagerai. — Если получу должность, перееду.`,`
+le CV | резюме
+la lettre de motivation | мотивационное письмо
+l'entretien d'embauche | собеседование
+le poste | должность
+l'expérience | опыт
+les compétences | навыки (мн. ч.)
+postuler | откликаться на вакансию
+l'entreprise | компания
+le stage | стажировка
+le chômage | безработица`,`
+J'ai postulé à un poste de technicien. | Я откликнулся на вакансию техника.
+Si j'obtiens le poste, je déménagerai. | Если я получу должность, я перееду.
+J'ai trois ans d'expérience dans la logistique. | У меня три года опыта в логистике.
+L'entretien d'embauche est demain. | Собеседование завтра.
+Envoyez-nous votre CV et une lettre de motivation. | Пришлите нам резюме и мотивационное письмо.`,`
+L'année prochaine, je ___ en France. | serai | suis, étais | В следующем году я буду во Франции.
+Si tu viens, nous ___ au cinéma. | irons | allons, irions | Если ты придёшь, мы пойдём в кино.
+Demain, j'___ le temps. | aurai | ai, avais | Завтра у меня будет время.`),
+
+U('fr-b1-4','Экология',`
+**Il faut que + subjonctif** — «нужно, чтобы».
+• Il faut que nous protégions l'environnement. — Нужно, чтобы мы защищали природу.
+Subjonctif строят от формы ils настоящего времени: ils protègent → que je protège, que nous protégions.
+Неправильные: être → que je sois, avoir → que j'aie, faire → que je fasse.
+**On devrait** — мягкий совет: следовало бы.`,`
+l'environnement | окружающая среда
+les déchets | отходы (мн. ч.)
+recycler | перерабатывать
+le réchauffement climatique | глобальное потепление
+économiser | экономить
+l'énergie | энергия
+protéger | защищать
+la pollution | загрязнение
+durable | экологичный, устойчивый
+gaspiller | тратить впустую`,`
+Il faut que nous protégions l'environnement. | Нужно, чтобы мы защищали окружающую среду.
+On devrait recycler davantage. | Следовало бы больше перерабатывать.
+Il ne faut pas gaspiller l'eau. | Нельзя тратить воду впустую.
+La pollution de l'air est un grand problème. | Загрязнение воздуха — большая проблема.
+Le vélo est plus durable que la voiture. | Велосипед экологичнее машины.`,`
+Il faut que tu ___ prudent. | sois | es, être | Нужно, чтобы ты был осторожен.
+Il faut que je ___ mes devoirs. | fasse | fais, faire | Мне нужно сделать домашнее задание.
+On ___ économiser l'énergie. | devrait | devrais, devraient | Следовало бы экономить энергию.`)
+];
+
+const FR_PRO = [
+U('fr-pro-1','Склад и логистика',`
+**Il faut + инфинитив** — главная фраза для указаний на смене:
+• Il faut décharger les palettes. — Нужно разгрузить паллеты.
+**Повелительное на «вы»:** Vérifiez le bon de livraison. — Проверьте накладную.
+**Приставка dé-** часто значит обратное действие: charger — грузить, décharger — разгружать.`,`
 l'entrepôt | склад
 la palette | паллета
 le chariot élévateur | погрузчик
@@ -960,8 +2028,17 @@ Le camion arrive à huit heures. | Грузовик прибывает в вос
 Il faut décharger les palettes. | Нужно разгрузить паллеты.
 Le chariot élévateur est en panne. | Погрузчик сломан.
 Vérifiez le bon de livraison. | Проверьте накладную.
-Les cartons sont dans l'entrepôt. | Коробки на складе.`),
-   U('fr-pro-2','Машины и производство','En panne — сломан, не работает (о технике). Tomber en panne — сломаться.',`
+Les cartons sont dans l'entrepôt. | Коробки на складе.`,`
+Il faut ___ le camion. | charger | charge, chargé | Нужно загрузить грузовик.
+___ les étiquettes, s'il vous plaît. | Vérifiez | Vérifier, Vérifié | Проверьте этикетки, пожалуйста.
+La ___ arrive demain. | livraison | palette, carton | Доставка прибудет завтра.`),
+
+U('fr-pro-2','Машины и производство',`
+**être en panne** — быть сломанным (о технике), **tomber en panne** — сломаться.
+• La machine est en panne. — Станок сломан.
+**Passé composé возвратных глаголов — с être:**
+• Le tapis roulant s'est arrêté. — Конвейер остановился.
+**Повелительное:** Appuyez sur … — Нажмите на …, Éteignez … — Выключите …`,`
 la machine | машина, станок
 la chaîne de production | производственная линия
 la panne | поломка
@@ -976,8 +2053,17 @@ La machine est en panne. | Станок сломался.
 Appelez le technicien, s'il vous plaît. | Позовите техника, пожалуйста.
 Le tapis roulant s'est arrêté. | Конвейер остановился.
 Éteignez la machine avant l'entretien. | Выключите станок перед обслуживанием.
-Appuyez sur l'arrêt d'urgence ! | Нажмите аварийную остановку!`),
-   U('fr-pro-3','Безопасность на работе','Il faut + инфинитив — «нужно»: il faut porter des gants.',`
+Appuyez sur l'arrêt d'urgence ! | Нажмите аварийную остановку!`,`
+La chaîne est tombée en ___. | panne | arrêt, marche | Линия сломалась.
+La machine ___ arrêtée. | s'est | a, est | Станок остановился.
+___ la machine, s'il vous plaît. | Éteignez | Éteindre, Éteint | Выключите станок, пожалуйста.`),
+
+U('fr-pro-3','Безопасность на работе',`
+**Обязанность и запрет:**
+• Il faut porter des gants. — Нужно носить перчатки.
+• Il est interdit de fumer. — Курить запрещено.
+• Il ne faut pas courir. — Нельзя бегать.
+**Attention !** — Осторожно! **Mettez …** — Наденьте …`,`
 la sécurité | безопасность
 le casque | каска
 les gants | перчатки
@@ -992,8 +2078,17 @@ Il faut porter des gants. | Нужно носить перчатки.
 Attention, c'est dangereux ! | Осторожно, это опасно!
 Où est la sortie de secours ? | Где запасный выход?
 Il y a eu un accident. | Произошёл несчастный случай.
-Mettez vos lunettes de protection. | Наденьте защитные очки.`),
-   U('fr-pro-4','Офис и письма','В письме: «Madame, Monsieur,» в начале и «Cordialement» в конце.',`
+Mettez vos lunettes de protection. | Наденьте защитные очки.`,`
+Il ___ porter un casque. | faut | fait, faux | Нужно носить каску.
+Il est ___ de fumer ici. | interdit | interdire, interdits | Здесь курить запрещено.
+Il ne faut ___ courir dans l'entrepôt. | pas | rien, non | На складе нельзя бегать.`),
+
+U('fr-pro-4','Офис и письма',`
+**Деловое письмо:**
+• Madame, Monsieur, — Уважаемые дамы и господа,
+• Vous trouverez ci-joint … — Во вложении вы найдёте …
+• Cordialement — С уважением
+**Местоимение vous перед глаголом:** Je vous transfère le courriel. — Пересылаю вам письмо.`,`
 le courriel | электронное письмо
 la pièce jointe | вложение
 transférer | пересылать
@@ -1008,8 +2103,16 @@ Vous trouverez le document en pièce jointe. | Документ вы найдё�
 Je vous transfère le courriel. | Я перешлю вам письмо.
 Qui est le responsable ? | Кто ответственный?
 Le délai est vendredi. | Срок — пятница.
-C'est urgent. | Это срочно.`),
-   U('fr-pro-5','Договор и график','Faire des heures supplémentaires — работать сверхурочно.',`
+C'est urgent. | Это срочно.`,`
+Je ___ envoie le dossier demain. | vous | votre, vos | Я отправлю вам папку завтра.
+Le document est en pièce ___. | jointe | joint, joindre | Документ во вложении.
+Merci de votre réponse. ___ | Cordialement | Bonjour, Salut | Спасибо за ответ. С уважением`),
+
+U('fr-pro-5','Договор и график',`
+**Passé composé с avoir** для отчёта о работе:
+• J'ai fait deux heures supplémentaires. — Я отработал два сверхурочных часа.
+Неправильные причастия: faire → fait, prendre → pris, mettre → mis.
+**en + смена или положение:** en équipe de nuit — в ночную смену, en congé — в отпуске.`,`
 le contrat | договор
 les horaires | график работы
 les heures supplémentaires | сверхурочные часы
@@ -1024,8 +2127,15 @@ Je travaille en équipe de nuit cette semaine. | На этой неделе я �
 J'ai fait deux heures supplémentaires. | Я отработал два сверхурочных часа.
 Je voudrais prendre un congé. | Я хотел бы взять отгул.
 Mon contrat commence en janvier. | Мой договор начинается в январе.
-Lundi est un jour férié. | Понедельник — праздничный день.`),
-   U('fr-pro-6','Обучение и курсы','Suivre une formation — проходить обучение (буквально «следовать курсу»).',`
+Lundi est un jour férié. | Понедельник — праздничный день.`,`
+Hier, j'ai ___ trois heures supplémentaires. | fait | faire, fais | Вчера я отработал три сверхурочных часа.
+Elle est ___ congé cette semaine. | en | à, dans | Она в отпуске на этой неделе.
+Il a ___ un jour de congé. | pris | prendre, prend | Он взял выходной.`),
+
+U('fr-pro-6','Обучение и курсы',`
+**suivre une formation** — проходить обучение. suivre: je suis, tu suis, il suit, nous suivons.
+Внимание: je suis — и «я есть» (être), и «я следую» (suivre). Смысл ясен из контекста.
+**s'inscrire à** — записаться на: Je voudrais m'inscrire à ce cours.`,`
 la formation | обучение, курс
 le formateur | преподаватель
 le stagiaire | слушатель, стажёр
@@ -1040,29 +2150,39 @@ Je suis une formation en logistique. | Я прохожу обучение по �
 Le formateur explique l'exercice. | Преподаватель объясняет упражнение.
 Elle a réussi l'examen. | Она сдала экзамен.
 Je voudrais m'inscrire à ce cours. | Я хотел бы записаться на этот курс.
-La pause dure quinze minutes. | Перерыв длится пятнадцать минут.`)
-  ]}
- ]}
-};
-const LV = { A1:'Начальный уровень', A2:'Элементарный уровень', B1:'Средний уровень', PRO:'Рабочая лексика' };
-const LVSUB = { PRO:'склад, производство, охрана труда, офис, договор' };
-const STOPS = ['Новые слова','Ещё слова','Фразы и итог'];
+La pause dure quinze minutes. | Перерыв длится пятнадцать минут.`,`
+Il ___ une formation en sécurité. | suit | suis, suivons | Он проходит обучение по безопасности.
+Je me suis inscrit ___ la formation. | à | pour, en | Я записался на обучение.
+Nous avons ___ l'examen. | réussi | réussir, réussit | Мы сдали экзамен.`)
+];
 
-/* index of every entry */
+const COURSES = {
+ de: { name:'Немецкий', short:'DE', voice:'de-DE', inLang:'по-немецки', keys:['ä','ö','ü','ß','Ä','Ö','Ü'],
+   levels:[{id:'A2',units:DE_A2},{id:'B1',units:DE_B1},{id:'B2',units:DE_B2},{id:'C1',units:DE_C1},{id:'PRO',units:DE_PRO}] },
+ fr: { name:'Французский', short:'FR', voice:'fr-FR', inLang:'по-французски', keys:['é','è','ê','à','ç','ù','û','ô','î','ë','œ'],
+   levels:[{id:'A1',units:FR_A1},{id:'A2',units:FR_A2},{id:'B1',units:FR_B1},{id:'PRO',units:FR_PRO}] }
+};
+const LV = { A1:'Начальный уровень', A2:'Элементарный уровень', B1:'Средний уровень', B2:'Выше среднего', C1:'Продвинутый уровень', PRO:'Рабочая лексика' };
+const LVSUB = { PRO:'склад, производство, охрана труда, офис, договор' };
+const STOPS = ['Правило и первые слова','Новые слова','Фразы и итог'];
+const STOPSUB = ['теория · 5 слов · 10 заданий','5 слов · 10 заданий','2 фразы · 10 заданий'];
+
+/* index of every entry: words, sentences, gap items */
 const ENTRY = {}, UNITS = {};
 for (const lang in COURSES){ ENTRY[lang] = {}; UNITS[lang] = [];
   for (const lv of COURSES[lang].levels) for (const u of lv.units){ u.level = lv.id; UNITS[lang].push(u);
     u.w.forEach(e => ENTRY[lang][e[0]] = { e, kind:'w', u });
-    u.s.forEach(e => ENTRY[lang][e[0]] = { e, kind:'s', u }); } }
+    u.s.forEach(e => ENTRY[lang][e[0]] = { e, kind:'s', u });
+    u.g.forEach(e => ENTRY[lang]['g:'+e[0]] = { e, kind:'g', u }); } }
 
 /* ---------- state ---------- */
 const KEY = 'polyglot-de-fr-v1';
-const DEF = { lang:'de', tab:'path', goal:20, reminds:['09:00','16:00','21:00'], sound:true, prog:{de:{},fr:{}}, xp:{},
+const DEF = { lang:'de', tab:'path', goal:20, reminds:['09:00','16:00','21:00'], sound:true, sfx:true, prog:{de:{},fr:{}}, xp:{},
   streak:{n:0,last:null}, miss:{de:{},fr:{}}, srs:{de:{},fr:{}}, total:0, lessons:0, filter:{de:'all',fr:'all'}, dailyDone:{} };
 let S = JSON.parse(JSON.stringify(DEF));
 try { const r = localStorage.getItem(KEY); if (r) S = Object.assign(S, JSON.parse(r)); } catch(e){}
 delete S.hearts; delete S.hAt; delete S.remind;
-for (const k of ['srs','filter','dailyDone']) S[k] = Object.assign(JSON.parse(JSON.stringify(DEF[k])), S[k] || {});
+for (const k of ['srs','filter','dailyDone','miss','prog']) S[k] = Object.assign(JSON.parse(JSON.stringify(DEF[k])), S[k] || {});
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){} };
 
 const dk = (d=new Date()) => d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
@@ -1084,6 +2204,7 @@ const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const shuffle = a => { a = a.slice(); for (let i=a.length-1;i>0;i--){ const j=Math.random()*(i+1)|0; [a[i],a[j]]=[a[j],a[i]]; } return a; };
 const sample = (a,n) => shuffle(a).slice(0,n);
+const pickOne = a => a[Math.random()*a.length|0];
 const norm = s => s.toLowerCase().replace(/[’`]/g,"'").replace(/[.,!?;:«»"]/g,'').replace(/\s+/g,' ').trim();
 const flat = s => norm(s).normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/ß/g,'ss').replace(/œ/g,'oe');
 const stripArt = s => s.replace(/^(der|die|das|le|la|les|un|une)\s+/i,'').replace(/^l'/i,'');
@@ -1091,6 +2212,15 @@ const tokens = s => s.replace(/[.,!?;:«»]/g,'').split(/\s+/).filter(Boolean);
 const C = () => COURSES[S.lang];
 const done = u => S.prog[S.lang][u.id] || 0;
 const plural = (n,a,b,c) => { const m10=n%10, m100=n%100; return m10===1&&m100!==11 ? a : m10>=2&&m10<=4&&(m100<10||m100>=20) ? b : c; };
+const bold = s => esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');
+
+/* German noun gender → colored article */
+const GNAME = { m:'мужской род', f:'женский род', n:'средний род', pl:'множественное число' };
+function gender(e){ if (S.lang !== 'de') return null; const m = e[0].match(/^(der|die|das) /); if (!m) return null;
+  if (/мн\. ч\./.test(e[1])) return 'pl'; return { der:'m', die:'f', das:'n' }[m[1]]; }
+function wordHTML(e){ const g = gender(e); if (!g) return esc(e[0]);
+  const i = e[0].indexOf(' '); return `<span class="art g-${g}">${esc(e[0].slice(0,i))}</span> ${esc(e[0].slice(i+1))}`; }
+const trHTML = t => esc(t).replace(/\s*\(мн\. ч\.\)/, ' <span class="pl">мн. ч.</span>');
 
 const ICON = {
  fire:'<svg class="i" viewBox="0 0 24 24"><path d="M12 2c.9 3.4 5.5 5.6 5.5 11a5.5 5.5 0 0 1-11 0c0-2.3 1.1-4 2.4-5.2.2 1.7 1 2.8 2.1 3.4C11 8.2 10.8 5 12 2z"/></svg>',
@@ -1101,15 +2231,50 @@ const ICON = {
  path:'<svg class="i" viewBox="0 0 24 24"><circle cx="6" cy="5" r="2.6"/><circle cx="18" cy="12" r="2.6"/><circle cx="6" cy="19" r="2.6"/><path d="M8 6.2 16 10.8M16 13.2 8 17.8" stroke="currentColor" stroke-width="2.2" fill="none"/></svg>',
  rep:'<svg class="i" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.7-5.6M20 12a8 8 0 0 1-13.7 5.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M18.5 2.5v4.6h-4.6zM5.5 21.5v-4.6h4.6z"/></svg>',
  user:'<svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0z"/></svg>',
- bell:'<svg class="i" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0-6 6v4l-2 3h16l-2-3V9a6 6 0 0 0-6-6zM9.5 19a2.5 2.5 0 0 0 5 0z"/></svg>'
+ bell:'<svg class="i" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0-6 6v4l-2 3h16l-2-3V9a6 6 0 0 0-6-6zM9.5 19a2.5 2.5 0 0 0 5 0z"/></svg>',
+ book:'<svg class="i" viewBox="0 0 24 24"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v16H6.5A2.5 2.5 0 0 0 4 20.5zM4 20.5A2.5 2.5 0 0 0 6.5 23H20v-3"/></svg>'
 };
 
 /* ---------- speech ---------- */
 const canSpeak = 'speechSynthesis' in window;
+const speakable = t => t.replace(/\+\s*(Akk|Dat|Gen)\.?/g,'').replace(/[→…]/g,',').replace(/\(.*?\)/g,'');
 function say(text, slow){ if (!canSpeak) return; try{
-  speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(text); u.lang = C().voice; u.rate = slow ? .6 : .9;
+  speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(speakable(text)); u.lang = C().voice; u.rate = slow ? .6 : .9;
   const v = speechSynthesis.getVoices().find(v => v.lang && v.lang.replace('_','-').startsWith(C().voice.slice(0,2)));
   if (v) u.voice = v; speechSynthesis.speak(u); } catch(e){} }
+
+/* ---------- sound effects (synthesized, no files) ---------- */
+let AC = null;
+function ac(){ try { if (!AC){ const K = window.AudioContext || window.webkitAudioContext; if (!K) return null; AC = new K(); }
+  if (AC.state === 'suspended') AC.resume(); } catch(e){ return null; } return AC; }
+function tone(f, t0, dur, type, vol, f2){ const a = ac(); if (!a) return; const t = a.currentTime + t0;
+  const o = a.createOscillator(), g = a.createGain(); o.type = type; o.frequency.setValueAtTime(f, t);
+  if (f2) o.frequency.exponentialRampToValueAtTime(f2, t + dur);
+  g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + 0.012); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+  o.connect(g); g.connect(a.destination); o.start(t); o.stop(t + dur + 0.05); }
+const SFX = {
+  ok(){ if (!S.sfx) return; tone(880,0,.13,'sine',.22); tone(1318.5,.1,.32,'sine',.22); tone(2637,.1,.22,'sine',.03); },
+  bad(){ if (!S.sfx) return; tone(196,0,.16,'triangle',.28,175); tone(147,.14,.32,'triangle',.28,123); },
+  pair(){ if (!S.sfx) return; tone(1046.5,0,.12,'sine',.14); tone(1568,.06,.16,'sine',.1); },
+  done(){ if (!S.sfx) return; [523.25,659.25,783.99,1046.5].forEach((f,i) => tone(f,i*.11,.32,'triangle',.18)); tone(1318.5,.46,.7,'sine',.16); },
+  page(){ if (!S.sfx) return; tone(660,0,.06,'sine',.06); }
+};
+document.addEventListener('pointerdown', ac, { once:true });
+
+/* ---------- rule rendering ---------- */
+function ruleHTML(u){
+  let h = '', para = [];
+  const flush = () => { if (para.length){ h += `<p>${para.map(bold).join('<br>')}</p>`; para = []; } };
+  for (const line of u.rule.split('\n')){
+    const t = line.trim(); if (!t) { flush(); continue; }
+    if (t.startsWith('•')){ flush();
+      const body = t.slice(1).trim(), i = body.indexOf(' — ');
+      const tgt = i > 0 ? body.slice(0,i) : body, tr = i > 0 ? body.slice(i+3) : '';
+      h += `<div class="rex"><button class="say sm" data-say="${esc(tgt)}" aria-label="Произнести">${ICON.say}</button><div><b>${bold(tgt)}</b>${tr ? `<span>${bold(tr)}</span>` : ''}</div></div>`;
+    } else { flush(); para.push(t); flush(); }
+  }
+  flush(); return `<div class="rule">${h}</div>`;
+}
 
 /* ---------- home rendering ---------- */
 function applyLang(){ document.documentElement.classList.toggle('fr', S.lang === 'fr'); }
@@ -1134,9 +2299,9 @@ function dailyCard(){
   const due = dueKeys().length, any = Object.keys(S.srs[S.lang]).length;
   if (!any) return '';
   if (due) return `<div class="daily"><div class="goal-row"><b>${ICON.rep}Повторение на сегодня</b><span>${due}</span></div>
-    <p>Прошлые ошибки и слова, которые пора освежить, — даже те, что ты знал.</p>
+    <p>Прошлые ошибки и слова, которые пора освежить, даже те, что ты уже знал.</p>
     <button class="btn" data-act="daily">Повторить ${Math.min(due,20)} ${plural(Math.min(due,20),'карточку','карточки','карточек')}</button></div>`;
-  return `<div class="daily calm"><div class="goal-row"><b>${ICON.check.replace('<svg','<svg class="i" style="fill:none;stroke:currentColor;stroke-width:3"')}Повторение на сегодня</b><span>готово</span></div>
+  return `<div class="daily calm"><div class="goal-row"><b>${ICON.rep}Повторение на сегодня</b><span>готово</span></div>
     <p>Следующие карточки появятся завтра. Можно потренироваться ещё — сколько хочешь.</p></div>`;
 }
 function goalCard(){
@@ -1148,7 +2313,8 @@ function goalCard(){
 }
 function recommended(units){ for (const u of units){ const d = done(u); if (d < 3) return { id:u.id, li:d }; } return null; }
 function renderPath(){
-  const c = C(), f = S.filter[S.lang];
+  const c = C(); let f = S.filter[S.lang];
+  if (f !== 'all' && !c.levels.some(l => l.id === f)) f = S.filter[S.lang] = 'all';
   const levels = c.levels.filter(lv => f === 'all' || lv.id === f);
   let h = goalCard();
   h += `<div class="filters" role="group" aria-label="Раздел">${[['all','Все темы'], ...c.levels.map(l => [l.id, l.id==='PRO' ? 'Работа' : l.id])].map(([k,n]) =>
@@ -1156,22 +2322,20 @@ function renderPath(){
   const rec = recommended(levels.flatMap(lv => lv.units));
   let line = 0;
   for (const lv of c.levels){
-    const show = levels.includes(lv);
-    if (!show){ line += lv.units.length; continue; }
+    if (!levels.includes(lv)){ line += lv.units.length; continue; }
     const fin = lv.units.filter(u => done(u) >= 3).length;
     h += `<section class="level"><div class="lvl-head"><span class="lvl-code">${lv.id}</span><div><b>${LV[lv.id]}</b><small>${LVSUB[lv.id] ? LVSUB[lv.id] + ' · ' : ''}${fin} из ${lv.units.length} тем пройдено</small></div></div>`;
     lv.units.forEach(u => {
       line++; const d = done(u);
-      h += `<article class="unit"><div class="unit-head"><span class="chip">Линия ${line}</span><h3>${esc(u.title)}</h3>
+      h += `<article class="unit"><div class="unit-head"><span class="chip">Тема ${line}</span><h3>${esc(u.title)}</h3>
         <p class="preview">${u.w.slice(0,4).map(x => esc(x[0])).join(' · ')} …</p></div>
-        <details class="tip"><summary>Грамматика</summary><p>${esc(u.tip)}</p></details><div class="stops">`;
+        <details class="tip"><summary>Правило темы</summary>${ruleHTML(u)}</details><div class="stops">`;
       for (let li=0; li<3; li++){
         const isRec = rec && rec.id === u.id && rec.li === li;
         const st = li < d ? 'done' : li === d ? 'next' : 'later';
-        const n = li===2 ? 10 : 5, k = li===2 ? 11 : 8;
         h += `<button class="stop ${st} ${isRec?'rec':''}" data-act="start" data-u="${u.id}" data-li="${li}">
           <span class="dot">${st==='done'?ICON.check:''}</span>
-          <span class="txt"><b>${STOPS[li]}</b><small>${n} слов · ${k} заданий</small></span>
+          <span class="txt"><b>${STOPS[li]}</b><small>${STOPSUB[li]}</small></span>
           ${st==='done' ? '<span class="go">Ещё раз</span>' : st==='next' ? '<span class="go">Начать</span>' : ''}</button>`;
       }
       h += `</div></article>`;
@@ -1188,7 +2352,7 @@ function renderReview(){
   const keys = learnedKeys(), due = dueKeys().length;
   let h = `<h2 class="h2">Повторение</h2>`;
   if (!keys.length){
-    h += `<div class="card"><p><b>Пока нечего повторять</b></p><p class="muted">Пройди первый урок на вкладке «Путь» — слова и фразы появятся здесь и начнут возвращаться на повторение.</p></div>`;
+    h += `<div class="card"><p><b>Пока нечего повторять</b></p><p class="muted">Пройди первый урок на вкладке «Путь» — слова, фразы и правила появятся здесь и начнут возвращаться на повторение.</p></div>`;
     $('#main').innerHTML = h; return;
   }
   h += `<div class="card"><p><b>На сегодня: ${due ? due + ' ' + plural(due,'карточка','карточки','карточек') : 'всё повторено'}</b></p>
@@ -1198,11 +2362,13 @@ function renderReview(){
      <button class="btn ghost" data-act="free">Случайная тренировка</button></div>`;
   if (miss.length){
     h += `<h2 class="h2">Чаще всего ошибки</h2><div class="list">${miss.slice(0,12).map(([k,n]) => { const e = ENTRY[S.lang][k].e;
-      return `<div class="row"><button class="say" data-act="say" data-v="${esc(e[0])}" aria-label="Произнести">${ICON.say}</button><div class="w"><b>${esc(e[0])}</b><span>${esc(e[1])}</span></div><span class="cnt">×${n}</span></div>`; }).join('')}</div>`;
+      return `<div class="row"><button class="say" data-say="${esc(e[0])}" aria-label="Произнести">${ICON.say}</button><div class="w"><b>${wordHTML(e)}</b><span>${trHTML(e[1])}</span></div><span class="cnt">×${n}</span></div>`; }).join('')}</div>`;
   }
   const words = keys.filter(k => ENTRY[S.lang][k].kind === 'w').sort((a,b) => S.srs[S.lang][a].due.localeCompare(S.srs[S.lang][b].due));
-  h += `<h2 class="h2">Мой словарь · ${words.length}</h2><div class="list">${words.map(k => { const e = ENTRY[S.lang][k].e;
-    return `<div class="row"><button class="say" data-act="say" data-v="${esc(e[0])}" aria-label="Произнести">${ICON.say}</button><div class="w"><b>${esc(e[0])}</b><span>${esc(e[1])}</span></div><span class="box">${whenText(S.srs[S.lang][k])}</span></div>`; }).join('')}</div>`;
+  h += `<h2 class="h2">Мой словарь · ${words.length}</h2>`;
+  if (S.lang === 'de') h += `<p class="legend"><span class="art g-m">der</span> мужской <span class="art g-f">die</span> женский <span class="art g-n">das</span> средний</p>`;
+  h += `<div class="list">${words.map(k => { const e = ENTRY[S.lang][k].e;
+    return `<div class="row"><button class="say" data-say="${esc(e[0])}" aria-label="Произнести">${ICON.say}</button><div class="w"><b>${wordHTML(e)}</b><span>${trHTML(e[1])}</span></div><span class="box">${whenText(S.srs[S.lang][k])}</span></div>`; }).join('')}</div>`;
   $('#main').innerHTML = h;
 }
 function renderProfile(){
@@ -1219,13 +2385,13 @@ function renderProfile(){
    <h2 class="h2">Цель на день</h2><div class="card"><div class="opts">${[[20,'Легко'],[40,'Нормально'],[60,'Серьёзно'],[100,'Интенсив']].map(([v,n]) =>
      `<button class="opt" data-act="goal" data-v="${v}" aria-pressed="${S.goal===v}">${n} · ${v} XP</button>`).join('')}</div>
      <p class="muted" style="font-size:14px">Урок даёт 10 XP, без ошибок — 15. Повторение — 2 XP за карточку. Ограничений нет: занимайся сколько хочешь.</p></div>
+   <h2 class="h2">Звук</h2><div class="card">
+     <div class="field"><span>Звуки правильного и неправильного ответа</span><button class="switch" role="switch" id="sfx" aria-checked="${S.sfx}" data-act="sfx" aria-label="Звуки ответов"></button></div>
+     <div class="field"><span>Озвучивать слова и фразы</span><button class="switch" role="switch" id="sound" aria-checked="${S.sound}" data-act="sound" aria-label="Озвучивать слова"></button></div>
+     <p class="muted" style="font-size:14px">Если звуков нет, проверь, что на iPhone выключен беззвучный режим.</p></div>
    <h2 class="h2">Время занятий</h2><div class="card">
      ${['Утро','День','Вечер'].map((n,i) => `<div class="field"><label for="remind${i}">${n}</label><input type="time" id="remind${i}" data-i="${i}" value="${S.reminds[i]||''}"></div>`).join('')}
-     <p class="muted" style="font-size:14px">После каждого из этих часов на «Пути» появляется напоминание, если повторение не сделано или цель не выполнена. Уведомления на iPhone приходят из приложения «Напоминания».</p>
-     <div class="field"><span>Озвучивать ответы</span><button class="switch" role="switch" id="sound" aria-checked="${S.sound}" data-act="sound" aria-label="Озвучивать ответы"></button></div></div>
-   <h2 class="h2">Иконка на экране «Домой»</h2><div class="card"><ol class="steps">
-     <li>Открой эту страницу в Safari.</li><li>Нажми кнопку «Поделиться» внизу экрана.</li><li>Выбери «На экран „Домой“» и нажми «Добавить».</li></ol>
-     <p class="muted" style="font-size:14px">Прогресс хранится на этом телефоне, в том браузере, где ты занимаешься.</p></div>
+     <p class="muted" style="font-size:14px">После каждого из этих часов на «Пути» появляется напоминание, если повторение не сделано или цель не выполнена.</p></div>
    <button class="danger" data-act="reset">Сбросить весь прогресс</button>`;
   $('#main').innerHTML = h;
 }
@@ -1233,8 +2399,8 @@ function render(){ applyLang(); renderTop(); renderTabs();
   ({path:renderPath, review:renderReview, profile:renderProfile})[S.tab](); }
 
 /* ---------- sheets ---------- */
-function sheet(title, text, buttons){
-  $('#sheet').innerHTML = `<div class="sheet" data-act="sheet-bg"><div class="in" role="dialog" aria-modal="true"><h3>${title}</h3><p>${text}</p>
+function sheet(title, html, buttons){
+  $('#sheet').innerHTML = `<div class="sheet" data-act="sheet-bg"><div class="in" role="dialog" aria-modal="true"><h3>${title}</h3><div class="sheet-body">${html}</div>
    ${buttons.map((b,i) => `<button class="btn ${b.ghost?'ghost':''}" data-sheet="${i}">${b.label}</button>`).join('')}</div></div>`;
   $('#sheet').onclick = e => { const b = e.target.closest('[data-sheet]');
     if (b){ $('#sheet').innerHTML=''; buttons[+b.dataset.sheet].fn && buttons[+b.dataset.sheet].fn(); }
@@ -1243,23 +2409,30 @@ function sheet(title, text, buttons){
 
 /* ---------- exercise builders ---------- */
 const mk = {
-  pick:(e,pool) => ({ t:'pick', e, ans:e[0], opts:shuffle([e[0], ...sample(pool.filter(x => x[0]!==e[0]),3).map(x=>x[0])]) }),
-  rev: (e,pool) => ({ t:'rev', e, ans:e[1], opts:shuffle([e[1], ...sample(pool.filter(x => x[1]!==e[1]),3).map(x=>x[1])]) }),
-  listen:(e,pool) => canSpeak ? ({ t:'listen', e, ans:e[0], opts:shuffle([e[0], ...sample(pool.filter(x => x[0]!==e[0]),3).map(x=>x[0])]) }) : mk.rev(e,pool),
-  type:e => ({ t:'type', e }),
+  pick:(e,pool) => ({ t:'pick', e, k:e[0], ans:e[0], opts:shuffle([e[0], ...sample(pool.filter(x => x[0]!==e[0] && x[1]!==e[1]),3).map(x=>x[0])]) }),
+  rev: (e,pool) => ({ t:'rev', e, k:e[0], ans:e[1], opts:shuffle([e[1], ...sample(pool.filter(x => x[1]!==e[1]),3).map(x=>x[1])]) }),
+  listen:(e,pool) => canSpeak ? ({ t:'listen', e, k:e[0], ans:e[0], opts:shuffle([e[0], ...sample(pool.filter(x => x[0]!==e[0]),3).map(x=>x[0])]) }) : mk.rev(e,pool),
+  type:e => ({ t:'type', e, k:e[0] }),
   match:list => ({ t:'match', list }),
+  gap:g => ({ t:'gap', e:g, k:'g:'+g[0], ans:g[3], opts:shuffle([g[3], ...g[4]]) }),
   build:(e,sents) => { const tk = tokens(e[0]), low = tk.map(x => x.toLowerCase());
     const extra = sample([...new Set(sents.filter(s => s[0]!==e[0]).flatMap(s => tokens(s[0])))].filter(x => !low.includes(x.toLowerCase())), 2);
-    return { t:'build', e, tk, bank:shuffle(tk.concat(extra)) }; }
+    return { t:'build', e, k:e[0], tk, bank:shuffle(tk.concat(extra)) }; },
+  learn:(e,u,kind) => ({ t:'learn', e, u, kind }),
+  theory:u => ({ t:'theory', u })
 };
+const known = k => !!S.srs[S.lang][k];
 function buildLesson(u, li){
-  const W = shuffle(li===0 ? u.w.slice(0,5) : li===1 ? u.w.slice(5) : u.w);
-  const Sx = shuffle(li===0 ? u.s.slice(0,2) : li===1 ? u.s.slice(2,4) : u.s);
-  const all = u.w;
-  const q = [mk.pick(W[0],all), mk.pick(W[1],all), mk.match(W.slice(0,5)), mk.rev(W[2],all), mk.build(Sx[0],u.s),
-             mk.listen(W[3],all), mk.type(W[4]), mk.build(Sx[1],u.s)];
-  if (li===2) q.push(mk.build(Sx[2],u.s), mk.type(W[5]), mk.listen(W[6],all));
-  return q;
+  const W = u.w, Sx = u.s, G = u.g;
+  const L = e => known(e[0]) ? [] : [mk.learn(e, u, 'w')];
+  const LS = e => known(e[0]) ? [] : [mk.learn(e, u, 's')];
+  if (li === 0) return [mk.theory(u), ...L(W[0]), ...L(W[1]), mk.pick(W[0],W), mk.rev(W[1],W),
+    ...L(W[2]), ...L(W[3]), ...L(W[4]), mk.match(W.slice(0,5)), mk.gap(G[0]), mk.listen(W[2],W), mk.type(W[3]), mk.pick(W[4],W), mk.build(Sx[0],Sx), mk.gap(G[1])];
+  if (li === 1) return [...L(W[5]), ...L(W[6]), mk.pick(W[5],W), mk.rev(W[6],W),
+    ...L(W[7]), ...L(W[8]), ...L(W[9]), mk.match(W.slice(5)), mk.gap(G[2]), mk.listen(W[7],W), mk.type(W[8]), mk.pick(W[9],W), mk.build(Sx[1],Sx), mk.build(Sx[2],Sx)];
+  const ws = shuffle(W), gs = shuffle(G);
+  return [...LS(Sx[3]), mk.build(Sx[3],Sx), ...LS(Sx[4]), mk.build(Sx[4],Sx), mk.match(ws.slice(0,5)), mk.gap(gs[0]),
+    mk.type(ws[5]), mk.listen(ws[6],W), mk.rev(ws[7],W), mk.build(pickOne(Sx.slice(0,3)),Sx), mk.gap(gs[1]), mk.pick(ws[8],W)];
 }
 function buildReview(kind){
   const lang = S.lang; let keys;
@@ -1269,50 +2442,75 @@ function buildReview(kind){
   const items = keys.map(k => ENTRY[lang][k]);
   const learnedWords = learnedKeys().map(k => ENTRY[lang][k]).filter(i => i.kind==='w').map(i => i.e);
   const pool = learnedWords.length >= 6 ? learnedWords : UNITS[lang].flatMap(u => u.w);
-  const words = items.filter(i => i.kind==='w'), sents = items.filter(i => i.kind==='s');
-  const q = [];
-  let rest = words;
+  const words = items.filter(i => i.kind==='w');
+  const q = []; let rest = words;
   if (words.length >= 7){ q.push(mk.match(words.slice(0,5).map(i => i.e))); rest = words.slice(5); }
   rest.forEach((it,i) => q.push([mk.pick,mk.type,mk.rev,mk.listen][i%4](it.e, pool)));
-  sents.forEach(it => q.push(mk.build(it.e, it.u.s)));
+  items.filter(i => i.kind==='s').forEach(it => q.push(mk.build(it.e, it.u.s)));
+  items.filter(i => i.kind==='g').forEach(it => q.push(mk.gap(it.e)));
   return shuffle(q);
 }
 
 /* ---------- lesson engine ---------- */
 let L = null;
-const PRAISE = ['Отлично!','Верно!','Так держать!','Супер!','Точно!'];
+const PRAISE = ['Отлично!','Верно!','Так держать!','Супер!','Точно!','Здорово!'];
+const MODE = { daily:'Повторение дня', miss:'Работа над ошибками', free:'Тренировка' };
 function startLesson(uid, li){
   const u = UNITS[S.lang].find(x => x.id === uid);
-  L = { mode:'lesson', u, li, q:buildLesson(u, li), done:0, err:0, wrong:new Set(), t0:Date.now() }; L.total = L.q.length; openLesson();
+  L = { mode:'lesson', u, li, q:buildLesson(u, li), done:0, err:0, wrong:new Set(), t0:Date.now() }; L.total = L.q.length;
+  L.graded = L.q.filter(x => x.t !== 'theory' && x.t !== 'learn').length; openLesson();
 }
 function startReview(kind){
   const q = buildReview(kind); if (!q.length) return;
-  L = { mode:kind, q, done:0, err:0, wrong:new Set(), t0:Date.now(), total:q.length,
+  L = { mode:kind, q, done:0, err:0, wrong:new Set(), t0:Date.now(), total:q.length, graded:q.length,
         items:q.reduce((n,e) => n + (e.t==='match' ? e.list.length : 1), 0) }; openLesson();
 }
 function openLesson(){ $('#lesson').hidden = false; document.body.classList.add('noscroll'); drawEx(); }
 function closeLesson(){ $('#lesson').hidden = true; document.body.classList.remove('noscroll'); L = null; render(); window.scrollTo(0,0); }
-const MODE = { daily:'Повторение дня', miss:'Работа над ошибками', free:'Тренировка' };
+function unitOf(ex){ const k = ex.k || (ex.list && ex.list[0][0]); return ex.u || (ENTRY[S.lang][k] && ENTRY[S.lang][k].u); }
 
 function head(){ return `<div class="wrap l-head"><button class="x" data-l="quit" aria-label="Выйти">${ICON.x}</button>
   <div class="bar"><i style="width:${Math.round(L.done/L.total*100)}%"></i></div>
   <span class="label" style="font-variant-numeric:tabular-nums">${L.done}/${L.total}</span></div>`; }
 
+function exampleFor(e, u){
+  const stem = stripArt(e[0]).split(/[ ,]/)[0].toLowerCase().slice(0, Math.max(4, Math.min(6, stripArt(e[0]).length - 1)));
+  if (stem.length < 3) return null;
+  return u.s.find(s => s[0].toLowerCase().includes(stem)) || u.g.find(g => g[0].toLowerCase().includes(stem)) || null;
+}
 function drawEx(){
-  const e = L.q[0]; L.sel = null; L.state = 'ask'; L.built = []; L.m = null;
-  const lang = C(); let b = '';
+  const e = L.q[0]; L.sel = null; L.state = 'ask'; L.built = []; L.m = null; L.hint = 0;
+  const lang = C(); let b = '', foot = '<button class="btn" id="check" data-l="check" disabled>Проверить</button>';
   const choices = e.opts ? `<div class="choices">${e.opts.map(o => `<button class="choice" data-l="sel" data-v="${esc(o)}">${esc(o)}</button>`).join('')}</div>` : '';
-  if (e.t === 'pick'){
+  if (e.t === 'theory'){
+    b = `<div><div class="label">Правило · ${esc(e.u.title)}</div><p class="muted" style="margin:6px 0 0">Прочитай и послушай примеры — потом будем тренировать.</p></div>${ruleHTML(e.u)}`;
+    foot = '<button class="btn" data-l="next">Понятно, дальше</button>';
+  } else if (e.t === 'learn'){
+    const g = gender(e.e), ex = e.kind === 'w' ? exampleFor(e.e, e.u) : null;
+    b = `<div class="label">${e.kind==='w' ? 'Новое слово' : 'Новая фраза'}</div>
+      <div class="learn">
+        <button class="say big" data-l="say" aria-label="Произнести">${ICON.say}</button>
+        <div class="lw ${e.kind==='s'?'phrase':''}">${wordHTML(e.e)}</div>
+        <div class="lt">${trHTML(e.e[1])}</div>
+        ${g ? `<span class="gchip g-${g}">${GNAME[g]}</span>` : ''}
+      </div>
+      ${ex ? `<div class="lex"><button class="say sm" data-say="${esc(ex[0])}" aria-label="Произнести пример">${ICON.say}</button><div><b>${esc(ex[0])}</b><span>${esc(ex[1])}</span></div></div>` : ''}`;
+    foot = '<button class="btn" data-l="next">Понятно</button>';
+  } else if (e.t === 'pick'){
     b = `<div><div class="label">Как сказать ${lang.inLang}?</div><p class="prompt">${esc(e.e[1])}</p></div>${choices}`;
   } else if (e.t === 'rev'){
     b = `<div><div class="label">Что это значит?</div><div class="prompt-row"><button class="say" data-l="say" aria-label="Произнести">${ICON.say}</button><p class="prompt">${esc(e.e[0])}</p></div></div>${choices}`;
   } else if (e.t === 'listen'){
     b = `<div><div class="label">Что вы слышите?</div></div>
       <div class="big-say"><button data-l="say" aria-label="Прослушать">${ICON.say}</button><button class="slow" data-l="slow" aria-label="Медленно">МЕДЛ.</button></div>${choices}`;
+  } else if (e.t === 'gap'){
+    const [pre, post] = e.e[2].split('___');
+    b = `<div><div class="label">Вставьте пропущенное</div><p class="prompt gapline">${esc(pre)}<span class="blank" id="blank">&nbsp;</span>${esc(post)}</p>
+      <p class="muted" style="margin:8px 0 0">${esc(e.e[1])}</p></div>${choices}`;
   } else if (e.t === 'type'){
     b = `<div><div class="label">Напишите ${lang.inLang}</div><p class="prompt">${esc(e.e[1])}</p></div>
       <input class="typein" id="typein" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" lang="${lang.voice}" placeholder="Ваш ответ">
-      <div class="keys">${lang.keys.map(k => `<button data-l="key" data-v="${k}">${k}</button>`).join('')}</div>`;
+      <div class="keys">${lang.keys.map(k => `<button data-l="key" data-v="${k}">${k}</button>`).join('')}<button class="hintbtn" data-l="hint">Подсказка</button></div>`;
   } else if (e.t === 'build'){
     b = `<div><div class="label">Переведите предложение</div><p class="prompt">${esc(e.e[1])}</p></div>
       <div class="answer lined" id="ans"></div>
@@ -1322,10 +2520,13 @@ function drawEx(){
     b = `<div><div class="label">Найдите пары</div><p class="prompt" style="font-size:20px">Нажмите слово и его перевод</p></div>
       <div class="pairs"><div class="col">${L1.map(x => `<button class="pair" data-l="mL" data-v="${esc(x[0])}">${esc(x[0])}</button>`).join('')}</div>
       <div class="col">${R1.map(x => `<button class="pair" data-l="mR" data-v="${esc(x[0])}">${esc(x[1])}</button>`).join('')}</div></div>`;
+    foot = '<p class="muted" style="margin:0;text-align:center">Соедините все пары</p>';
   }
   $('#lesson').innerHTML = head() + `<div class="l-body"><div class="wrap" style="display:grid;gap:22px">${b}</div></div>
-    <div class="l-foot" id="foot"><div class="wrap">${e.t==='match' ? '<p class="muted" style="margin:0;text-align:center">Соедините все пары</p>' : '<button class="btn" id="check" data-l="check" disabled>Проверить</button>'}</div></div>`;
+    <div class="l-foot" id="foot"><div class="wrap">${foot}</div></div>`;
+  $('#lesson .l-body').scrollTop = 0;
   if (e.t === 'listen') setTimeout(() => say(e.e[0]), 250);
+  if (e.t === 'learn' && S.sound) setTimeout(() => say(e.e[0]), 250);
   if (e.t === 'type'){ const inp = $('#typein'); inp.addEventListener('input', () => $('#check').disabled = !inp.value.trim());
     inp.addEventListener('keydown', ev => { if (ev.key === 'Enter' && inp.value.trim() && L.state==='ask') check(); }); }
 }
@@ -1342,9 +2543,10 @@ function onWrong(key){ if (!ENTRY[S.lang][key]) return; L.err++; L.wrong.add(key
 
 function check(){
   const e = L.q[0]; let ok = false, note = '', show = `${e.e[0]} — ${e.e[1]}`;
-  if (e.t==='pick' || e.t==='rev' || e.t==='listen'){
+  if (e.t==='pick' || e.t==='rev' || e.t==='listen' || e.t==='gap'){
     ok = L.sel === e.ans;
     document.querySelectorAll('.choice').forEach(c => { if (c.dataset.v === e.ans) c.classList.add('right'); else if (c.dataset.v === L.sel) c.classList.add('wrong'); c.disabled = true; });
+    if (e.t==='gap'){ const bl = $('#blank'); bl.textContent = e.ans; bl.classList.add('ok'); show = e.e[0]; }
   } else if (e.t==='build'){
     ok = norm(L.built.map(i => e.bank[i]).join(' ')) === norm(e.tk.join(' ')); show = e.e[0];
   } else if (e.t==='type'){
@@ -1353,15 +2555,20 @@ function check(){
     if (forms.includes(a)){ ok = true; if (a !== norm(tgt)) note = `Запомни с артиклем: ${tgt}`; }
     else if (forms.map(flat).includes(flat(a))){ ok = true; note = `Почти: проверь буквы — ${tgt}`; }
   }
-  if (ok){ onRight(e.e[0]); if (S.sound) say(e.e[0]); } else onWrong(e.e[0]);
+  if (ok){ SFX.ok(); onRight(e.k); if (S.sound && e.t !== 'rev') setTimeout(() => say(e.e[0]), 450); }
+  else { SFX.bad(); onWrong(e.k); }
   save(); L.state = 'shown'; L.ok = ok;
+  const u = unitOf(e);
   const f = $('#foot'); f.className = 'l-foot ' + (ok ? 'ok' : 'bad');
   f.innerHTML = `<div class="wrap"><div class="fb" role="status"><b>${ok ? PRAISE[Math.random()*PRAISE.length|0] : 'Неправильно'}</b>
-    <span>${ok ? esc(note || show) : 'Правильно: ' + esc(show) + '<br><small>Вернётся в конце урока и завтра в повторении.</small>'}</span></div><button class="btn" data-l="next">Дальше</button></div>`;
+    <span>${ok ? esc(note || show) : 'Правильно: ' + esc(show)}</span>
+    ${!ok ? `<small>Вернётся в конце урока и в повторении.</small>` : ''}</div>
+    <div class="fb-row">${!ok && u ? `<button class="btn ghost rulebtn" data-l="rule">${ICON.book}Правило</button>` : ''}<button class="btn" data-l="next">Дальше</button></div></div>`;
 }
 function next(){
   const e = L.q.shift();
-  if (L.ok) L.done++; else L.q.push(e);
+  if (e.t === 'theory' || e.t === 'learn'){ L.done++; SFX.page(); }
+  else if (L.ok) L.done++; else L.q.push(e);
   if (!L.q.length) return finish();
   drawEx();
 }
@@ -1373,11 +2580,12 @@ function matchTap(side, v, btn){
     const a = m.left, b = m.right; m.left = m.right = null;
     if (a.v === b.v){ [a.btn,b.btn].forEach(x => { x.classList.add('gone'); x.setAttribute('aria-pressed','false'); });
       onRight(a.v); save();
-      if (++m.n === L.q[0].list.length){ L.state='shown'; L.ok = true;
+      if (++m.n === L.q[0].list.length){ SFX.ok(); L.state='shown'; L.ok = true;
         const f = $('#foot'); f.className = 'l-foot ok';
         f.innerHTML = `<div class="wrap"><div class="fb" role="status"><b>Все пары найдены!</b><span>${L.q[0].list.length} слов</span></div><button class="btn" data-l="next">Дальше</button></div>`; }
+      else SFX.pair();
     } else {
-      onWrong(a.v); save();
+      SFX.bad(); onWrong(a.v); save();
       [a.btn,b.btn].forEach(x => { x.classList.add('shake'); setTimeout(() => { x.classList.remove('shake'); x.setAttribute('aria-pressed','false'); }, 450); });
     }
   }
@@ -1389,8 +2597,8 @@ function finish(){
   if (L.mode==='lesson'){ xp = 10 + (perfect ? 5 : 0); S.prog[S.lang][L.u.id] = Math.max(done(L.u), L.li + 1); }
   else { xp = Math.max(5, L.items * 2); if (L.mode==='daily') S.dailyDone[S.lang] = dk(); }
   const before = todayXp(); S.xp[dk()] = before + xp; S.total += xp; S.lessons++;
-  const newDay = bumpStreak(); save();
-  const acc = Math.round(L.total / (L.total + L.err) * 100), sec = Math.round((Date.now()-L.t0)/1000);
+  const newDay = bumpStreak(); save(); SFX.done();
+  const acc = Math.round(L.graded / (L.graded + L.err) * 100), sec = Math.round((Date.now()-L.t0)/1000);
   const goalHit = before < S.goal && S.xp[dk()] >= S.goal;
   const due = dueKeys().length;
   const msg = goalHit ? 'Дневная цель выполнена! Можно продолжать дальше.' : newDay ? `Серия: ${S.streak.n} ${plural(S.streak.n,'день','дня','дней')} подряд.`
@@ -1406,18 +2614,19 @@ function finish(){
 
 /* ---------- events ---------- */
 document.addEventListener('click', ev => {
+  const sv = ev.target.closest('[data-say]'); if (sv){ say(sv.dataset.say); return; }
   const t = ev.target.closest('[data-act]'); if (!t) return;
   const a = t.dataset.act, v = t.dataset.v;
   if (a==='lang'){ S.lang = v; save(); render(); }
   else if (a==='tab'){ S.tab = v; save(); render(); window.scrollTo(0,0); }
   else if (a==='filter'){ S.filter[S.lang] = v; save(); render(); }
   else if (a==='start'){ startLesson(t.dataset.u, +t.dataset.li); }
-  else if (a==='say'){ say(v); }
   else if (a==='daily' || a==='miss' || a==='free'){ startReview(a); }
   else if (a==='goal'){ S.goal = +v; save(); render(); }
   else if (a==='sound'){ S.sound = !S.sound; save(); t.setAttribute('aria-checked', S.sound); }
-  else if (a==='reset'){ sheet('Сбросить прогресс?', 'Удалятся пройденные уроки, XP, серия, ошибки и расписание повторений по обоим языкам. Отменить это нельзя.',
-      [{label:'Сбросить', fn:() => { const k = {lang:S.lang, goal:S.goal, reminds:S.reminds, sound:S.sound}; S = Object.assign(JSON.parse(JSON.stringify(DEF)), k); save(); render(); }},{label:'Отмена', ghost:true}]); }
+  else if (a==='sfx'){ S.sfx = !S.sfx; save(); t.setAttribute('aria-checked', S.sfx); SFX.ok(); }
+  else if (a==='reset'){ sheet('Сбросить прогресс?', '<p>Удалятся пройденные уроки, XP, серия, ошибки и расписание повторений по обоим языкам. Отменить это нельзя.</p>',
+      [{label:'Сбросить', fn:() => { const k = {lang:S.lang, goal:S.goal, reminds:S.reminds, sound:S.sound, sfx:S.sfx}; S = Object.assign(JSON.parse(JSON.stringify(DEF)), k); save(); render(); }},{label:'Отмена', ghost:true}]); }
 });
 document.addEventListener('change', ev => { const el = ev.target;
   if (el.id && el.id.startsWith('remind') && el.value){ S.reminds[+el.dataset.i] = el.value; save(); } });
@@ -1427,20 +2636,24 @@ $('#lesson').addEventListener('click', ev => {
   if (a==='close'){ closeLesson(); return; }
   if (a==='todaily'){ closeLesson(); startReview('daily'); return; }
   if (!L) return;
-  if (a==='quit'){ sheet('Выйти?', 'Прогресс этого урока не сохранится, но ответы уже попали в повторение.',
+  if (a==='quit'){ sheet('Выйти?', '<p>Прогресс этого урока не сохранится, но ответы уже попали в повторение.</p>',
       [{label:'Продолжить'},{label:'Выйти', ghost:true, fn:closeLesson}]); return; }
   const e = L.q[0];
   if (a==='say'){ say(e.e[0]); return; }
   if (a==='slow'){ say(e.e[0], true); return; }
   if (a==='next'){ next(); return; }
+  if (a==='rule'){ const u = unitOf(e); if (u) sheet('Правило · ' + esc(u.title), ruleHTML(u), [{label:'Понятно'}]); return; }
   if (a==='check'){ if (L.state==='ask') check(); return; }
   if (L.state !== 'ask') return;
   if (a==='sel'){ L.sel = t.dataset.v; document.querySelectorAll('.choice').forEach(c => c.setAttribute('aria-pressed', c===t?'true':'false')); setCheck(true);
+    if (e.t==='gap'){ $('#blank').textContent = L.sel; }
     if (e.t==='pick' && S.sound) say(L.sel); }
   else if (a==='tok'){ L.built.push(+t.dataset.i); drawBuild(); }
   else if (a==='untok'){ L.built.splice(+t.dataset.j,1); drawBuild(); }
   else if (a==='key'){ const inp = $('#typein'); const s = inp.selectionStart ?? inp.value.length, en = inp.selectionEnd ?? s;
     inp.value = inp.value.slice(0,s) + t.dataset.v + inp.value.slice(en); inp.focus(); inp.setSelectionRange(s+1,s+1); setCheck(true); }
+  else if (a==='hint'){ const inp = $('#typein'), tgt = e.e[0]; L.hint = Math.min(tgt.length, L.hint + 1);
+    inp.value = tgt.slice(0, L.hint); setCheck(true); }
   else if (a==='mL' || a==='mR'){ matchTap(a, t.dataset.v, t); }
 });
 setInterval(() => { if (!L && S.tab === 'path') renderPath(); }, 5*60000);
@@ -1449,4 +2662,5 @@ if (canSpeak) try { speechSynthesis.getVoices(); } catch(e){}
 render();
 </script>
 
+</body>
 </html>
