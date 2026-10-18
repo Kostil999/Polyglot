@@ -22,6 +22,7 @@
   --de:#C7401F; --de-soft:#F7E2DB; --fr:#2A55D4; --fr-soft:#DEE6FA;
   --ok:#17905A; --ok-soft:#DDF3E7; --bad:#CF3636; --bad-soft:#FBE1E1; --gold:#E39A12;
   --gm:#2B63C9; --gf:#C8323C; --gn:#1F8A55; --gp:#6B7586;
+  --en:#16806F; --en-soft:#D8F0EA;
   --acc:var(--de); --acc-soft:var(--de-soft);
   --f-display:"Unbounded","Arial Black",system-ui,sans-serif;
   --f-body:"Onest",-apple-system,"Segoe UI",Roboto,sans-serif;
@@ -29,12 +30,13 @@
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#0E131A; --surface:#172029; --ink:#E7ECF3; --muted:#94A0B1; --rule:#2A3543; --soft:#202B37;
   --de:#F27A55; --de-soft:#3A221C; --fr:#7393F6; --fr-soft:#1E2847;
-  --ok:#3CC483; --ok-soft:#173326; --bad:#F06A6A; --bad-soft:#3A1E21; --gold:#F2B33D; --gm:#7FA6F2; --gf:#F27D84; --gn:#58C98D; --gp:#9AA4B4; color-scheme:dark}}
+  --ok:#3CC483; --ok-soft:#173326; --bad:#F06A6A; --bad-soft:#3A1E21; --gold:#F2B33D; --gm:#7FA6F2; --gf:#F27D84; --gn:#58C98D; --gp:#9AA4B4; --en:#4CC2AE; --en-soft:#163530; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0E131A; --surface:#172029; --ink:#E7ECF3; --muted:#94A0B1; --rule:#2A3543; --soft:#202B37;
   --de:#F27A55; --de-soft:#3A221C; --fr:#7393F6; --fr-soft:#1E2847;
-  --ok:#3CC483; --ok-soft:#173326; --bad:#F06A6A; --bad-soft:#3A1E21; --gold:#F2B33D; --gm:#7FA6F2; --gf:#F27D84; --gn:#58C98D; --gp:#9AA4B4; color-scheme:dark}
+  --ok:#3CC483; --ok-soft:#173326; --bad:#F06A6A; --bad-soft:#3A1E21; --gold:#F2B33D; --gm:#7FA6F2; --gf:#F27D84; --gn:#58C98D; --gp:#9AA4B4; --en:#4CC2AE; --en-soft:#163530; color-scheme:dark}
 :root.fr{--acc:var(--fr); --acc-soft:var(--fr-soft)}
+:root.en{--acc:var(--en); --acc-soft:var(--en-soft)}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font:16px/1.45 var(--f-body);-webkit-tap-highlight-color:transparent}
 body.noscroll{overflow:hidden}
@@ -230,6 +232,7 @@ nav.tabs button[aria-current="page"]{color:var(--acc)}
 .rex>div>b{font-weight:600;overflow-wrap:anywhere}
 .rex>div>span{color:var(--muted);font-size:14px}
 .tip .rule{margin-top:8px}
+.rdot{width:8px;height:8px;border-radius:50%;background:var(--acc);flex:none;margin:8px 4px 0 6px}
 .say.sm{width:32px;height:32px;border-radius:10px}
 .say.sm svg{width:17px;height:17px}
 .learn{background:var(--surface);border-radius:22px;padding:26px 20px;display:grid;justify-items:center;gap:10px;text-align:center;border:2px solid var(--rule);box-shadow:0 3px 0 var(--rule)}
@@ -255,6 +258,33 @@ nav.tabs button[aria-current="page"]{color:var(--acc)}
 .sheet .in{max-height:88vh;overflow-y:auto}
 .sheet-body p{margin:0 0 6px;color:var(--muted)}
 .sheet-body .rule p{color:var(--ink)}
+
+/* words, alphabet, conjugation */
+.seg button span{display:none}
+@media (min-width:560px){.seg button span{display:inline}}
+.seg button{padding:7px 14px}
+.conj{display:grid;grid-template-columns:1fr 1fr;grid-auto-flow:column;gap:6px}
+.conj button{text-align:left;padding:9px 12px;border-radius:10px;background:var(--bg);font-weight:600;font-size:15px;border:1px solid var(--rule)}
+.conj button:active{background:var(--acc-soft)}
+.abc-card{display:flex;gap:14px;align-items:center;width:100%;text-align:left;background:var(--surface);border-radius:16px;padding:14px 16px;margin:4px 0 12px;border:2px solid var(--acc-soft)}
+.abc-card>svg{width:34px;height:34px;color:var(--acc);flex:none}
+.abc-card span{display:grid;gap:2px}
+.abc-card small{color:var(--muted);font-size:13px}
+.decks{display:grid;gap:12px}
+.deck{background:var(--surface);border-radius:18px;padding:16px;display:grid;gap:10px}
+.deck-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.deck h3{margin:0;font:600 18px/1.25 var(--f-body)}
+.deck .bar{height:8px}
+.deck-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.deck-btns .btn{min-height:46px;font-size:15px}
+.abc{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px}
+.abc.wide{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}
+.abc-t{background:var(--surface);border:2px solid var(--rule);box-shadow:0 2px 0 var(--rule);border-radius:14px;padding:10px 8px;display:grid;justify-items:center;gap:2px;text-align:center;min-width:0}
+.abc-t b{font:700 26px/1.1 var(--f-display);color:var(--acc)}
+.abc-t.combo b{font-size:19px}
+.abc-t span{font-size:13px;font-weight:600}
+.abc-t small{font-size:11px;color:var(--muted);overflow-wrap:anywhere}
+.abc-t.on{border-color:var(--acc);background:var(--acc-soft)}
 </style>
 
 <div class="wrap">
@@ -2156,14 +2186,2295 @@ Je me suis inscrit ___ la formation. | à | pour, en | Я записался н�
 Nous avons ___ l'examen. | réussi | réussir, réussit | Мы сдали экзамен.`)
 ];
 
+const FR_PH = [
+U('fr-ph-1','Алфавит и немые буквы',`
+**Французский алфавит** — те же 26 латинских букв, но названия другие. Открой «Алфавит» вверху и нажми на любую букву, чтобы услышать её.
+**Главное правило чтения: пишется больше, чем слышится.** Конечные согласные обычно не читаются, конечная e — тоже.
+• petit — [пти], маленький
+• le mot — [мо], слово
+• la table — [табль], стол
+**Исключение — CaReFuL.** Буквы c, r, f, l на конце чаще всего читаются:
+• le sac — [сак], сумка
+• le chef — [шэф], начальник
+• le sel — [сэль], соль
+**Ударение** всегда на последнем слоге: café, maison, téléphone.`,`
+le sac | сумка · [сак]
+le chef | шеф, начальник · [шэф]
+le sel | соль · [сэль]
+le nez | нос · [нэ]
+le riz | рис · [ри]
+le parc | парк · [парк]
+avec | с, вместе с · [авэк]
+le dos | спина · [до]
+le fils | сын · [фис]
+le mot | слово · [мо]`,`
+Le sac est sur la table. | Сумка на столе.
+Mon fils a un petit chien. | У моего сына маленькая собака.
+Le chef parle avec le client. | Начальник разговаривает с клиентом.
+J'ai mal au dos. | У меня болит спина.
+Le parc est grand et vert. | Парк большой и зелёный.`,`
+Le ___ est sur la table. | sac | sak, sacq | Сумка на столе.
+J'ai mal au ___. | dos | do, dot | У меня болит спина.
+Passe-moi le ___, s'il te plaît. | sel | sele, cel | Передай мне соль, пожалуйста.
+Je ne connais pas ce ___. | mot | mo, maut | Я не знаю этого слова.`),
+
+U('fr-ph-2','Надстрочные знаки',`
+**Надстрочные знаки меняют звук или различают слова:**
+• é (accent aigu) — закрытое [э], как с улыбкой: café, été
+• è (accent grave) — открытое [э]: mère, très
+• ê (circonflexe) — тоже открытое [э], часто на месте исчезнувшей s: fête (ср. «фиеста»)
+• à, où — звук тот же, знак различает слова: a (имеет) / à (в), ou (или) / où (где)
+• ë, ï (tréma) — гласные читаются раздельно: Noël [ноэль], maïs [маис]
+• ç (cédille) — c читается как [с] перед a, o, u: ça, garçon, français
+**Окончания -er, -ez, -et** обычно звучат как é: parler, chez, et.`,`
+l'élève | ученик · [элэв]
+la fête | праздник · [фэт]
+le garçon | мальчик · [гарсон]
+français | французский · [франсэ]
+Noël | Рождество · [ноэль]
+le maïs | кукуруза · [маис]
+la crêpe | блин · [крэп]
+l'hôpital | больница · [опиталь]
+la leçon | урок · [лёсон]
+très | очень · [трэ]`,`
+Le garçon mange une crêpe. | Мальчик ест блин.
+Joyeux Noël à tous ! | Счастливого Рождества всем!
+C'est une très belle fête. | Это очень красивый праздник.
+L'élève répète la leçon. | Ученик повторяет урок.
+Ça va très bien. | Всё очень хорошо.`,`
+Le ___ joue au foot. | garçon | garcon, garsson | Мальчик играет в футбол.
+Je parle ___. | français | francais, fransais | Я говорю по-французски.
+C'est une belle ___. | fête | fete, fète | Это красивый праздник.
+La ___ commence à neuf heures. | leçon | lecon, lesson | Урок начинается в девять.`),
+
+U('fr-ph-3','Сочетания гласных',`
+**Несколько букв — один звук.** Это главное при чтении:
+• ou — [у]: vous, rouge
+• oi — [уа]: moi, trois
+• au, eau — [о]: jaune, beau
+• ai, ei — [э]: mais, reine
+• eu, œu — [ё] без й, губы округлены: feu, cœur
+• u — [ю] без й: губы как для «у», язык как для «и»: tu, rue
+Сравни: tu [тю] — ты, tout [ту] — всё. Ошибка в u / ou меняет смысл!`,`
+la roue | колесо · [ру]
+le roi | король · [руа]
+le gâteau | торт · [гато]
+jaune | жёлтый · [жон]
+mais | но · [мэ]
+la reine | королева · [рэн]
+le feu | огонь · [фё]
+le cœur | сердце · [кёр]
+tout | всё · [ту]
+la voiture | машина · [вуатюр]`,`
+Le roi et la reine sont au château. | Король и королева в замке.
+Mon cœur bat très vite. | Моё сердце бьётся очень быстро.
+La voiture est jaune. | Машина жёлтая.
+Tout est prêt pour la fête. | Всё готово к празднику.
+Le gâteau est au chocolat. | Торт шоколадный.`,`
+Le ___ et la reine. | roi | rua, roa | Король и королева.
+Ma voiture est ___. | jaune | jone, jaunne | Моя машина жёлтая.
+J'adore ce ___. | gâteau | gato, gâtau | Обожаю этот торт.
+C'est ___ pour aujourd'hui. | tout | tou, tu | На сегодня всё.`),
+
+U('fr-ph-4','Носовые звуки',`
+**Носовые гласные** — главная особенность французского. Гласная + n или m в конце слога: сама n / m не произносится, воздух идёт через нос.
+• an, am, en, em — [ан] в нос: danse, lampe
+• on, om — [он] в нос: bon, nom
+• in, im, ain, ein, un — [эн] в нос: lapin, main, plein
+**Носового звука нет**, если после n / m стоит гласная или вторая n / m:
+• bon [бон в нос] — bonne [бонн], хороший — хорошая
+• plein [плэн в нос] — pleine [плэн-н], полный — полная`,`
+la danse | танец · [данс]
+la lampe | лампа · [ланп]
+bon | хороший · [бон]
+bonne | хорошая · [бонн]
+le nom | имя, фамилия · [нон]
+le lapin | кролик · [лапэн]
+la main | рука (кисть) · [мэн]
+plein | полный · [плэн]
+le jardin | сад · [жардэн]
+le pont | мост · [пон]`,`
+Le lapin est dans le jardin. | Кролик в саду.
+Quel est ton nom ? | Как твоя фамилия?
+C'est une bonne idée. | Это хорошая идея.
+Le verre est plein. | Стакан полный.
+Donne-moi la main. | Дай мне руку.`,`
+C'est une ___ idée. | bonne | bone, bon | Это хорошая идея.
+Le ___ est dans le jardin. | lapin | lapain, lapen | Кролик в саду.
+Il y a un ___ sur la rivière. | pont | pon, ponc | Через реку есть мост.
+Allume la ___, s'il te plaît. | lampe | lanpe, lamp | Включи лампу, пожалуйста.`),
+
+U('fr-ph-5','Особые согласные',`
+**Сочетания согласных:**
+• ch — [ш]: chat, chocolat
+• gn — [нь]: oignon, montagne
+• qu — [к]: qui, quatre
+• ph — [ф]: photo, pharmacie
+• th — [т]: thé, théâtre
+• ill после гласной — [й]: fille, travail
+• h никогда не читается: hôtel [отэль], homme [ом]
+• s между гласными — [з]: rose, maison; ss — [с]: boisson
+**Окончание -ent у глаголов не читается:** ils parlent [иль парль].`,`
+le chat | кошка · [ша]
+la photo | фотография · [фото]
+l'homme | мужчина · [лом]
+la fille | девочка, дочь · [фий]
+le chocolat | шоколад · [шокола]
+l'oignon | лук · [лоньон]
+qui | кто · [ки]
+la rose | роза · [роз]
+la boisson | напиток · [буасон]
+le théâtre | театр · [театр]`,`
+La fille aime le chocolat. | Девочка любит шоколад.
+Qui est cet homme ? | Кто этот мужчина?
+Ils parlent avec le chat. | Они разговаривают с кошкой.
+Une boisson chaude, s'il vous plaît. | Горячий напиток, пожалуйста.
+On va au théâtre ce soir. | Сегодня вечером мы идём в театр.`,`
+J'adore le ___. | chocolat | shocolat, chokola | Обожаю шоколад.
+Prends une ___ ! | photo | foto, fotho | Сфотографируй!
+L'___ coupe l'oignon. | homme | omme, home | Мужчина режет лук.
+Ma ___ a cinq ans. | fille | fiye, file | Моей дочери пять лет.`),
+
+U('fr-ph-6','Связывание и апостроф',`
+**Élision** — гласная выпадает перед гласной или немой h, вместо неё пишется апостроф:
+• le + ami → l'ami, la + histoire → l'histoire
+• je + aime → j'aime, ne + est → n'est, si + il → s'il
+**Liaison** — немая конечная согласная начинает звучать, если следующее слово начинается с гласной:
+• les amis — [лез ами]: s звучит как [з]
+• vous avez — [вуз авэ]
+• un hôtel — [эн нотэль]
+• deux heures — [дёз ёр]
+После et (и) связывания нет никогда: et un [э эн].`,`
+l'ami | друг · [лами]
+l'oiseau | птица · [луазо]
+les amis | друзья · [лез ами]
+l'histoire | история · [листуар]
+l'orange | апельсин · [лоранж]
+les enfants | дети · [лез анфан]
+un hôtel | (один) отель · [эн нотэль]
+ils ont | у них есть · [ильз он]
+ils sont | они (есть) · [иль сон]
+deux heures | два часа · [дёз ёр]`,`
+J'aime les oranges. | Я люблю апельсины.
+Ils ont deux enfants. | У них двое детей.
+C'est l'histoire de mon ami. | Это история моего друга.
+Nous avons rendez-vous à deux heures. | У нас встреча в два часа.
+L'oiseau chante dans l'arbre. | Птица поёт на дереве.`,`
+C'est ___ami de Paul. | l' | le, la | Это друг Поля.
+___aime la musique. | J' | Je, Ja | Я люблю музыку.
+Il ___est pas là. | n' | ne, n | Его здесь нет.
+Je lis ___histoire de France. | l' | le, la | Я читаю историю Франции.`),
+
+U('fr-ph-7','C и G: твёрдые и мягкие',`
+**C и G меняют звук перед e, i, y:**
+• c + a, o, u — [к]: café, col
+• c + e, i, y — [с]: ce, cinéma, cycle
+• g + a, o, u — [г]: gare, gomme
+• g + e, i, y — [ж]: âge, girafe, gymnase
+**Как сохранить нужный звук:**
+• ç — мягкое [с] перед a, o, u: ça, leçon, reçu
+• ge — мягкое [ж] перед a, o: nous mangeons
+• gu — твёрдое [г] перед e, i: guerre, guitare`,`
+le cinéma | кино · [синема]
+la girafe | жираф · [жираф]
+l'âge | возраст · [лаж]
+la guitare | гитара · [гитар]
+la guerre | война · [гэр]
+le cycle | цикл · [сикль]
+nous mangeons | мы едим · [ну манжон]
+reçu | получен; чек · [рёсю]
+la glace | мороженое, лёд · [глас]
+le gymnase | спортзал · [жимназ]`,`
+On va au cinéma ce soir ? | Пойдём сегодня вечером в кино?
+Nous mangeons à midi. | Мы обедаем в полдень.
+Elle apprend la guitare. | Она учится играть на гитаре.
+Quel âge as-tu ? | Сколько тебе лет?
+Je voudrais une glace à la vanille. | Я бы хотел ванильное мороженое.`,`
+Nous ___ ensemble. | mangeons | mangons, manjons | Мы едим вместе.
+J'ai ___ ta lettre. | reçu | recu, ressu | Я получил твоё письмо.
+Elle joue de la ___. | guitare | gitare, ghitare | Она играет на гитаре.
+On va au ___ ? | cinéma | sinéma, cinema | Пойдём в кино?`)
+];
+const FR_GR = [
+U('fr-gr-1','Артикли. Почему нет падежей',`
+**Во французском нет падежей.** Существительное никогда не меняет окончание. Работу падежей делают:
+• Paul aime Marie. — Поль любит Мари. (кто кого — по порядку слов)
+• le livre de Paul — книга Поля (de вместо родительного)
+• Je donne le livre à Paul. — Я даю книгу Полю. (à вместо дательного)
+А ещё местоимения le, lui, leur — для них есть отдельная тема.
+**Артикль нужен почти всегда.** Три вида:
+• le livre — книга (известная, та самая): le, la, l', les
+• un livre — книга (какая-то, одна из многих): un, une, des
+• du pain — хлеба (часть, немного): du, de la, de l'
+**После отрицания** un, une, des, du, de la превращаются в de:
+• Je n'ai pas de voiture. — У меня нет машины.`,`
+le livre | книга (та самая)
+un livre | книга (какая-то)
+des livres | книги (какие-то)
+le stylo | ручка
+les stylos | ручки
+la voisine | соседка
+une voisine | (какая-то) соседка
+du beurre | масло (немного)
+de la confiture | варенье (немного)
+de l'huile | растительное масло (немного)`,`
+Je donne le livre à Paul. | Я даю книгу Полю.
+C'est la voiture de mon frère. | Это машина моего брата.
+Je mange du pain avec de la confiture. | Я ем хлеб с вареньем.
+Je n'ai pas de voiture. | У меня нет машины.
+Paul aime Marie. | Поль любит Мари.`,`
+J'ai acheté ___ livre intéressant. | un | le, du | Я купил интересную книгу.
+___ livre de Paul est sur la table. | Le | Un, Du | Книга Поля на столе.
+Le matin, je bois ___ café. | du | le, un | Утром я пью кофе.
+Il n'y a pas ___ lait. | de | du, des | Молока нет.
+C'est le stylo ___ Marie. | de | à, du | Это ручка Мари.
+Je téléphone ___ ma mère. | à | de, pour | Я звоню маме.`),
+
+U('fr-gr-2','Род и множественное число',`
+**Род** учат вместе со словом — поэтому в приложении слова идут с артиклем. Подсказки по окончанию:
+• женский: -tion, -sion, -té, -ure, -ette, -ence: la nation, la liberté, la voiture
+• мужской: -ment, -age, -eau, -isme: le moment, le fromage, le bureau
+Исключения бывают: la page, l'eau (ж. р.).
+**Множественное число:** обычно +s, которое не читается. Число слышно только по артиклю: le livre [лё] — les livres [ле].
+• -eau, -eu → +x: le bateau → les bateaux, le jeu → les jeux
+• -al → -aux: le journal → les journaux, le cheval → les chevaux
+• -s, -x, -z не меняются: le prix → les prix
+• l'œil → les yeux — глаз → глаза`,`
+le bateau | лодка, корабль
+les bateaux | лодки, корабли
+le journal | газета
+les journaux | газеты
+le cheval | лошадь
+les chevaux | лошади
+le jeu | игра
+les jeux | игры
+l'œil | глаз
+les yeux | глаза`,`
+Les bateaux sont dans le port. | Корабли в порту.
+Je lis deux journaux par jour. | Я читаю две газеты в день.
+Elle a les yeux bleus. | У неё голубые глаза.
+Les chevaux courent vite. | Лошади быстро бегают.
+La liberté est importante. | Свобода важна.`,`
+Il y a trois ___ dans le pré. | chevaux | chevals, chevaus | На лугу три лошади.
+J'achète deux ___. | journaux | journals, journales | Я покупаю две газеты.
+Les enfants aiment les ___ vidéo. | jeux | jeus, jeues | Дети любят видеоигры.
+C'est ___ bonne situation. | une | un, des | Это хорошая ситуация.
+J'adore ___ fromage français. | le | la, les | Обожаю французский сыр.`),
+
+U('fr-gr-3','Прилагательные',`
+**Прилагательное согласуется** с существительным в роде и числе:
+• grand → grande → grands → grandes
+• -eux → -euse: sérieux → sérieuse
+• -if → -ive: sportif → sportive
+• -er → -ère: cher → chère
+• -el, -en → удвоение: naturel → naturelle, ancien → ancienne
+**Место:** обычно после существительного: une voiture rouge. Короткие частые прилагательные стоят перед ним — beau, joli, jeune, vieux, nouveau, bon, mauvais, grand, petit:
+• une belle maison — красивый дом
+• un vieil homme — старик
+Перед гласной beau, nouveau, vieux превращаются в bel, nouvel, vieil.`,`
+beau | красивый
+belle | красивая
+nouveau | новый
+nouvelle | новая
+vieux | старый
+vieille | старая
+sérieux | серьёзный
+sportive | спортивная
+jeune | молодой
+mauvais | плохой`,`
+C'est une belle maison. | Это красивый дом.
+J'ai une nouvelle voiture. | У меня новая машина.
+Un vieil homme lit le journal. | Старик читает газету.
+Ma sœur est très sportive. | Моя сестра очень спортивная.
+C'est un mauvais moment. | Это неподходящий момент.`,`
+Ma mère est très ___. | sérieuse | sérieux, sérieuses | Моя мама очень серьёзная.
+C'est un ___ appartement. | bel | beau, belle | Это красивая квартира.
+Ce sont des femmes ___. | heureuses | heureux, heureuse | Это счастливые женщины.
+Il habite dans une ___ maison. | petite | petit, petites | Он живёт в маленьком доме.
+C'est un ___ ami. | nouvel | nouveau, nouvelle | Это новый друг.`),
+
+U('fr-gr-4','Настоящее время: глаголы на -er',`
+**Самая большая группа** — около 90% глаголов. Отбрасываем -er и добавляем окончания:
+▸ je parle | tu parles | il parle | nous parlons | vous parlez | ils parlent
+Формы parle, parles, parlent звучат одинаково — [парль]. Различаются только на письме.
+**Особенности написания:**
+• manger → nous mangeons (сохраняем [ж])
+• commencer → nous commençons (сохраняем [с])
+• acheter → j'achète (появляется è)
+• appeler → j'appelle (удваивается l)`,`
+je parle | я говорю
+tu parles | ты говоришь
+nous parlons | мы говорим
+vous parlez | вы говорите
+ils parlent | они говорят
+j'achète | я покупаю
+j'appelle | я зову, звоню
+nous commençons | мы начинаем
+écouter | слушать
+chercher | искать`,`
+Nous parlons français ensemble. | Мы говорим по-французски вместе.
+Tu écoutes la radio ? | Ты слушаешь радио?
+J'achète du pain tous les jours. | Я покупаю хлеб каждый день.
+Ils cherchent un appartement. | Они ищут квартиру.
+Nous commençons à huit heures. | Мы начинаем в восемь часов.`,`
+Vous ___ français ? | parlez | parlons, parles | Вы говорите по-французски?
+Ils ___ la musique. | écoutent | écoute, écoutons | Они слушают музыку.
+Tu ___ tes clés ? | cherches | cherche, cherchent | Ты ищешь ключи?
+Nous ___ à neuf heures. | commençons | commencons, commençez | Мы начинаем в девять.
+J'___ un cadeau pour Marie. | achète | achete, achètes | Я покупаю подарок для Мари.
+Je t'___ ce soir. | appelle | apelle, appele | Я позвоню тебе вечером.`),
+
+U('fr-gr-5','Настоящее время: -ir и -re',`
+**Глаголы на -ir (2-я группа)** — во множественном числе вставляем -iss-:
+▸ je finis | tu finis | il finit | nous finissons | vous finissez | ils finissent
+Так же: choisir — выбирать, réussir — добиваться успеха, grandir — расти.
+**Глаголы на -re** (vendre, attendre, répondre) — в 3-м лице ед. ч. окончания нет:
+▸ je vends | tu vends | il vend | nous vendons | vous vendez | ils vendent`,`
+je finis | я заканчиваю
+nous finissons | мы заканчиваем
+ils finissent | они заканчивают
+choisir | выбирать
+je choisis | я выбираю
+vendre | продавать
+il vend | он продаёт
+attendre | ждать
+j'attends | я жду
+répondre | отвечать`,`
+Je finis le travail à cinq heures. | Я заканчиваю работу в пять часов.
+Nous choisissons un cadeau. | Мы выбираем подарок.
+Il vend sa voiture. | Он продаёт свою машину.
+J'attends le bus depuis dix minutes. | Я жду автобус уже десять минут.
+Vous répondez au téléphone ? | Вы отвечаете на звонок?`,`
+Nous ___ à six heures. | finissons | finisons, finons | Мы заканчиваем в шесть.
+Ils ___ toujours le même plat. | choisissent | choisient, choisisent | Они всегда выбирают одно и то же блюдо.
+Elle ___ des fleurs au marché. | vend | vende, vends | Она продаёт цветы на рынке.
+Tu ___ quelqu'un ? | attends | attend, attendes | Ты кого-то ждёшь?
+Vous ___ au courriel ? | répondez | répondre, réponez | Вы отвечаете на письмо?`),
+
+U('fr-gr-6','être, avoir, aller, faire',`
+**Четыре главных неправильных глагола.** Их формы нужно выучить наизусть — нажимай, чтобы услышать:
+▸ je suis | tu es | il est | nous sommes | vous êtes | ils sont
+▸ j'ai | tu as | il a | nous avons | vous avez | ils ont
+▸ je vais | tu vas | il va | nous allons | vous allez | ils vont
+▸ je fais | tu fais | il fait | nous faisons | vous faites | ils font
+Не путай: ils sont [иль сон] — они есть, ils ont [ильз он] — у них есть.`,`
+tu es | ты (есть)
+nous sommes | мы (есть)
+vous êtes | вы (есть)
+tu as | у тебя есть
+nous avons | у нас есть
+vous avez | у вас есть
+il va | он идёт
+vous allez | вы идёте
+nous faisons | мы делаем
+vous faites | вы делаете`,`
+Vous êtes français ? | Вы француз?
+Nous avons une grande maison. | У нас большой дом.
+Il va au travail à pied. | Он ходит на работу пешком.
+Qu'est-ce que vous faites ce week-end ? | Что вы делаете в эти выходные?
+Ils font les courses le samedi. | Они ходят за покупками по субботам.`,`
+Nous ___ très contents. | sommes | avons, êtes | Мы очень довольны.
+Vous ___ des enfants ? | avez | êtes, avons | У вас есть дети?
+Demain, ils ___ à la mer. | vont | font, vas | Завтра они едут на море.
+Qu'est-ce que vous ___ ? | faites | faisez, fais | Что вы делаете?
+Elles ___ beaucoup de travail. | ont | sont, as | У них много работы.
+Tu ___ fatigué ? | es | est, as | Ты устал?`),
+
+U('fr-gr-7','Мочь, хотеть, быть должным',`
+**Модальные глаголы** — после них идёт инфинитив:
+▸ je peux | tu peux | il peut | nous pouvons | vous pouvez | ils peuvent
+▸ je veux | tu veux | il veut | nous voulons | vous voulez | ils veulent
+▸ je dois | tu dois | il doit | nous devons | vous devez | ils doivent
+• Je peux venir. — Я могу прийти.
+**Ещё три частых неправильных глагола:**
+• savoir — знать, уметь: je sais nager — я умею плавать
+• venir — приходить: je viens, nous venons, ils viennent
+• prendre — брать: je prends, nous prenons, ils prennent`,`
+je peux | я могу
+nous pouvons | мы можем
+je veux | я хочу
+ils veulent | они хотят
+je dois | я должен
+vous devez | вы должны
+je sais | я знаю, умею
+ils viennent | они приходят
+nous prenons | мы берём
+ils prennent | они берут`,`
+Je peux t'aider ? | Я могу тебе помочь?
+Je dois partir maintenant. | Мне нужно уходить сейчас.
+Je sais nager. | Я умею плавать.
+D'où viens-tu ? | Откуда ты?
+Nous prenons le train de huit heures. | Мы едем поездом в восемь.`,`
+Vous ___ m'aider ? | pouvez | pouvons, peux | Вы можете мне помочь?
+Ils ___ venir avec nous. | veulent | veut, voulons | Они хотят пойти с нами.
+Nous ___ travailler demain. | devons | doivent, devez | Мы должны работать завтра.
+Tu ___ conduire ? | sais | sait, savez | Ты умеешь водить?
+Elles ___ de Lyon. | viennent | vient, venons | Они из Лиона.
+Je ___ un café. | prends | prend, prenons | Я беру кофе.`),
+
+U('fr-gr-8','Возвратные глаголы',`
+**Возвратный глагол** = se + глагол. Местоимение меняется по лицам и стоит перед глаголом:
+▸ je me lève | tu te lèves | il se lève | nous nous levons | vous vous levez | ils se lèvent
+Перед гласной: je m'habille, il s'appelle.
+**В отрицании** ne … pas обнимает местоимение вместе с глаголом: Je ne me lève pas.
+**В passé composé** — всегда с être: Elle s'est levée tôt.`,`
+se lever | вставать
+se coucher | ложиться спать
+s'habiller | одеваться
+se laver | мыться
+se dépêcher | торопиться
+se réveiller | просыпаться
+je me lève | я встаю
+il s'appelle | его зовут
+nous nous couchons | мы ложимся спать
+s'amuser | веселиться`,`
+Je me lève à cinq heures. | Я встаю в пять часов.
+Dépêche-toi, on est en retard ! | Поторопись, мы опаздываем!
+Elle s'habille vite. | Она быстро одевается.
+Nous nous couchons tard le samedi. | По субботам мы ложимся поздно.
+Les enfants s'amusent dans le jardin. | Дети веселятся в саду.`,`
+Je ___ réveille à six heures. | me | se, te | Я просыпаюсь в шесть.
+Vous ___ couchez tôt ? | vous | se, nous | Вы рано ложитесь?
+Il ___appelle Pierre. | s' | se, m' | Его зовут Пьер.
+Elle s'est ___ tôt. | levée | levé, lever | Она встала рано.
+Ne te ___ pas, c'est dimanche ! | lève | lèves, lever | Не вставай, сегодня воскресенье!`),
+
+U('fr-gr-9','Отрицание и вопросы',`
+**Отрицание** обнимает глагол: ne + глагол + второе слово.
+• ne … pas — не: Je ne fume pas.
+• ne … jamais — никогда: Je ne bois jamais d'alcool.
+• ne … plus — больше не: Il ne travaille plus ici.
+• ne … rien — ничего: Je ne vois rien.
+• ne … personne — никого: Je ne connais personne.
+В разговоре ne часто пропускают: Je sais pas.
+**Три способа задать вопрос:**
+• Tu viens ? — интонацией
+• Est-ce que tu viens ? — с est-ce que
+• Viens-tu ? — инверсией (вежливо, письменно)
+Вопросительные слова: où — где, quand — когда, pourquoi — почему, comment — как, combien — сколько, qui — кто, quoi / que — что.`,`
+jamais | никогда
+plus | больше (не)
+rien | ничего
+personne | никто
+pourquoi | почему
+quand | когда
+comment | как
+quoi | что
+parce que | потому что
+est-ce que | (вопросительная частица)`,`
+Je ne bois jamais de café le soir. | Я никогда не пью кофе вечером.
+Il ne travaille plus ici. | Он здесь больше не работает.
+Je ne comprends rien. | Я ничего не понимаю.
+Pourquoi es-tu en retard ? | Почему ты опоздал?
+Il n'y a personne au bureau. | В офисе никого нет.`,`
+Je ne fume ___. | jamais | rien, personne | Я никогда не курю.
+Elle n'habite ___ à Paris. | plus | rien, personne | Она больше не живёт в Париже.
+Je ne vois ___ ! | rien | pas de, quoi | Я ничего не вижу!
+___ tu viens ce soir ? | Est-ce que | Qu'est-ce que, Est-ce | Ты придёшь сегодня вечером?
+___ habites-tu ? | Où | Qui, Quoi | Где ты живёшь?
+Je reste à la maison ___ je suis malade. | parce que | pourquoi, combien | Я остаюсь дома, потому что болею.`),
+
+U('fr-gr-10','Предлоги вместо падежей',`
+**Предлоги делают работу падежей.** Главные — de и à:
+• le livre de Marie — книга Мари (чей?)
+• Il vient de Paris. — Он из Парижа. (откуда?)
+• Je parle à Marie. — Я говорю с Мари. (кому?)
+• Je vais à Paris. — Я еду в Париж. (куда?)
+**Слияния с артиклем — обязательны:**
+• à + le = au: au cinéma
+• à + les = aux: aux enfants
+• de + le = du: le bureau du directeur
+• de + les = des: la fin des vacances
+С la и l' слияния нет: à la gare, de l'hôtel.
+**Страны:** en + женский род (en France), au + мужской (au Canada), aux + мн. ч. (aux États-Unis).`,`
+au | в, к (à + le)
+aux | в, к (à + les)
+du | из, от (de + le)
+des | из, от (de + les)
+chez | у, к (кому-то)
+avant | до, перед
+après | после
+pendant | во время
+sans | без
+pour | для`,`
+Je vais au cinéma avec mes amis. | Я иду в кино с друзьями.
+C'est le bureau du directeur. | Это кабинет директора.
+Elle parle aux enfants. | Она разговаривает с детьми.
+Je vais chez le médecin. | Я иду к врачу.
+Il travaille au Japon. | Он работает в Японии.`,`
+Je vais ___ cinéma. | au | à le, du | Я иду в кино.
+C'est la voiture ___ voisin. | du | de le, au | Это машина соседа.
+Il parle ___ étudiants. | aux | à les, des | Он говорит со студентами.
+J'habite ___ Allemagne. | en | au, à | Я живу в Германии.
+Elle travaille ___ Canada. | au | en, à | Она работает в Канаде.
+Je viens ___ gare. | de la | du, de le | Я иду с вокзала.`),
+
+U('fr-gr-11','Местоимения le, lui, y, en',`
+**Местоимения вместо существительных** — это тоже замена падежей. Стоят перед глаголом.
+• Je vois Paul. → Je le vois. — Я его вижу. (прямое: le, la, l', les)
+• Je parle à Marie. → Je lui parle. — Я с ней говорю. (кому: lui, leur)
+• Je vais à Paris. → J'y vais. — Я туда еду. (y = à + место)
+• Je veux du café. → J'en veux. — Я хочу его. (en = de + что-то, количество)
+**Порядок, если местоимений два:** me / te / nous / vous → le / la / les → lui / leur → y → en.
+• Je le lui donne. — Я даю это ему.`,`
+le | его (кого? что?)
+la | её (кого? что?)
+les | их (кого? что?)
+lui | ему, ей
+leur | им
+y | туда, там
+en | его, их (количество); оттуда
+je le vois | я его вижу
+je lui parle | я с ним (с ней) говорю
+j'y vais | я туда иду`,`
+Tu vois Paul ? Oui, je le vois. | Ты видишь Поля? Да, я его вижу.
+Je lui téléphone ce soir. | Я позвоню ему вечером.
+Tu vas à la gare ? Oui, j'y vais. | Ты идёшь на вокзал? Да, иду туда.
+Tu veux du café ? Oui, j'en veux. | Хочешь кофе? Да, хочу.
+Je leur donne les clés. | Я даю им ключи.`,`
+Tu connais Marie ? Oui, je ___ connais. | la | lui, le | Ты знаешь Мари? Да, я её знаю.
+Tu parles à ton chef ? Oui, je ___ parle. | lui | le, leur | Ты говоришь с начальником? Да, говорю с ним.
+Tu as vu les enfants ? Oui, je ___ ai vus. | les | leur, lui | Ты видел детей? Да, видел их.
+Tu vas au bureau ? Oui, j'___ vais. | y | en, le | Ты идёшь в офис? Да, иду.
+Tu as des enfants ? Oui, j'___ ai deux. | en | y, les | У тебя есть дети? Да, двое.
+Tu écris à tes parents ? Oui, je ___ écris. | leur | les, lui | Ты пишешь родителям? Да, пишу им.`),
+
+U('fr-gr-12','Прошедшее: passé composé с avoir',`
+**Passé composé** = avoir в настоящем + причастие (participe passé). Это главное прошедшее время для событий.
+▸ j'ai parlé | tu as parlé | il a parlé | nous avons parlé | vous avez parlé | ils ont parlé
+**Как образовать причастие:**
+• -er → -é: parler → parlé
+• -ir → -i: finir → fini
+• -re → -u: vendre → vendu
+**Неправильные причастия — учить наизусть:**
+• avoir → eu, être → été, faire → fait
+• prendre → pris, mettre → mis, dire → dit
+• voir → vu, boire → bu, lire → lu, écrire → écrit
+Отрицание обнимает avoir: Je n'ai pas mangé.`,`
+j'ai parlé | я говорил
+j'ai fait | я сделал
+j'ai pris | я взял
+j'ai mis | я положил, надел
+j'ai dit | я сказал
+j'ai bu | я выпил
+j'ai lu | я прочитал
+j'ai écrit | я написал
+j'ai eu | у меня был(о)
+j'ai été | я был, побывал`,`
+Hier, j'ai lu un livre intéressant. | Вчера я прочитал интересную книгу.
+Elle a écrit une lettre à sa mère. | Она написала письмо маме.
+Nous avons pris le train. | Мы поехали на поезде.
+Je n'ai pas bu de café ce matin. | Сегодня утром я не пил кофе.
+Qu'est-ce que tu as dit ? | Что ты сказал?`,`
+Hier, j'ai ___ mes devoirs. | fait | faire, faisé | Вчера я сделал домашнее задание.
+Nous avons ___ le bus. | pris | prendu, prit | Мы сели на автобус.
+Tu as ___ ce livre ? | lu | lis, lisé | Ты читал эту книгу?
+Il a ___ son manteau. | mis | mit, mettu | Он надел пальто.
+Elle n'a rien ___. | dit | disé, dite | Она ничего не сказала.
+J'ai ___ un accident. | eu | été, avu | Я попал в аварию.`),
+
+U('fr-gr-13','Прошедшее: passé composé с être',`
+**С être** образуют passé composé глаголы движения и смены состояния, а также все возвратные:
+• aller, venir, arriver, partir, entrer, sortir, monter, descendre
+• tomber, rester, naître, mourir, devenir, retourner
+**Причастие согласуется с подлежащим**, как прилагательное:
+▸ il est parti | elle est partie | ils sont partis | elles sont parties
+Особые причастия: venir → venu, naître → né, mourir → mort.`,`
+il est venu | он пришёл
+elle est venue | она пришла
+ils sont arrivés | они прибыли
+je suis sorti | я вышел
+elle est tombée | она упала
+nous sommes restés | мы остались
+il est né | он родился
+elle est née | она родилась
+ils sont montés | они поднялись
+je suis descendu | я спустился`,`
+Elle est née en mai. | Она родилась в мае.
+Nous sommes restés à la maison. | Мы остались дома.
+Ils sont arrivés en retard. | Они пришли с опозданием.
+Ma grand-mère est tombée dans l'escalier. | Моя бабушка упала на лестнице.
+Je suis sorti avec des amis hier soir. | Вчера вечером я гулял с друзьями.`,`
+Elle est ___ à huit heures. | arrivée | arrivé, arrivés | Она приехала в восемь часов.
+Nous ___ partis tôt. | sommes | avons, êtes | Мы уехали рано.
+Ils sont ___ en voiture. | venus | venu, venues | Они приехали на машине.
+Marie est ___ à Lyon. | née | né, nées | Мари родилась в Лионе.
+Elles sont ___ à la maison. | restées | resté, restés | Они (женщины) остались дома.
+Je ___ tombé dans la rue. | suis | ai, es | Я упал на улице.`),
+
+U('fr-gr-14','Прошедшее: imparfait',`
+**Imparfait** — прошедшее для описаний, фона и привычек. Берём форму nous в настоящем, убираем -ons и добавляем окончания:
+• nous parlons → parl- → je parlais
+▸ je parlais | tu parlais | il parlait | nous parlions | vous parliez | ils parlaient
+Единственное исключение в основе: être → j'étais.
+**Когда imparfait:** погода, возраст, чувства, «раньше обычно…»
+• Il faisait beau. — Была хорошая погода.
+• J'avais dix ans. — Мне было десять лет.
+**Когда passé composé:** одно событие, которое произошло и закончилось.`,`
+je parlais | я говорил (тогда, обычно)
+il faisait | он делал; (о погоде) было
+j'avais | у меня было; мне было (лет)
+nous étions | мы были
+ils habitaient | они жили
+tu voulais | ты хотел
+c'était | это было
+il y avait | там был(о)
+je pouvais | я мог
+on jouait | мы играли`,`
+Quand j'avais dix ans, j'habitais à la campagne. | Когда мне было десять лет, я жил в деревне.
+Il faisait froid ce jour-là. | В тот день было холодно.
+C'était un très bon film. | Это был очень хороший фильм.
+Il y avait beaucoup de monde. | Там было много народу.
+Avant, on jouait au foot tous les jours. | Раньше мы каждый день играли в футбол.`,`
+Quand j'___ petit, j'aimais le chocolat. | étais | ai été, été | Когда я был маленьким, я любил шоколад.
+Ce matin-là, il ___ beau. | faisait | faisais, faisions | В то утро была хорошая погода.
+Avant, nous ___ à Moscou. | habitions | habitons, habitaient | Раньше мы жили в Москве.
+Avant, tu ___ beaucoup. | lisais | lisait, lis | Раньше ты много читал.
+Ils ___ toujours ensemble. | étaient | était, étions | Они всегда были вместе.
+Il y ___ beaucoup de monde. | avait | était, a | Там было много народу.`),
+
+U('fr-gr-15','Будущее: futur simple',`
+**Futur simple** — будущее время. К инфинитиву добавляем окончания (они похожи на avoir):
+▸ je parlerai | tu parleras | il parlera | nous parlerons | vous parlerez | ils parleront
+У глаголов на -re убираем e: prendre → je prendrai.
+**Неправильные основы** (окончания те же):
+• être → ser-, avoir → aur-, aller → ir-, faire → fer-
+• pouvoir → pourr-, vouloir → voudr-, venir → viendr-, voir → verr-
+**Si + настоящее → будущее:** S'il pleut, je resterai à la maison.`,`
+je parlerai | я буду говорить
+tu seras | ты будешь
+il aura | у него будет
+nous irons | мы пойдём
+vous ferez | вы сделаете
+ils pourront | они смогут
+je viendrai | я приду
+on verra | посмотрим
+je prendrai | я возьму
+elle voudra | она захочет`,`
+Demain, il fera beau. | Завтра будет хорошая погода.
+Je viendrai te voir dimanche. | Я приду к тебе в воскресенье.
+S'il pleut, nous resterons à la maison. | Если будет дождь, мы останемся дома.
+On verra demain. | Посмотрим завтра.
+Vous pourrez partir à cinq heures. | Вы сможете уйти в пять.`,`
+Demain, nous ___ à la plage. | irons | allerons, irez | Завтра мы пойдём на пляж.
+Tu ___ content. | seras | sera, seriez | Ты будешь доволен.
+S'il fait beau, je ___ au parc. | marcherai | marcherais, marcheras | Если будет хорошая погода, я пойду гулять в парк.
+Ils ___ venir demain. | pourront | pouvront, pourra | Они смогут прийти завтра.
+J'___ trente ans en mai. | aurai | avrai, aura | В мае мне будет тридцать.
+Vous ___ quoi ce week-end ? | ferez | faisez, fera | Что вы будете делать в выходные?`),
+
+U('fr-gr-16','Условное наклонение: «бы»',`
+**Conditionnel** — это русское «бы». Основа как у будущего + окончания imparfait:
+▸ je voudrais | tu voudrais | il voudrait | nous voudrions | vous voudriez | ils voudraient
+**Когда используют:**
+• Pourriez-vous m'aider ? — вежливая просьба
+• Tu devrais dormir. — совет: тебе стоило бы поспать
+• Si j'avais de l'argent, j'achèterais une maison. — нереальное условие
+Схема: si + imparfait → conditionnel. После si conditionnel не ставят никогда!`,`
+je pourrais | я мог бы
+tu devrais | тебе следовало бы
+il faudrait | нужно было бы
+nous aimerions | мы хотели бы
+vous pourriez | вы могли бы
+ce serait | это было бы
+j'irais | я бы пошёл
+ils feraient | они бы сделали
+j'aurais | у меня было бы
+on pourrait | можно было бы`,`
+Pourriez-vous répéter, s'il vous plaît ? | Не могли бы вы повторить, пожалуйста?
+Tu devrais te reposer. | Тебе стоило бы отдохнуть.
+Si j'avais le temps, j'irais au cinéma. | Если бы у меня было время, я бы пошёл в кино.
+Ce serait super ! | Это было бы супер!
+On pourrait manger ensemble. | Мы могли бы поесть вместе.`,`
+Si j'avais de l'argent, j'___ une maison. | achèterais | achèterai, achetais | Если бы у меня были деньги, я бы купил дом.
+Si j'___ le temps, je viendrais. | avais | aurais, ai | Если бы у меня было время, я бы пришёл.
+Tu ___ voir un médecin. | devrais | devras, devrait | Тебе стоило бы сходить к врачу.
+___-vous m'aider ? | Pourriez | Pourrez, Pourrions | Не могли бы вы мне помочь?
+Ce ___ génial ! | serait | serais, seraient | Это было бы здорово!
+Nous ___ partir plus tôt. | aimerions | aimerons, aimions | Мы хотели бы уйти пораньше.`),
+
+U('fr-gr-17','Subjonctif',`
+**Subjonctif** — наклонение желания, необходимости и эмоций. Ставится после que в выражениях:
+• il faut que — нужно, чтобы
+• je veux que — я хочу, чтобы
+• je suis content que — я рад, что
+• bien que — хотя, pour que — чтобы
+**Как образовать:** форма ils в настоящем без -ent + окончания:
+▸ que je parle | que tu parles | qu'il parle | que nous parlions | que vous parliez | qu'ils parlent
+**Неправильные — выучить:**
+• être → que je sois, avoir → que j'aie
+• faire → que je fasse, aller → que j'aille
+• pouvoir → que je puisse, savoir → que je sache`,`
+que je sois | чтобы я был
+que tu aies | чтобы у тебя был
+qu'il fasse | чтобы он сделал
+que nous allions | чтобы мы пошли
+que vous puissiez | чтобы вы могли
+qu'ils sachent | чтобы они знали
+il faut que | нужно, чтобы
+bien que | хотя
+pour que | чтобы
+je veux que | я хочу, чтобы`,`
+Il faut que tu viennes demain. | Нужно, чтобы ты пришёл завтра.
+Je veux que vous soyez heureux. | Я хочу, чтобы вы были счастливы.
+Bien qu'il soit fatigué, il travaille. | Хотя он устал, он работает.
+Je parle lentement pour que tu comprennes. | Я говорю медленно, чтобы ты понял.
+Je suis content que tu sois là. | Я рад, что ты здесь.`,`
+Il faut que j'___ à la banque. | aille | vais, aller | Мне нужно сходить в банк.
+Je veux que tu ___ heureux. | sois | es, être | Я хочу, чтобы ты был счастлив.
+Bien qu'il ___ froid, on sort. | fasse | fait, faire | Хотя холодно, мы выходим.
+Il faut que vous ___ patience. | ayez | avez, avoir | Вам нужно набраться терпения.
+Je parle fort pour que tout le monde ___ entendre. | puisse | peut, pouvoir | Я говорю громко, чтобы все могли слышать.
+Il faut que nous ___ à l'heure. | arrivions | arrivons, arriver | Нам нужно прийти вовремя.`),
+
+U('fr-gr-18','Повелительное наклонение',`
+**Impératif** — три формы, без местоимения:
+• tu: Parle ! — Говори! (у глаголов на -er конечная s отпадает)
+• nous: Parlons ! — Давайте говорить!
+• vous: Parlez ! — Говорите!
+Неправильные: être → sois, soyons, soyez; avoir → aie, ayons, ayez.
+**С местоимениями:** в утверждении — после глагола через дефис, в отрицании — перед глаголом:
+• Donne-le-moi ! — Дай мне это!
+• Ne me le donne pas ! — Не давай мне это!
+• Lève-toi ! — Вставай!
+• Ne te lève pas ! — Не вставай!`,`
+écoute | слушай
+regardez | смотрите
+allons-y | пойдём!
+viens | иди сюда
+attendez | подождите
+sois sage | будь умницей
+dis-moi | скажи мне
+lève-toi | вставай
+ne t'inquiète pas | не волнуйся
+taisez-vous | замолчите`,`
+Écoute bien, c'est important. | Слушай внимательно, это важно.
+Attendez ici, s'il vous plaît. | Подождите здесь, пожалуйста.
+Allons-y, on est en retard ! | Пойдём, мы опаздываем!
+Dis-moi la vérité. | Скажи мне правду.
+Ne t'inquiète pas, tout va bien. | Не волнуйся, всё хорошо.`,`
+___ ici, s'il te plaît ! | Viens | Viennes, Venir | Иди сюда, пожалуйста!
+___ attention, c'est chaud ! | Fais | Fait, Faire | Осторожно, горячо!
+___-toi, il est sept heures ! | Lève | Lèves, Lever | Вставай, уже семь часов!
+___ patients, s'il vous plaît. | Soyez | Êtes, Sois | Будьте терпеливы, пожалуйста.
+Ne ___ pas, c'est facile ! | t'inquiète | inquiète-toi, t'inquiètes | Не волнуйся, это легко!`),
+
+U('fr-gr-19','Который: qui, que, où, dont',`
+**Относительные местоимения** связывают два предложения в одно:
+• l'homme qui parle — человек, который говорит (qui = подлежащее)
+• l'homme que je vois — человек, которого я вижу (que = дополнение)
+• la ville où j'habite — город, где я живу (où = место или время)
+• le livre dont je parle — книга, о которой я говорю (dont = вместо de)
+**Подсказка:** после qui сразу идёт глагол, после que — подлежащее.
+**ce qui / ce que** — «то, что»: Je ne comprends pas ce que tu dis.`,`
+l'homme qui parle | человек, который говорит
+la femme que je connais | женщина, которую я знаю
+la ville où j'habite | город, где я живу
+le livre dont je parle | книга, о которой я говорю
+le jour où | день, когда
+ce qui | то, что (подлежащее)
+ce que | то, что (дополнение)
+dont | о котором; чей
+lequel | который (с предлогом)
+celui qui | тот, кто`,`
+C'est le collègue qui travaille avec moi. | Это коллега, который работает со мной.
+Le film que j'ai vu était super. | Фильм, который я видел, был отличный.
+C'est la ville où j'habite. | Это город, где я живу.
+Voici le livre dont je t'ai parlé. | Вот книга, о которой я тебе говорил.
+Je ne comprends pas ce que tu dis. | Я не понимаю, что ты говоришь.`,`
+C'est l'ami ___ habite à Lyon. | qui | que, dont | Это друг, который живёт в Лионе.
+C'est la voiture ___ j'ai achetée. | que | qui, où | Это машина, которую я купил.
+C'est le restaurant ___ on a mangé. | où | que, qui | Это ресторан, где мы ели.
+C'est le projet ___ je suis fier. | dont | que, où | Это проект, которым я горжусь.
+Dis-moi ___ tu veux. | ce que | ce qui, qui | Скажи мне, что ты хочешь.
+___ m'intéresse, c'est l'histoire. | Ce qui | Ce que, Que | Что меня интересует — это история.`),
+
+U('fr-gr-20','Мой, твой, этот',`
+**Притяжательные** согласуются с предметом, а не с владельцем:
+• mon / ma / mes — мой, моя, мои
+• ton / ta / tes — твой
+• son / sa / ses — его И её: sa voiture — его или её машина
+• notre / nos — наш, votre / vos — ваш, leur / leurs — их
+Перед гласной ma, ta, sa → mon, ton, son: mon amie, son école.
+**Указательные** — этот, эта, эти:
+• ce livre — эта книга (м. р.)
+• cet homme — этот мужчина (м. р. перед гласной или h)
+• cette maison — этот дом (ж. р.)
+• ces livres — эти книги (мн. ч.)`,`
+notre | наш, наша
+nos | наши
+votre | ваш, ваша
+vos | ваши
+leurs | их (много предметов)
+son | его, её (м. р.)
+sa | его, её (ж. р.)
+ce | этот
+cet | этот (перед гласной)
+cette | эта`,`
+Notre appartement est petit. | Наша квартира маленькая.
+Paul aime sa voiture. | Поль любит свою машину.
+Cet homme est mon voisin. | Этот мужчина — мой сосед.
+Cette semaine, je travaille la nuit. | На этой неделе я работаю ночью.
+Les enfants jouent avec leurs amis. | Дети играют со своими друзьями.`,`
+Marie cherche ___ sac. | son | sa, ses | Мари ищет свою сумку.
+Paul aime ___ femme. | sa | son, ses | Поль любит свою жену.
+___ ami est très drôle. | Cet | Ce, Cette | Этот друг очень смешной.
+J'aime ___ chanson. | cette | ce, cet | Мне нравится эта песня.
+Ce sont ___ enfants. | nos | notre, nous | Это наши дети.
+___ amie s'appelle Léa. | Mon | Ma, Mes | Мою подругу зовут Леа.`),
+
+U('fr-gr-21','Как составлять слова',`
+**Словообразование** помогает понимать тысячи слов, не заучивая каждое отдельно.
+**Суффиксы:**
+• -tion — действие: organiser → l'organisation
+• -ment — наречие (женский род + ment): lente → lentement, douce → doucement
+• -ant / -ent → -amment / -emment: prudent → prudemment
+• -eur / -euse — кто делает: vendre → le vendeur, la vendeuse
+• -able — то, что можно сделать: laver → lavable
+**Приставки:**
+• re- — снова: faire → refaire, venir → revenir
+• in- / im- — не: utile → inutile, possible → impossible
+• dé- — обратное действие: faire → défaire`,`
+lentement | медленно
+heureusement | к счастью
+rapidement | быстро
+le vendeur | продавец
+la vendeuse | продавщица
+l'organisation | организация
+impossible | невозможный
+inutile | бесполезный
+refaire | переделать
+revenir | вернуться`,`
+Parlez plus lentement, s'il vous plaît. | Говорите медленнее, пожалуйста.
+Heureusement, il n'a pas plu. | К счастью, дождя не было.
+La vendeuse est très gentille. | Продавщица очень любезная.
+C'est impossible ! | Это невозможно!
+Je dois refaire ce travail. | Мне нужно переделать эту работу.`,`
+Il conduit très ___. | prudemment | prudentement, prudent | Он водит очень осторожно.
+Elle parle ___. | doucement | doucment, douce | Она говорит тихо.
+Le ___ de voitures est sympa. | vendeur | vendeuse, venteur | Продавец машин симпатичный.
+Cette tâche est ___. | impossible | inpossible, dépossible | Это задание невыполнимо.
+Je vais ___ demain. | revenir | devenir, envenir | Я вернусь завтра.
+C'est une bonne ___. | organisation | organisement, organiseur | Это хорошая организация.`)
+];
 const COURSES = {
  de: { name:'Немецкий', short:'DE', voice:'de-DE', inLang:'по-немецки', keys:['ä','ö','ü','ß','Ä','Ö','Ü'],
    levels:[{id:'A2',units:DE_A2},{id:'B1',units:DE_B1},{id:'B2',units:DE_B2},{id:'C1',units:DE_C1},{id:'PRO',units:DE_PRO}] },
- fr: { name:'Французский', short:'FR', voice:'fr-FR', inLang:'по-французски', keys:['é','è','ê','à','ç','ù','û','ô','î','ë','œ'],
-   levels:[{id:'A1',units:FR_A1},{id:'A2',units:FR_A2},{id:'B1',units:FR_B1},{id:'PRO',units:FR_PRO}] }
+ fr: { name:'Французский', short:'FR', voice:'fr-FR', inLang:'по-французски', keys:['é','è','ê','à','ç','ù','û','ô','î','ë','ï','œ'],
+   levels:[{id:'PH',units:FR_PH},{id:'GR',units:FR_GR},{id:'A1',units:FR_A1},{id:'A2',units:FR_A2},{id:'B1',units:FR_B1},{id:'PRO',units:FR_PRO}] },
+ en: { name:'Английский', short:'EN', voice:'en-US', inLang:'по-английски', keys:[], levels:[] }
 };
-const LV = { A1:'Начальный уровень', A2:'Элементарный уровень', B1:'Средний уровень', B2:'Выше среднего', C1:'Продвинутый уровень', PRO:'Рабочая лексика' };
-const LVSUB = { PRO:'склад, производство, охрана труда, офис, договор' };
+/* ---------- vocabulary decks: "слово | перевод" ---------- */
+const D = (id, title, w) => ({ id, title, w: P(w), s: [], g: [], rule: '', deck: true });
+
+const DECKS = { de: [
+D('de-v1','Главные глаголы',`
+sein | быть
+haben | иметь
+machen | делать
+gehen | идти
+kommen | приходить
+sehen | видеть
+wissen | знать (факт)
+kennen | знать (быть знакомым)
+denken | думать
+wollen | хотеть
+brauchen | нуждаться
+nehmen | брать
+geben | давать
+bekommen | получать
+sagen | сказать
+fragen | спрашивать
+antworten | отвечать
+arbeiten | работать
+wohnen | жить, проживать
+kaufen | покупать
+helfen | помогать
+warten | ждать
+versuchen | пытаться
+finden | находить`),
+D('de-v2','Люди и семья',`
+die Mutter | мать
+der Vater | отец
+die Eltern | родители (мн. ч.)
+der Bruder | брат
+die Schwester | сестра
+der Sohn | сын
+die Tochter | дочь
+der Mann | мужчина, муж
+die Frau | женщина, жена
+das Kind | ребёнок
+die Kinder | дети (мн. ч.)
+die Großmutter | бабушка
+der Großvater | дедушка
+der Onkel | дядя
+die Tante | тётя
+der Cousin | двоюродный брат
+der Freund | друг
+die Freundin | подруга
+der Nachbar | сосед
+die Nachbarin | соседка
+der Junge | мальчик
+das Mädchen | девочка
+die Ehe | брак
+die Familie | семья`),
+D('de-v3','Дом и мебель',`
+das Haus | дом
+die Wohnung | квартира
+das Zimmer | комната
+die Küche | кухня
+das Bad | ванная
+das Schlafzimmer | спальня
+das Wohnzimmer | гостиная
+die Tür | дверь
+das Fenster | окно
+der Boden | пол
+die Wand | стена
+das Dach | крыша
+der Tisch | стол
+der Stuhl | стул
+das Bett | кровать
+das Sofa | диван
+der Schrank | шкаф
+die Lampe | лампа
+der Schlüssel | ключ
+die Treppe | лестница
+der Garten | сад
+der Balkon | балкон
+die Heizung | отопление
+der Kühlschrank | холодильник`),
+D('de-v4','Еда и напитки',`
+das Brot | хлеб
+die Butter | сливочное масло
+der Käse | сыр
+das Ei | яйцо
+die Milch | молоко
+das Wasser | вода
+der Kaffee | кофе
+der Tee | чай
+der Saft | сок
+das Hähnchen | курица
+der Fisch | рыба
+der Reis | рис
+das Gemüse | овощи
+das Obst | фрукты
+der Apfel | яблоко
+der Zucker | сахар
+das Salz | соль
+die Nudeln | макароны (мн. ч.)
+das Bier | пиво
+der Wein | вино
+die Wurst | колбаса
+der Kuchen | пирог, торт
+hungrig | голодный
+durstig | испытывающий жажду`),
+D('de-v5','Город и транспорт',`
+die Straße | улица
+die Stadt | город
+die Haltestelle | остановка
+der Flughafen | аэропорт
+der Zug | поезд
+der Bus | автобус
+das Auto | машина
+das Fahrrad | велосипед
+die U-Bahn | метро
+die Brücke | мост
+die Ecke | угол
+links | налево
+rechts | направо
+geradeaus | прямо
+in der Nähe | рядом
+weit | далеко
+der Stadtplan | карта города
+der Parkplatz | парковка
+die Kreuzung | перекрёсток
+die Ampel | светофор
+der Stau | пробка
+das Rathaus | ратуша
+die Kirche | церковь
+der Markt | рынок`),
+D('de-v6','Тело и здоровье',`
+der Kopf | голова
+das Gesicht | лицо
+das Auge | глаз
+das Ohr | ухо
+die Nase | нос
+der Mund | рот
+der Zahn | зуб
+der Hals | шея, горло
+die Schulter | плечо
+der Arm | рука
+die Hand | кисть руки
+der Finger | палец
+der Rücken | спина
+der Bauch | живот
+das Bein | нога
+der Fuß | ступня
+das Knie | колено
+das Herz | сердце
+das Fieber | жар, температура
+die Schmerzen | боли (мн. ч.)
+die Tablette | таблетка
+gesund | здоровый
+müde | уставший
+das Blut | кровь`),
+D('de-v7','Время и даты',`
+der Tag | день
+die Woche | неделя
+der Monat | месяц
+das Jahr | год
+heute | сегодня
+morgen | завтра
+gestern | вчера
+der Morgen | утро
+der Nachmittag | вторая половина дня
+der Abend | вечер
+die Nacht | ночь
+die Stunde | час
+die Minute | минута
+immer | всегда
+nie | никогда
+oft | часто
+manchmal | иногда
+meistens | обычно
+bald | скоро
+jetzt | сейчас
+der Montag | понедельник
+der Freitag | пятница
+der Sonntag | воскресенье
+das Datum | дата`),
+D('de-v8','Природа',`
+der Wald | лес
+der Fluss | река
+der See | озеро
+das Meer | море
+der Berg | гора
+das Feld | поле
+der Baum | дерево
+die Blume | цветок
+das Gras | трава
+der Himmel | небо
+der Stern | звезда
+der Mond | луна
+die Wolke | облако
+das Gewitter | гроза
+der Nebel | туман
+heiß | жаркий
+nass | мокрый
+trocken | сухой
+der Frühling | весна
+der Herbst | осень
+das Tier | животное
+der Vogel | птица
+der Hund | собака
+die Katze | кошка`),
+D('de-v9','Характер и настроение',`
+glücklich | счастливый
+traurig | грустный
+wütend | злой, рассерженный
+nervös | нервный
+gelassen | спокойный, невозмутимый
+ängstlich | боязливый
+überrascht | удивлённый
+gelangweilt | скучающий
+besorgt | обеспокоенный
+freundlich | дружелюбный
+nett | милый, приятный
+lustig | весёлый
+schüchtern | застенчивый
+faul | ленивый
+fleißig | прилежный
+ehrlich | честный
+geduldig | терпеливый
+höflich | вежливый
+unhöflich | невежливый
+klug | умный
+mutig | смелый
+streng | строгий
+einsam | одинокий
+neugierig | любопытный`),
+D('de-v10','Частые прилагательные',`
+groß | большой
+klein | маленький
+neu | новый
+alt | старый
+gut | хороший
+schlecht | плохой
+leicht | лёгкий
+schwer | тяжёлый, трудный
+schnell | быстрый
+langsam | медленный
+anders | другой, иначе
+gleich | одинаковый
+frei | свободный
+beschäftigt | занятый
+fertig | готовый
+voll | полный
+leer | пустой
+sauber | чистый
+schmutzig | грязный
+richtig | правильный
+falsch | неправильный
+lang | длинный
+kurz | короткий
+billig | дешёвый`),
+D('de-v11','Одежда',`
+die Kleidung | одежда
+das Hemd | рубашка
+das T-Shirt | футболка
+die Hose | брюки
+die Jeans | джинсы
+das Kleid | платье
+der Rock | юбка
+die Jacke | куртка
+der Mantel | пальто
+der Pullover | свитер
+die Schuhe | обувь (мн. ч.)
+die Stiefel | сапоги (мн. ч.)
+die Socken | носки (мн. ч.)
+der Hut | шляпа
+die Mütze | шапка
+die Handschuhe | перчатки (мн. ч.)
+der Schal | шарф
+der Gürtel | ремень
+die Tasche | сумка; карман
+tragen | носить
+anziehen | надевать
+ausziehen | снимать (одежду)
+die Größe | размер
+bequem | удобный`),
+D('de-v12','Хобби и спорт',`
+der Fußball | футбол
+schwimmen | плавать
+laufen | бегать
+das Fitnessstudio | спортзал
+das Spiel | игра
+spielen | играть
+die Musik | музыка
+die Gitarre | гитара
+singen | петь
+tanzen | танцевать
+das Buch | книга
+lesen | читать
+der Film | фильм
+das Kino | кино
+fotografieren | фотографировать
+der Spaziergang | прогулка
+angeln | ловить рыбу
+das Hobby | хобби
+die Mannschaft | команда (спорт)
+gewinnen | выигрывать
+verlieren | проигрывать
+das Training | тренировка
+Rad fahren | кататься на велосипеде
+das Konzert | концерт`),
+D('de-v13','Глаголы действия',`
+öffnen | открывать
+schließen | закрывать
+beginnen | начинать
+beenden | заканчивать
+halten | держать, останавливаться
+bringen | приносить
+legen | класть
+stellen | ставить
+suchen | искать
+vergessen | забывать
+sich erinnern | вспоминать
+lernen | учить, учиться
+lehren | преподавать
+verstehen | понимать
+erklären | объяснять
+rufen | звать
+treffen | встречать
+verlassen | покидать
+ankommen | прибывать
+schlafen | спать
+aufwachen | просыпаться
+sitzen | сидеть
+stehen | стоять
+umziehen | переезжать
+benutzen | пользоваться`),
+D('de-v14','Полезные фразы',`
+Wie geht es Ihnen? | Как у вас дела?
+Freut mich! | Очень приятно!
+Vielen Dank! | Большое спасибо!
+Gern geschehen. | Не за что.
+Entschuldigung! | Извините!
+Es tut mir leid. | Мне жаль.
+Ich verstehe das nicht. | Я этого не понимаю.
+Wie bitte? | Простите, что?
+Können Sie mir helfen? | Можете мне помочь?
+Wo ist die Toilette? | Где туалет?
+Was kostet das? | Сколько это стоит?
+Wie spät ist es? | Который час?
+Bis später! | До скорого!
+Schönen Tag noch! | Хорошего дня!
+Kein Problem. | Без проблем.
+Natürlich. | Конечно.
+Einverstanden. | Согласен.
+Ich bin mir nicht sicher. | Я не уверен.
+Los geht's! | Поехали!
+Viel Glück! | Удачи!
+Pass auf dich auf! | Береги себя!
+Was meinst du? | Что ты имеешь в виду?
+Sprechen Sie bitte langsamer. | Говорите, пожалуйста, медленнее.
+Das macht nichts. | Ничего страшного.`),
+D('de-v15','Числа и количество',`
+eins | один
+zwei | два
+drei | три
+vier | четыре
+fünf | пять
+sechs | шесть
+sieben | семь
+acht | восемь
+neun | девять
+zehn | десять
+elf | одиннадцать
+zwölf | двенадцать
+zwanzig | двадцать
+dreißig | тридцать
+fünfzig | пятьдесят
+hundert | сто
+tausend | тысяча
+die Hälfte | половина
+erste | первый
+zweite | второй
+dritte | третий
+viel | много
+wenig | мало
+genug | достаточно`)
+],
+
+fr: [
+D('fr-v1','Главные глаголы',`
+être | быть
+avoir | иметь
+faire | делать
+aller | идти, ехать
+venir | приходить
+voir | видеть
+savoir | знать, уметь
+connaître | знать (быть знакомым)
+penser | думать
+vouloir | хотеть
+pouvoir | мочь
+devoir | быть должным
+prendre | брать
+donner | давать
+dire | сказать
+demander | спросить
+parler | говорить
+aimer | любить
+habiter | жить, проживать
+trouver | находить
+mettre | класть, надевать
+partir | уезжать
+sortir | выходить
+payer | платить`),
+D('fr-v2','Люди и семья',`
+le grand-père | дедушка
+la grand-mère | бабушка
+l'oncle | дядя
+la tante | тётя
+le cousin | двоюродный брат
+la cousine | двоюродная сестра
+les parents | родители
+le fils | сын
+le neveu | племянник
+la nièce | племянница
+le copain | приятель
+la copine | подруга
+le bébé | младенец
+l'adulte | взрослый
+le monsieur | господин
+la dame | дама
+les gens | люди
+le couple | пара
+le mariage | свадьба, брак
+la belle-mère | свекровь, тёща
+le beau-frère | шурин, деверь
+célibataire | холостой
+marié | женатый
+l'époux | супруг`),
+D('fr-v3','Дом и мебель',`
+le mur | стена
+le toit | крыша
+le sol | пол
+le plafond | потолок
+l'escalier | лестница
+le placard | шкаф (встроенный)
+l'armoire | шкаф для одежды
+le canapé | диван
+le fauteuil | кресло
+le miroir | зеркало
+le réfrigérateur | холодильник
+le four | духовка
+la douche | душ
+le balcon | балкон
+le garage | гараж
+le tapis | ковёр
+les rideaux | шторы
+l'oreiller | подушка
+la couverture | одеяло
+le lavabo | раковина
+la machine à laver | стиральная машина
+le grenier | чердак
+la cave | подвал
+le déménagement | переезд`),
+D('fr-v4','Еда и напитки',`
+le beurre | сливочное масло
+l'œuf | яйцо
+le poulet | курица
+le jambon | ветчина
+la soupe | суп
+la salade | салат
+les pâtes | макароны
+la tomate | помидор
+la carotte | морковь
+la pomme de terre | картофель
+l'ail | чеснок
+le poivre | перец
+l'huile | растительное масло
+la farine | мука
+le miel | мёд
+la fraise | клубника
+la banane | банан
+le citron | лимон
+la bière | пиво
+le jus | сок
+le yaourt | йогурт
+la tarte | пирог
+le repas | еда, приём пищи
+avoir faim | быть голодным
+avoir soif | хотеть пить`),
+D('fr-v5','Город',`
+la ville | город
+le centre-ville | центр города
+la place | площадь
+l'église | церковь
+la mairie | мэрия
+le marché | рынок
+la banque | банк
+la poste | почта
+la librairie | книжный магазин
+le restaurant | ресторан
+le parking | парковка
+le feu rouge | светофор
+le carrefour | перекрёсток
+le trottoir | тротуар
+le coin | угол
+le bâtiment | здание
+la station-service | заправка
+le commissariat | полицейский участок
+la piscine | бассейн
+le stade | стадион
+le château | замок
+le plan | план, карта
+la boutique | магазинчик
+le bruit | шум
+la circulation | движение транспорта`),
+D('fr-v6','Тело и здоровье',`
+le corps | тело
+le visage | лицо
+les cheveux | волосы
+la bouche | рот
+la dent | зуб
+l'oreille | ухо
+le cou | шея
+l'épaule | плечо
+le bras | рука
+le doigt | палец
+la jambe | нога
+le pied | ступня
+le genou | колено
+la peau | кожа
+le sang | кровь
+les poumons | лёгкие
+l'estomac | желудок
+la douleur | боль
+la toux | кашель
+le rhume | простуда
+la blessure | рана, травма
+l'infirmière | медсестра
+la santé | здоровье
+en forme | в форме
+enrhumé | простуженный`),
+D('fr-v7','Время',`
+le jour | день
+la nuit | ночь
+la journée | день (продолжительность)
+l'année | год
+le siècle | век
+maintenant | сейчас
+tôt | рано
+tard | поздно
+toujours | всегда
+parfois | иногда
+rarement | редко
+d'abord | сначала
+ensuite | затем
+enfin | наконец
+tout de suite | сразу
+longtemps | долго
+avant-hier | позавчера
+après-demain | послезавтра
+la veille | накануне
+le lendemain | на следующий день
+midi | полдень
+minuit | полночь
+le quart | четверть
+le printemps | весна
+l'automne | осень`),
+D('fr-v8','Природа и животные',`
+le ciel | небо
+l'étoile | звезда
+la lune | луна
+le nuage | облако
+l'orage | гроза
+le brouillard | туман
+la côte | побережье
+l'île | остров
+la colline | холм
+la vallée | долина
+le champ | поле
+l'herbe | трава
+la feuille | лист
+la plante | растение
+l'animal | животное
+le chien | собака
+la vache | корова
+le cochon | свинья
+le mouton | овца
+le loup | волк
+l'ours | медведь
+le renard | лиса
+le papillon | бабочка
+la mouche | муха
+la nature | природа
+le paysage | пейзаж`),
+D('fr-v9','Характер и настроение',`
+sympa | симпатичный
+méchant | злой
+intelligent | умный
+bête | глупый
+paresseux | ленивый
+travailleur | трудолюбивый
+honnête | честный
+poli | вежливый
+impoli | невежливый
+patient | терпеливый
+calme | спокойный
+nerveux | нервный
+curieux | любопытный
+généreux | щедрый
+avare | жадный
+courageux | смелый
+amusant | забавный
+ennuyeux | скучный
+strict | строгий
+aimable | любезный
+jaloux | ревнивый
+seul | одинокий
+déçu | разочарованный
+surpris | удивлённый
+stressé | в стрессе`),
+D('fr-v10','Частые прилагательные',`
+facile | лёгкий, простой
+difficile | трудный
+rapide | быстрый
+lent | медленный
+important | важный
+différent | другой, разный
+même | тот же самый
+libre | свободный
+pressé | спешащий
+prêt | готовый
+vide | пустой
+lourd | тяжёлый
+léger | лёгкий (по весу)
+propre | чистый
+sale | грязный
+vrai | правдивый, настоящий
+faux | ложный
+long | длинный
+court | короткий
+haut | высокий
+bas | низкий
+chaud | горячий, тёплый
+froid | холодный
+gratuit | бесплатный
+moderne | современный`),
+D('fr-v11','Одежда',`
+les vêtements | одежда
+le t-shirt | футболка
+le pull | свитер
+la jupe | юбка
+la robe | платье
+le manteau | пальто
+le jean | джинсы
+les chaussettes | носки
+les bottes | сапоги
+le chapeau | шляпа
+la casquette | кепка
+l'écharpe | шарф
+la ceinture | ремень
+la poche | карман
+le sac à main | сумочка
+la taille | размер
+essayer | примерять
+enlever | снимать
+à la mode | модный
+confortable | удобный
+le costume | костюм
+la cravate | галстук
+le pyjama | пижама
+les lunettes | очки`),
+D('fr-v12','Хобби и спорт',`
+le football | футбол
+courir | бегать
+la natation | плавание
+faire du vélo | кататься на велосипеде
+danser | танцевать
+chanter | петь
+dessiner | рисовать
+la peinture | живопись
+la lecture | чтение
+la série | сериал
+le concert | концерт
+la photographie | фотография (занятие)
+la pêche | рыбалка
+le jardinage | садоводство
+les échecs | шахматы
+le match | матч
+gagner | выигрывать
+perdre | проигрывать
+le joueur | игрок
+l'entraînement | тренировка
+la salle de sport | спортзал
+le ski | лыжи
+la course | бег, забег
+le loisir | досуг
+jouer aux cartes | играть в карты`),
+D('fr-v13','Глаголы действия',`
+ouvrir | открывать
+fermer | закрывать
+commencer | начинать
+finir | заканчивать
+arrêter | останавливать
+apporter | приносить
+poser | класть, ставить
+oublier | забывать
+comprendre | понимать
+expliquer | объяснять
+rencontrer | встречать
+quitter | покидать
+arriver | прибывать
+dormir | спать
+s'asseoir | садиться
+rester | оставаться
+tomber | падать
+monter | подниматься
+descendre | спускаться
+utiliser | использовать
+tenter | пробовать
+recevoir | получать
+montrer | показывать
+changer | менять`),
+D('fr-v14','Полезные фразы',`
+Comment ça va ? | Как дела?
+Enchanté ! | Очень приятно!
+Merci beaucoup ! | Большое спасибо!
+De rien. | Не за что.
+Pardon ! | Простите!
+Je suis désolé. | Мне жаль.
+Je ne comprends pas. | Я не понимаю.
+Pouvez-vous m'aider ? | Можете мне помочь?
+C'est combien ? | Сколько это стоит?
+À plus tard ! | До скорого!
+Bonne journée ! | Хорошего дня!
+Pas de problème. | Без проблем.
+Bien sûr. | Конечно.
+Je suis d'accord. | Я согласен.
+Je ne suis pas sûr. | Я не уверен.
+On y va ! | Пошли!
+Bonne chance ! | Удачи!
+Prends soin de toi ! | Береги себя!
+Qu'est-ce que tu veux dire ? | Что ты имеешь в виду?
+Parlez plus lentement. | Говорите медленнее.
+Ce n'est pas grave. | Ничего страшного.
+Bon appétit ! | Приятного аппетита!
+Volontiers ! | С удовольствием!
+À demain ! | До завтра!`),
+D('fr-v15','Числа и количество',`
+six | шесть
+sept | семь
+huit | восемь
+neuf | девять
+onze | одиннадцать
+douze | двенадцать
+treize | тринадцать
+quinze | пятнадцать
+seize | шестнадцать
+trente | тридцать
+quarante | сорок
+cinquante | пятьдесят
+soixante | шестьдесят
+soixante-dix | семьдесят
+quatre-vingts | восемьдесят
+quatre-vingt-dix | девяносто
+cent | сто
+mille | тысяча
+la moitié | половина
+premier | первый
+deuxième | второй
+beaucoup | много
+peu | мало
+assez | достаточно`)
+],
+
+en: [
+D('en-1','Главные глаголы',`
+to be | быть
+to have | иметь
+to do | делать
+to go | идти, ехать
+to come | приходить
+to see | видеть
+to know | знать
+to think | думать
+to want | хотеть
+to need | нуждаться
+to make | делать, создавать
+to take | брать
+to give | давать
+to get | получать
+to say | сказать
+to tell | рассказывать
+to ask | спрашивать
+to work | работать
+to live | жить
+to buy | покупать
+to pay | платить
+to help | помогать
+to wait | ждать
+to try | пытаться`),
+D('en-2','Люди и семья',`
+mother | мать
+father | отец
+parents | родители
+brother | брат
+sister | сестра
+son | сын
+daughter | дочь
+husband | муж
+wife | жена
+child | ребёнок
+children | дети
+grandmother | бабушка
+grandfather | дедушка
+uncle | дядя
+aunt | тётя
+cousin | двоюродный брат, сестра
+friend | друг
+neighbour | сосед
+colleague | коллега
+boss | начальник
+man | мужчина
+woman | женщина
+boy | мальчик
+girl | девочка`),
+D('en-3','Дом',`
+house | дом
+flat | квартира
+room | комната
+kitchen | кухня
+bathroom | ванная
+bedroom | спальня
+living room | гостиная
+door | дверь
+window | окно
+floor | пол; этаж
+wall | стена
+roof | крыша
+table | стол
+chair | стул
+bed | кровать
+sofa | диван
+wardrobe | шкаф для одежды
+lamp | лампа
+key | ключ
+stairs | лестница
+garden | сад
+rent | аренда
+landlord | арендодатель
+heating | отопление`),
+D('en-4','Еда и напитки',`
+bread | хлеб
+butter | сливочное масло
+cheese | сыр
+egg | яйцо
+milk | молоко
+water | вода
+coffee | кофе
+tea | чай
+juice | сок
+meat | мясо
+chicken | курица
+fish | рыба
+rice | рис
+potato | картофель
+vegetables | овощи
+fruit | фрукты
+apple | яблоко
+sugar | сахар
+salt | соль
+breakfast | завтрак
+lunch | обед
+dinner | ужин
+tasty | вкусный
+hungry | голодный`),
+D('en-5','Работа',`
+job | работа, должность
+work | работа
+shift | смена
+break | перерыв
+salary | зарплата
+contract | договор
+manager | менеджер
+team | команда
+meeting | встреча, совещание
+task | задача
+deadline | крайний срок
+overtime | сверхурочные
+experience | опыт
+skill | навык
+interview | собеседование
+to apply | подавать заявку
+to hire | нанимать
+to quit | уволиться
+warehouse | склад
+factory | завод
+machine | машина, станок
+safety | безопасность
+training | обучение
+customer | клиент`),
+D('en-6','Город и транспорт',`
+street | улица
+city | город
+station | вокзал, станция
+bus stop | автобусная остановка
+airport | аэропорт
+train | поезд
+bus | автобус
+car | машина
+bike | велосипед
+ticket | билет
+platform | платформа
+delay | задержка
+traffic | движение, пробки
+bridge | мост
+corner | угол
+left | налево
+right | направо
+straight on | прямо
+near | рядом
+far | далеко
+map | карта
+parking | парковка
+crossroads | перекрёсток
+pharmacy | аптека`),
+D('en-7','Путешествия',`
+trip | поездка
+holiday | отпуск
+passport | паспорт
+luggage | багаж
+suitcase | чемодан
+hotel | отель
+booking | бронирование
+flight | рейс
+to land | приземляться
+to take off | взлетать
+beach | пляж
+sea | море
+mountain | гора
+sightseeing | осмотр достопримечательностей
+guide | гид
+museum | музей
+souvenir | сувенир
+abroad | за границей
+border | граница
+currency | валюта
+to book | бронировать
+departure | отправление
+arrival | прибытие
+backpack | рюкзак`),
+D('en-8','Покупки и деньги',`
+shop | магазин
+price | цена
+cheap | дешёвый
+expensive | дорогой
+discount | скидка
+receipt | чек
+cash | наличные
+card | карта
+change | сдача
+bag | сумка, пакет
+size | размер
+to try on | примерять
+to return | возвращать
+bill | счёт к оплате
+bank | банк
+account | банковский счёт
+to save | копить, экономить
+to spend | тратить
+money | деньги
+coin | монета
+wallet | кошелёк
+sale | распродажа
+customer service | служба поддержки
+delivery | доставка`),
+D('en-9','Тело и здоровье',`
+head | голова
+face | лицо
+eye | глаз
+ear | ухо
+nose | нос
+mouth | рот
+tooth | зуб
+neck | шея
+shoulder | плечо
+arm | рука
+hand | кисть руки
+finger | палец
+back | спина
+stomach | живот
+leg | нога
+foot | ступня
+knee | колено
+heart | сердце
+doctor | врач
+medicine | лекарство
+pain | боль
+fever | жар
+a cold | простуда
+healthy | здоровый`),
+D('en-10','Время',`
+day | день
+week | неделя
+month | месяц
+year | год
+today | сегодня
+tomorrow | завтра
+yesterday | вчера
+morning | утро
+afternoon | день (после обеда)
+evening | вечер
+night | ночь
+hour | час
+minute | минута
+early | рано
+late | поздно
+always | всегда
+never | никогда
+often | часто
+sometimes | иногда
+usually | обычно
+soon | скоро
+now | сейчас
+weekend | выходные
+calendar | календарь`),
+D('en-11','Погода и природа',`
+weather | погода
+sun | солнце
+rain | дождь
+snow | снег
+wind | ветер
+cloud | облако
+storm | гроза
+warm | тёплый
+hot | жаркий
+chilly | прохладный
+wet | мокрый
+dry | сухой
+forest | лес
+river | река
+lake | озеро
+field | поле
+tree | дерево
+flower | цветок
+grass | трава
+sky | небо
+star | звезда
+moon | луна
+animal | животное
+bird | птица`),
+D('en-12','Характер и настроение',`
+happy | счастливый
+sad | грустный
+angry | злой
+tired | уставший
+bored | скучающий
+worried | обеспокоенный
+scared | испуганный
+proud | гордый
+surprised | удивлённый
+nervous | нервный
+calm | спокойный
+kind | добрый
+friendly | дружелюбный
+funny | смешной
+shy | застенчивый
+lazy | ленивый
+honest | честный
+patient | терпеливый
+polite | вежливый
+rude | грубый
+clever | умный
+brave | смелый
+strict | строгий
+lonely | одинокий`),
+D('en-13','Частые прилагательные',`
+big | большой
+small | маленький
+new | новый
+old | старый
+good | хороший
+bad | плохой
+easy | лёгкий
+difficult | трудный
+fast | быстрый
+slow | медленный
+important | важный
+different | разный
+same | тот же самый
+free | свободный; бесплатный
+busy | занятой
+ready | готовый
+full | полный
+empty | пустой
+clean | чистый
+dirty | грязный
+correct | правильный
+wrong | неправильный
+long | длинный
+short | короткий`),
+D('en-14','Одежда',`
+clothes | одежда
+shirt | рубашка
+T-shirt | футболка
+trousers | брюки
+jeans | джинсы
+dress | платье
+skirt | юбка
+jacket | куртка
+coat | пальто
+sweater | свитер
+shoes | обувь
+boots | ботинки, сапоги
+socks | носки
+hat | шляпа
+cap | кепка
+gloves | перчатки
+scarf | шарф
+belt | ремень
+pocket | карман
+to wear | носить
+to put on | надевать
+to get dressed | одеваться
+uniform | униформа
+comfortable | удобный`),
+D('en-15','Офис и технологии',`
+computer | компьютер
+laptop | ноутбук
+phone | телефон
+screen | экран
+keyboard | клавиатура
+email | электронное письмо
+attachment | вложение
+password | пароль
+file | файл
+folder | папка
+printer | принтер
+to print | печатать
+to send | отправлять
+to download | скачивать
+to update | обновлять
+app | приложение
+website | сайт
+internet | интернет
+battery | батарея
+charger | зарядка
+meeting room | переговорная
+desk | рабочий стол
+report | отчёт
+schedule | расписание`),
+D('en-16','Хобби и спорт',`
+football | футбол
+to swim | плавать
+to run | бегать
+gym | спортзал
+game | игра
+to play | играть
+music | музыка
+guitar | гитара
+to sing | петь
+to dance | танцевать
+book | книга
+to read | читать
+film | фильм
+cinema | кино
+to cook | готовить
+photo | фотография
+walk | прогулка
+hiking | поход
+fishing | рыбалка
+match | матч
+to win | выигрывать
+to lose | проигрывать
+team sport | командный спорт
+hobby | хобби`),
+D('en-17','Глаголы действия',`
+to open | открывать
+to close | закрывать
+to start | начинать
+to finish | заканчивать
+to stop | останавливать(ся)
+to bring | приносить
+to carry | нести
+to put | класть
+to find | находить
+to forget | забывать
+to remember | помнить
+to learn | учить(ся)
+to teach | преподавать
+to understand | понимать
+to explain | объяснять
+to answer | отвечать
+to call | звонить
+to meet | встречать
+to leave | уходить, оставлять
+to arrive | прибывать
+to sleep | спать
+to wake up | просыпаться
+to sit | сидеть
+to stand | стоять
+to move | двигаться; переезжать`),
+D('en-18','Полезные фразы',`
+How are you? | Как дела?
+Nice to meet you. | Приятно познакомиться.
+Thank you very much. | Большое спасибо.
+You're welcome. | Пожалуйста (в ответ на спасибо).
+Excuse me. | Извините.
+I'm sorry. | Мне жаль. / Простите.
+I don't understand. | Я не понимаю.
+Could you repeat that? | Не могли бы вы повторить?
+Can you help me? | Можете мне помочь?
+Where is the toilet? | Где туалет?
+How much is it? | Сколько это стоит?
+I would like a coffee. | Я бы хотел кофе.
+What time is it? | Который час?
+See you later. | Увидимся позже.
+Have a nice day! | Хорошего дня!
+No problem. | Без проблем.
+Of course. | Конечно.
+I agree. | Я согласен.
+I'm not sure. | Я не уверен.
+Let's go! | Пошли!
+Good luck! | Удачи!
+Take care! | Береги себя!
+What do you mean? | Что ты имеешь в виду?
+Speak slowly, please. | Говорите медленно, пожалуйста.`),
+D('en-19','Склад и производство',`
+pallet | паллета
+forklift | погрузчик
+box | коробка
+load | груз
+to load | грузить
+to unload | разгружать
+to stack | укладывать штабелем
+label | этикетка
+delivery note | накладная
+conveyor belt | конвейер
+breakdown | поломка
+maintenance | техобслуживание
+spare part | запчасть
+quality | качество
+batch | партия
+damaged | повреждённый
+shift leader | начальник смены
+protective gloves | защитные перчатки
+safety shoes | защитная обувь
+emergency exit | запасный выход
+accident | несчастный случай
+first aid | первая помощь
+production line | производственная линия
+truck | грузовик`),
+D('en-20','Числа и количество',`
+one | один
+two | два
+three | три
+four | четыре
+five | пять
+six | шесть
+seven | семь
+eight | восемь
+nine | девять
+ten | десять
+eleven | одиннадцать
+twelve | двенадцать
+twenty | двадцать
+thirty | тридцать
+fifty | пятьдесят
+hundred | сто
+thousand | тысяча
+half | половина
+first | первый
+second | второй
+third | третий
+a lot | много
+a few | несколько
+enough | достаточно`)
+]};
+/* ---------- alphabets: [буква, как читается название (для озвучки), по-русски, пример, перевод] ---------- */
+const AL = t => t.trim().split('\n').map(l => l.split('|').map(x => x.trim()));
+const ALPHA = {
+ fr: { intro:'Нажми на букву: прозвучит её название, потом слово с этой буквой.', letters: AL(`
+A | a | [а] | ami | друг
+B | bé | [бэ] | bonjour | здравствуйте
+C | cé | [сэ] | café | кофе
+D | dé | [дэ] | dame | дама
+E | e | [ё] | petit | маленький
+F | effe | [эф] | fleur | цветок
+G | gé | [жэ] | gare | вокзал
+H | hache | [аш] | hôtel | отель
+I | i | [и] | île | остров
+J | ji | [жи] | jour | день
+K | ka | [ка] | kilo | килограмм
+L | elle | [эль] | lune | луна
+M | emme | [эм] | maison | дом
+N | enne | [эн] | nuit | ночь
+O | o | [о] | orange | апельсин
+P | pé | [пэ] | pain | хлеб
+Q | cu | [кю] | quatre | четыре
+R | erre | [эр] | rue | улица
+S | esse | [эс] | soleil | солнце
+T | té | [тэ] | table | стол
+U | u | [ю] | une | одна
+V | vé | [вэ] | vélo | велосипед
+W | double vé | [дубль вэ] | wagon | вагон
+X | ixe | [икс] | taxi | такси
+Y | i grec | [и грэк] | yoga | йога
+Z | zède | [зэд] | zéro | ноль
+É | e accent aigu | [э] закрытое | été | лето
+È | e accent grave | [э] открытое | mère | мать
+Ê | e accent circonflexe | [э] открытое | fête | праздник
+Ç | c cédille | [с] | garçon | мальчик`), combos: AL(`
+ou | ou | [у] | vous | вы
+oi | oi | [уа] | moi | я
+au · eau | eau | [о] | beau | красивый
+ai · ei | ai | [э] | lait | молоко
+eu | eu | [ё] | bleu | синий
+u | u | [ю] | tu | ты
+an · en | an | [ан] носовой | enfant | ребёнок
+on | on | [он] носовой | bon | хороший
+in · ain | in | [эн] носовой | vin | вино
+ch | ch | [ш] | chat | кошка
+gn | gn | [нь] | montagne | горы
+qu | qu | [к] | qui | кто
+ill | ill | [й] | fille | дочь
+h | h | не читается | homme | мужчина
+-er · -ez | er | [э] | parler | говорить`) },
+ de: { intro:'Нажми на букву: прозвучит её название, потом слово с этой буквой.', letters: AL(`
+A | a | [а] | Apfel | яблоко
+B | be | [бэ] | Ball | мяч
+C | zeh | [цэ] | Computer | компьютер
+D | de | [дэ] | Dach | крыша
+E | e | [э] | Esel | осёл
+F | eff | [эф] | Fisch | рыба
+G | ge | [гэ] | Garten | сад
+H | ha | [ха] | Haus | дом
+I | i | [и] | Igel | ёж
+J | jott | [йот] | Jahr | год
+K | ka | [ка] | Katze | кошка
+L | ell | [эль] | Lampe | лампа
+M | emm | [эм] | Mond | луна
+N | enn | [эн] | Nase | нос
+O | o | [о] | Ofen | печь
+P | pe | [пэ] | Post | почта
+Q | ku | [ку] | Quark | творог
+R | er | [эр] | Rose | роза
+S | ess | [эс] | Sonne | солнце
+T | te | [тэ] | Tisch | стол
+U | u | [у] | Uhr | часы
+V | fau | [фау] | Vogel | птица
+W | we | [вэ] | Wasser | вода
+X | ix | [икс] | Taxi | такси
+Y | üpsilon | [юпсилон] | Yoga | йога
+Z | zett | [цэт] | Zug | поезд
+Ä | ä | [э] | Käse | сыр
+Ö | ö | [ё] | schön | красивый
+Ü | ü | [ю] | Tür | дверь
+ß | eszett | [эс-цэт] | Straße | улица`), combos: AL(`
+ch | ach | [х] после a, o, u | Buch | книга
+ch | ich | [хь] после e, i | ich | я
+sch | sch | [ш] | Schule | школа
+ei | ei | [ай] | Eis | мороженое
+ie | ie | [и:] долгое | Liebe | любовь
+eu · äu | eu | [ой] | heute | сегодня
+sp- | sp | [шп] в начале | Sport | спорт
+st- | st | [шт] в начале | Stadt | город
+z | zett | [ц] | Zeit | время
+v | fau | [ф] | Vater | отец
+w | we | [в] | Wein | вино
+s + гласная | s | [з] | Sofa | диван
+-er | er | [а] в конце | Lehrer | учитель
+h после гласной | h | гласная долгая | Sohn | сын`) },
+ en: { intro:'Нажми на букву: прозвучит её название, потом слово с этой буквой.', letters: AL(`
+A | A | [эй] | apple | яблоко
+B | B | [би] | book | книга
+C | C | [си] | cat | кошка
+D | D | [ди] | dog | собака
+E | E | [и] | egg | яйцо
+F | F | [эф] | fish | рыба
+G | G | [джи] | girl | девочка
+H | H | [эйч] | house | дом
+I | I | [ай] | ice | лёд
+J | J | [джей] | job | работа
+K | K | [кей] | key | ключ
+L | L | [эл] | lion | лев
+M | M | [эм] | milk | молоко
+N | N | [эн] | name | имя
+O | O | [оу] | orange | апельсин
+P | P | [пи] | pen | ручка
+Q | Q | [кью] | queen | королева
+R | R | [ар] | red | красный
+S | S | [эс] | sun | солнце
+T | T | [ти] | tree | дерево
+U | U | [ю] | umbrella | зонт
+V | V | [ви] | van | фургон
+W | W | [дабл ю] | water | вода
+X | X | [экс] | box | коробка
+Y | Y | [уай] | yes | да
+Z | Z | [зи] | zero | ноль`), combos: AL(`
+th | th | [θ] / [ð] — язык между зубами | think | думать
+th | this | [ð] звонкий | this | это
+sh | sh | [ш] | shop | магазин
+ch | ch | [ч] | chair | стул
+ee | ee | [и:] долгое | tree | дерево
+ea | ea | [и:] | tea | чай
+oo | oo | [у:] | food | еда
+ou | ou | [ау] | house | дом
+igh | igh | [ай] | night | ночь
+ay | ay | [эй] | day | день
+-tion | tion | [шн] | station | станция
+wh | wh | [в] | what | что
+ph | ph | [ф] | phone | телефон
+kn | kn | k не читается | knife | нож`) }
+};
+const LV = { PH:'Произношение и письмо', GR:'Грамматика шаг за шагом', A1:'Начальный уровень', A2:'Элементарный уровень', B1:'Средний уровень', B2:'Выше среднего', C1:'Продвинутый уровень', PRO:'Рабочая лексика' };
+const LVSUB = { PRO:'склад, производство, охрана труда, офис, договор', PH:'как читать и писать: буквы, звуки, акценты', GR:'артикли, все времена, местоимения, словообразование' };
+const LVCHIP = { PRO:'Работа', PH:'Звуки', GR:'Грамматика' };
 const STOPS = ['Правило и первые слова','Новые слова','Фразы и итог'];
 const STOPSUB = ['теория · 5 слов · 10 заданий','5 слов · 10 заданий','2 фразы · 10 заданий'];
 
@@ -2173,12 +4484,13 @@ for (const lang in COURSES){ ENTRY[lang] = {}; UNITS[lang] = [];
   for (const lv of COURSES[lang].levels) for (const u of lv.units){ u.level = lv.id; UNITS[lang].push(u);
     u.w.forEach(e => ENTRY[lang][e[0]] = { e, kind:'w', u });
     u.s.forEach(e => ENTRY[lang][e[0]] = { e, kind:'s', u });
-    u.g.forEach(e => ENTRY[lang]['g:'+e[0]] = { e, kind:'g', u }); } }
+    u.g.forEach(e => ENTRY[lang]['g:'+e[0]] = { e, kind:'g', u }); }
+  for (const d of (DECKS[lang] || [])) d.w.forEach(e => { if (!ENTRY[lang][e[0]]) ENTRY[lang][e[0]] = { e, kind:'w', u:d }; }); }
 
 /* ---------- state ---------- */
 const KEY = 'polyglot-de-fr-v1';
-const DEF = { lang:'de', tab:'path', goal:20, reminds:['09:00','16:00','21:00'], sound:true, sfx:true, prog:{de:{},fr:{}}, xp:{},
-  streak:{n:0,last:null}, miss:{de:{},fr:{}}, srs:{de:{},fr:{}}, total:0, lessons:0, filter:{de:'all',fr:'all'}, dailyDone:{} };
+const DEF = { lang:'de', tab:'path', goal:20, reminds:['09:00','16:00','21:00'], sound:true, sfx:true, prog:{de:{},fr:{},en:{}}, xp:{},
+  streak:{n:0,last:null}, miss:{de:{},fr:{},en:{}}, srs:{de:{},fr:{},en:{}}, total:0, lessons:0, filter:{de:'all',fr:'all',en:'all'}, dailyDone:{} };
 let S = JSON.parse(JSON.stringify(DEF));
 try { const r = localStorage.getItem(KEY); if (r) S = Object.assign(S, JSON.parse(r)); } catch(e){}
 delete S.hearts; delete S.hAt; delete S.remind;
@@ -2207,7 +4519,7 @@ const sample = (a,n) => shuffle(a).slice(0,n);
 const pickOne = a => a[Math.random()*a.length|0];
 const norm = s => s.toLowerCase().replace(/[’`]/g,"'").replace(/[.,!?;:«»"]/g,'').replace(/\s+/g,' ').trim();
 const flat = s => norm(s).normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/ß/g,'ss').replace(/œ/g,'oe');
-const stripArt = s => s.replace(/^(der|die|das|le|la|les|un|une)\s+/i,'').replace(/^l'/i,'');
+const stripArt = s => s.replace(/^(der|die|das|le|la|les|un|une|to|the|a|an)\s+/i,'').replace(/^l'/i,'');
 const tokens = s => s.replace(/[.,!?;:«»]/g,'').split(/\s+/).filter(Boolean);
 const C = () => COURSES[S.lang];
 const done = u => S.prog[S.lang][u.id] || 0;
@@ -2216,7 +4528,9 @@ const bold = s => esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');
 
 /* German noun gender → colored article */
 const GNAME = { m:'мужской род', f:'женский род', n:'средний род', pl:'множественное число' };
-function gender(e){ if (S.lang !== 'de') return null; const m = e[0].match(/^(der|die|das) /); if (!m) return null;
+function gender(e){
+  if (S.lang === 'fr'){ const m = e[0].match(/^(le|la|les) /); return m ? { le:'m', la:'f', les:'pl' }[m[1]] : null; }
+  if (S.lang !== 'de') return null; const m = e[0].match(/^(der|die|das) /); if (!m) return null;
   if (/мн\. ч\./.test(e[1])) return 'pl'; return { der:'m', die:'f', das:'n' }[m[1]]; }
 function wordHTML(e){ const g = gender(e); if (!g) return esc(e[0]);
   const i = e[0].indexOf(' '); return `<span class="art g-${g}">${esc(e[0].slice(0,i))}</span> ${esc(e[0].slice(i+1))}`; }
@@ -2232,6 +4546,8 @@ const ICON = {
  rep:'<svg class="i" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.7-5.6M20 12a8 8 0 0 1-13.7 5.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M18.5 2.5v4.6h-4.6zM5.5 21.5v-4.6h4.6z"/></svg>',
  user:'<svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0z"/></svg>',
  bell:'<svg class="i" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0-6 6v4l-2 3h16l-2-3V9a6 6 0 0 0-6-6zM9.5 19a2.5 2.5 0 0 0 5 0z"/></svg>',
+ cards:'<svg class="i" viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="15" rx="2.5"/><path d="M8 3h10.5A2.5 2.5 0 0 1 21 5.5V17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>',
+ abc:'<svg class="i" viewBox="0 0 24 24"><path d="M2.5 18 7 6h1.6l4.5 12h-2.2l-1.1-3.1H5.8L4.7 18zm4-5h3.2L8.1 8.4zM14.5 18V6h4.1c2.3 0 3.6 1 3.6 2.9 0 1.1-.6 2-1.6 2.4 1.3.3 2.1 1.3 2.1 2.6 0 2.1-1.5 3.1-3.9 3.1zm2.1-7.1h1.8c1.1 0 1.7-.5 1.7-1.4s-.6-1.4-1.7-1.4h-1.8zm0 5.2h2.1c1.2 0 1.9-.5 1.9-1.6s-.7-1.6-1.9-1.6h-2.1z"/></svg>',
  book:'<svg class="i" viewBox="0 0 24 24"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v16H6.5A2.5 2.5 0 0 0 4 20.5zM4 20.5A2.5 2.5 0 0 0 6.5 23H20v-3"/></svg>'
 };
 
@@ -2242,6 +4558,9 @@ function say(text, slow){ if (!canSpeak) return; try{
   speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(speakable(text)); u.lang = C().voice; u.rate = slow ? .6 : .9;
   const v = speechSynthesis.getVoices().find(v => v.lang && v.lang.replace('_','-').startsWith(C().voice.slice(0,2)));
   if (v) u.voice = v; speechSynthesis.speak(u); } catch(e){} }
+function sayQueue(list){ if (!canSpeak) return; try { speechSynthesis.cancel();
+  const v = speechSynthesis.getVoices().find(v => v.lang && v.lang.replace('_','-').startsWith(C().voice.slice(0,2)));
+  list.forEach(([t, rate]) => { const u = new SpeechSynthesisUtterance(t); u.lang = C().voice; u.rate = rate || .85; if (v) u.voice = v; speechSynthesis.speak(u); }); } catch(e){} }
 
 /* ---------- sound effects (synthesized, no files) ---------- */
 let AC = null;
@@ -2267,22 +4586,27 @@ function ruleHTML(u){
   const flush = () => { if (para.length){ h += `<p>${para.map(bold).join('<br>')}</p>`; para = []; } };
   for (const line of u.rule.split('\n')){
     const t = line.trim(); if (!t) { flush(); continue; }
-    if (t.startsWith('•')){ flush();
+    if (t.startsWith('▸')){ flush();
+      const cells = t.slice(1).split('|');
+      h += `<div class="conj" style="grid-template-rows:repeat(${Math.ceil(cells.length/2)},auto)">${cells.map(x => x.trim()).map(x => `<button data-say="${esc(x)}">${esc(x)}</button>`).join('')}</div>`;
+    } else if (t.startsWith('•')){ flush();
       const body = t.slice(1).trim(), i = body.indexOf(' — ');
       const tgt = i > 0 ? body.slice(0,i) : body, tr = i > 0 ? body.slice(i+3) : '';
-      h += `<div class="rex"><button class="say sm" data-say="${esc(tgt)}" aria-label="Произнести">${ICON.say}</button><div><b>${bold(tgt)}</b>${tr ? `<span>${bold(tr)}</span>` : ''}</div></div>`;
+      const cyr = !tr && /[А-Яа-яЁё]/.test(tgt);
+      h += `<div class="rex">${cyr ? '<span class="rdot"></span>' : `<button class="say sm" data-say="${esc(tgt)}" aria-label="Произнести">${ICON.say}</button>`}<div><b>${bold(tgt)}</b>${tr ? `<span>${bold(tr)}</span>` : ''}</div></div>`;
     } else { flush(); para.push(t); flush(); }
   }
   flush(); return `<div class="rule">${h}</div>`;
 }
 
 /* ---------- home rendering ---------- */
-function applyLang(){ document.documentElement.classList.toggle('fr', S.lang === 'fr'); }
+function applyLang(){ const r = document.documentElement.classList; r.toggle('fr', S.lang === 'fr'); r.toggle('en', S.lang === 'en'); }
+const hasPath = (lang=S.lang) => COURSES[lang].levels.length > 0;
 function renderTop(){
   const st = streakNow();
   $('#top').innerHTML = `
    <div class="seg" role="group" aria-label="Язык">
-     ${['de','fr'].map(l => `<button data-act="lang" data-v="${l}" aria-pressed="${S.lang===l}"><b>${COURSES[l].short}</b>${COURSES[l].name}</button>`).join('')}
+     ${['de','fr','en'].map(l => `<button data-act="lang" data-v="${l}" aria-pressed="${S.lang===l}"><b>${COURSES[l].short}</b><span>${COURSES[l].name}</span></button>`).join('')}
    </div>
    <div class="stats">
      <span class="stat fire ${st?'':'off'}" title="Серия дней">${ICON.fire}${st}</span>
@@ -2290,8 +4614,8 @@ function renderTop(){
    </div>`;
 }
 function renderTabs(){
-  const t = [['path','Путь',ICON.path],['review','Повторение',ICON.rep],['profile','Профиль',ICON.user]];
-  $('#tabs').innerHTML = `<div class="in">${t.map(([k,n,i]) => `<button data-act="tab" data-v="${k}" ${S.tab===k?'aria-current="page"':''}>${i}${n}</button>`).join('')}</div>`;
+  const t = [...(hasPath() ? [['path','Путь',ICON.path]] : []), ['words','Слова',ICON.cards], ['review','Повторение',ICON.rep], ['profile','Профиль',ICON.user]];
+  $('#tabs').innerHTML = `<div class="in" style="grid-template-columns:repeat(${t.length},1fr)">${t.map(([k,n,i]) => `<button data-act="tab" data-v="${k}" ${S.tab===k?'aria-current="page"':''}>${i}${n}</button>`).join('')}</div>`;
 }
 function lastReminder(){ const now = new Date(), m = now.getHours()*60 + now.getMinutes();
   return S.reminds.filter(t => { const [h,mm] = t.split(':').map(Number); return h*60+mm <= m; }).sort().pop(); }
@@ -2317,14 +4641,15 @@ function renderPath(){
   if (f !== 'all' && !c.levels.some(l => l.id === f)) f = S.filter[S.lang] = 'all';
   const levels = c.levels.filter(lv => f === 'all' || lv.id === f);
   let h = goalCard();
-  h += `<div class="filters" role="group" aria-label="Раздел">${[['all','Все темы'], ...c.levels.map(l => [l.id, l.id==='PRO' ? 'Работа' : l.id])].map(([k,n]) =>
+  h += `<div class="filters" role="group" aria-label="Раздел">${[['all','Все темы'], ...c.levels.map(l => [l.id, LVCHIP[l.id] || l.id])].map(([k,n]) =>
     `<button data-act="filter" data-v="${k}" aria-pressed="${f===k}">${n}</button>`).join('')}</div>`;
   const rec = recommended(levels.flatMap(lv => lv.units));
   let line = 0;
   for (const lv of c.levels){
     if (!levels.includes(lv)){ line += lv.units.length; continue; }
     const fin = lv.units.filter(u => done(u) >= 3).length;
-    h += `<section class="level"><div class="lvl-head"><span class="lvl-code">${lv.id}</span><div><b>${LV[lv.id]}</b><small>${LVSUB[lv.id] ? LVSUB[lv.id] + ' · ' : ''}${fin} из ${lv.units.length} тем пройдено</small></div></div>`;
+    h += `<section class="level"><div class="lvl-head"><span class="lvl-code">${{PH:'Aa',GR:'Gr'}[lv.id] || lv.id}</span><div><b>${LV[lv.id]}</b><small>${LVSUB[lv.id] ? LVSUB[lv.id] + ' · ' : ''}${fin} из ${lv.units.length} тем пройдено</small></div></div>`;
+    if (lv.id === 'PH') h += `<button class="abc-card" data-act="abc">${ICON.abc}<span><b>Алфавит и звуки</b><small>Нажми на букву — услышишь, как она звучит</small></span></button>`;
     lv.units.forEach(u => {
       line++; const d = done(u);
       h += `<article class="unit"><div class="unit-head"><span class="chip">Тема ${line}</span><h3>${esc(u.title)}</h3>
@@ -2344,6 +4669,24 @@ function renderPath(){
   }
   $('#main').innerHTML = h;
 }
+function deckStat(d){ const n = d.w.filter(e => known(e[0])).length; return { n, total:d.w.length }; }
+function renderWords(){
+  const c = C(), decks = DECKS[S.lang] || [];
+  const all = decks.reduce((a,d) => a + d.w.length, 0), kn = decks.reduce((a,d) => a + deckStat(d).n, 0);
+  let h = `<h2 class="h2">Слова · ${c.name.toLowerCase()}</h2>
+   <p class="muted" style="margin:-4px 0 14px">${kn} из ${all} слов изучено. Учи новые слова по темам и проверяй себя — изученные попадают в ежедневное повторение.</p>
+   <button class="abc-card" data-act="abc">${ICON.abc}<span><b>Алфавит и звуки</b><small>Нажми на букву — услышишь, как она звучит</small></span></button>`;
+  if (!hasPath()) h += dailyCard();
+  h += `<div class="decks">`;
+  for (const d of decks){ const st = deckStat(d), left = st.total - st.n;
+    h += `<article class="deck"><div class="deck-head"><h3>${esc(d.title)}</h3><span class="box">${st.n} / ${st.total}</span></div>
+      <div class="bar"><i style="width:${Math.round(st.n/st.total*100)}%"></i></div>
+      <p class="preview">${d.w.slice(0,4).map(x => esc(x[0])).join(' · ')} …</p>
+      <div class="deck-btns"><button class="btn" data-act="deck" data-d="${d.id}" ${left?'':'disabled'}>${left ? 'Учить ' + Math.min(8,left) + ' новых' : 'Все изучены'}</button>
+      <button class="btn ghost" data-act="quiz" data-d="${d.id}">Проверить себя</button></div></article>`; }
+  h += `</div>`;
+  $('#main').innerHTML = h;
+}
 function learnedKeys(){ return Object.keys(S.srs[S.lang]).filter(k => ENTRY[S.lang][k]); }
 function whenText(r){ if (r.due <= dk()) return 'сегодня'; const d = Math.round((new Date(r.due) - new Date(dk()))/86400000);
   return d === 1 ? 'завтра' : `через ${d} ${plural(d,'день','дня','дней')}`; }
@@ -2352,7 +4695,7 @@ function renderReview(){
   const keys = learnedKeys(), due = dueKeys().length;
   let h = `<h2 class="h2">Повторение</h2>`;
   if (!keys.length){
-    h += `<div class="card"><p><b>Пока нечего повторять</b></p><p class="muted">Пройди первый урок на вкладке «Путь» — слова, фразы и правила появятся здесь и начнут возвращаться на повторение.</p></div>`;
+    h += `<div class="card"><p><b>Пока нечего повторять</b></p><p class="muted">Пройди первый урок${hasPath() ? ' на вкладке «Путь» или выучи слова' : ''} на вкладке «Слова» — всё изученное появится здесь и начнёт возвращаться на повторение.</p></div>`;
     $('#main').innerHTML = h; return;
   }
   h += `<div class="card"><p><b>На сегодня: ${due ? due + ' ' + plural(due,'карточка','карточки','карточек') : 'всё повторено'}</b></p>
@@ -2367,6 +4710,7 @@ function renderReview(){
   const words = keys.filter(k => ENTRY[S.lang][k].kind === 'w').sort((a,b) => S.srs[S.lang][a].due.localeCompare(S.srs[S.lang][b].due));
   h += `<h2 class="h2">Мой словарь · ${words.length}</h2>`;
   if (S.lang === 'de') h += `<p class="legend"><span class="art g-m">der</span> мужской <span class="art g-f">die</span> женский <span class="art g-n">das</span> средний</p>`;
+  if (S.lang === 'fr') h += `<p class="legend"><span class="art g-m">le</span> мужской <span class="art g-f">la</span> женский</p>`;
   h += `<div class="list">${words.map(k => { const e = ENTRY[S.lang][k].e;
     return `<div class="row"><button class="say" data-say="${esc(e[0])}" aria-label="Произнести">${ICON.say}</button><div class="w"><b>${wordHTML(e)}</b><span>${trHTML(e[1])}</span></div><span class="box">${whenText(S.srs[S.lang][k])}</span></div>`; }).join('')}</div>`;
   $('#main').innerHTML = h;
@@ -2375,7 +4719,7 @@ function renderProfile(){
   const days = ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'];
   const week = [...Array(7)].map((_,i) => { const d = new Date(); d.setDate(d.getDate()-6+i); return { n:days[d.getDay()], x:S.xp[dk(d)]||0 }; });
   const max = Math.max(S.goal, ...week.map(w => w.x));
-  const words = ['de','fr'].reduce((a,l) => a + Object.keys(S.srs[l]).filter(k => ENTRY[l][k] && ENTRY[l][k].kind==='w').length, 0);
+  const words = ['de','fr','en'].reduce((a,l) => a + Object.keys(S.srs[l]).filter(k => ENTRY[l][k] && ENTRY[l][k].kind==='w').length, 0);
   let h = `<h2 class="h2">Профиль</h2>
    <div class="tiles"><div class="tile"><b style="color:var(--gold)">${streakNow()}</b><span>дней подряд</span></div>
    <div class="tile"><b>${S.total}</b><span>всего XP</span></div><div class="tile"><b>${words}</b><span>слов изучено</span></div></div>
@@ -2395,8 +4739,9 @@ function renderProfile(){
    <button class="danger" data-act="reset">Сбросить весь прогресс</button>`;
   $('#main').innerHTML = h;
 }
-function render(){ applyLang(); renderTop(); renderTabs();
-  ({path:renderPath, review:renderReview, profile:renderProfile})[S.tab](); }
+function render(){ if (S.tab === 'path' && !hasPath()) S.tab = 'words';
+  applyLang(); renderTop(); renderTabs();
+  ({path:renderPath, words:renderWords, review:renderReview, profile:renderProfile})[S.tab] (); }
 
 /* ---------- sheets ---------- */
 function sheet(title, html, buttons){
@@ -2430,9 +4775,20 @@ function buildLesson(u, li){
     ...L(W[2]), ...L(W[3]), ...L(W[4]), mk.match(W.slice(0,5)), mk.gap(G[0]), mk.listen(W[2],W), mk.type(W[3]), mk.pick(W[4],W), mk.build(Sx[0],Sx), mk.gap(G[1])];
   if (li === 1) return [...L(W[5]), ...L(W[6]), mk.pick(W[5],W), mk.rev(W[6],W),
     ...L(W[7]), ...L(W[8]), ...L(W[9]), mk.match(W.slice(5)), mk.gap(G[2]), mk.listen(W[7],W), mk.type(W[8]), mk.pick(W[9],W), mk.build(Sx[1],Sx), mk.build(Sx[2],Sx)];
-  const ws = shuffle(W), gs = shuffle(G);
+  const ws = shuffle(W), gs = G.length > 3 ? shuffle(G.slice(3)).concat(sample(G.slice(0,3),1)) : shuffle(G).slice(0,2);
   return [...LS(Sx[3]), mk.build(Sx[3],Sx), ...LS(Sx[4]), mk.build(Sx[4],Sx), mk.match(ws.slice(0,5)), mk.gap(gs[0]),
-    mk.type(ws[5]), mk.listen(ws[6],W), mk.rev(ws[7],W), mk.build(pickOne(Sx.slice(0,3)),Sx), mk.gap(gs[1]), mk.pick(ws[8],W)];
+    mk.type(ws[5]), mk.listen(ws[6],W), mk.rev(ws[7],W), mk.build(pickOne(Sx.slice(0,3)),Sx), ...gs.slice(1).map(mk.gap), mk.pick(ws[8],W)];
+}
+function buildDeck(d){
+  const nw = d.w.filter(e => !known(e[0])).slice(0,8), pool = d.w, q = [];
+  for (let i=0; i<nw.length; i+=2){ const a = nw[i], b = nw[i+1];
+    q.push(mk.learn(a,d,'w')); if (b) q.push(mk.learn(b,d,'w')); q.push(mk.pick(a,pool)); if (b) q.push(mk.rev(b,pool)); }
+  if (nw.length >= 3) q.push(mk.match(nw.slice(0,5)));
+  sample(nw, Math.min(3, nw.length)).forEach((e,i) => q.push([mk.type, mk.listen, mk.type][i](e,pool)));
+  return q;
+}
+function buildQuiz(d){
+  return sample(d.w, Math.min(15, d.w.length)).map((e,i) => [mk.pick, mk.rev, mk.type, mk.listen][i%4](e, d.w));
 }
 function buildReview(kind){
   const lang = S.lang; let keys;
@@ -2454,7 +4810,7 @@ function buildReview(kind){
 /* ---------- lesson engine ---------- */
 let L = null;
 const PRAISE = ['Отлично!','Верно!','Так держать!','Супер!','Точно!','Здорово!'];
-const MODE = { daily:'Повторение дня', miss:'Работа над ошибками', free:'Тренировка' };
+const MODE = { daily:'Повторение дня', miss:'Работа над ошибками', free:'Тренировка', deck:'Новые слова', quiz:'Проверь себя' };
 function startLesson(uid, li){
   const u = UNITS[S.lang].find(x => x.id === uid);
   L = { mode:'lesson', u, li, q:buildLesson(u, li), done:0, err:0, wrong:new Set(), t0:Date.now() }; L.total = L.q.length;
@@ -2464,6 +4820,11 @@ function startReview(kind){
   const q = buildReview(kind); if (!q.length) return;
   L = { mode:kind, q, done:0, err:0, wrong:new Set(), t0:Date.now(), total:q.length, graded:q.length,
         items:q.reduce((n,e) => n + (e.t==='match' ? e.list.length : 1), 0) }; openLesson();
+}
+function startDeck(id, quiz){
+  const d = DECKS[S.lang].find(x => x.id === id); const q = quiz ? buildQuiz(d) : buildDeck(d); if (!q.length) return;
+  L = { mode: quiz ? 'quiz' : 'deck', deck:d, q, done:0, err:0, wrong:new Set(), t0:Date.now(), total:q.length };
+  L.graded = q.filter(x => x.t !== 'learn').length; L.items = q.reduce((n,e) => n + (e.t==='match' ? e.list.length : e.t==='learn' ? 0 : 1), 0); openLesson();
 }
 function openLesson(){ $('#lesson').hidden = false; document.body.classList.add('noscroll'); drawEx(); }
 function closeLesson(){ $('#lesson').hidden = true; document.body.classList.remove('noscroll'); L = null; render(); window.scrollTo(0,0); }
@@ -2558,7 +4919,7 @@ function check(){
   if (ok){ SFX.ok(); onRight(e.k); if (S.sound && e.t !== 'rev') setTimeout(() => say(e.e[0]), 450); }
   else { SFX.bad(); onWrong(e.k); }
   save(); L.state = 'shown'; L.ok = ok;
-  const u = unitOf(e);
+  const u0 = unitOf(e), u = u0 && u0.rule ? u0 : null;
   const f = $('#foot'); f.className = 'l-foot ' + (ok ? 'ok' : 'bad');
   f.innerHTML = `<div class="wrap"><div class="fb" role="status"><b>${ok ? PRAISE[Math.random()*PRAISE.length|0] : 'Неправильно'}</b>
     <span>${ok ? esc(note || show) : 'Правильно: ' + esc(show)}</span>
@@ -2601,11 +4962,13 @@ function finish(){
   const acc = Math.round(L.graded / (L.graded + L.err) * 100), sec = Math.round((Date.now()-L.t0)/1000);
   const goalHit = before < S.goal && S.xp[dk()] >= S.goal;
   const due = dueKeys().length;
-  const msg = goalHit ? 'Дневная цель выполнена! Можно продолжать дальше.' : newDay ? `Серия: ${S.streak.n} ${plural(S.streak.n,'день','дня','дней')} подряд.`
+  const score = L.graded - [...L.wrong].length;
+  const msg = L.mode==='quiz' ? (score === L.graded ? 'Все ответы верные с первого раза!' : `Ошибки (${L.wrong.size}) вернутся в повторении.`)
+    : goalHit ? 'Дневная цель выполнена! Можно продолжать дальше.' : newDay ? `Серия: ${S.streak.n} ${plural(S.streak.n,'день','дня','дней')} подряд.`
     : L.mode==='lesson' && due ? `На сегодня ещё ${due} ${plural(due,'карточка','карточки','карточек')} в повторении.` : 'Продолжай в том же духе.';
   $('#lesson').innerHTML = `<div class="l-body"><div class="wrap center">
-    <div class="label">${L.mode==='lesson' ? esc(L.u.title) + ' · ' + STOPS[L.li] : MODE[L.mode]}</div>
-    <h2>${L.mode==='lesson' ? (perfect ? 'Урок без единой ошибки' : 'Урок пройден') : 'Повторение окончено'}</h2>
+    <div class="label">${L.mode==='lesson' ? esc(L.u.title) + ' · ' + STOPS[L.li] : L.deck ? esc(L.deck.title) + ' · ' + MODE[L.mode] : MODE[L.mode]}</div>
+    <h2>${L.mode==='lesson' ? (perfect ? 'Урок без единой ошибки' : 'Урок пройден') : L.mode==='quiz' ? `Знаешь ${score} из ${L.graded}` : L.mode==='deck' ? 'Новые слова выучены' : 'Повторение окончено'}</h2>
     <p>${msg}</p>
     <div class="tiles"><div class="tile"><b style="color:var(--acc)">+${xp}</b><span>XP</span></div><div class="tile"><b>${acc}%</b><span>точность</span></div><div class="tile"><b>${Math.floor(sec/60)}:${String(sec%60).padStart(2,'0')}</b><span>время</span></div></div>
   </div></div><div class="l-foot"><div class="wrap" style="display:grid;gap:12px">
@@ -2622,10 +4985,12 @@ document.addEventListener('click', ev => {
   else if (a==='filter'){ S.filter[S.lang] = v; save(); render(); }
   else if (a==='start'){ startLesson(t.dataset.u, +t.dataset.li); }
   else if (a==='daily' || a==='miss' || a==='free'){ startReview(a); }
+  else if (a==='deck' || a==='quiz'){ startDeck(t.dataset.d, a==='quiz'); }
+  else if (a==='abc'){ openAlpha(); }
   else if (a==='goal'){ S.goal = +v; save(); render(); }
   else if (a==='sound'){ S.sound = !S.sound; save(); t.setAttribute('aria-checked', S.sound); }
   else if (a==='sfx'){ S.sfx = !S.sfx; save(); t.setAttribute('aria-checked', S.sfx); SFX.ok(); }
-  else if (a==='reset'){ sheet('Сбросить прогресс?', '<p>Удалятся пройденные уроки, XP, серия, ошибки и расписание повторений по обоим языкам. Отменить это нельзя.</p>',
+  else if (a==='reset'){ sheet('Сбросить прогресс?', '<p>Удалятся пройденные уроки, изученные слова, XP, серия, ошибки и расписание повторений по всем языкам. Отменить это нельзя.</p>',
       [{label:'Сбросить', fn:() => { const k = {lang:S.lang, goal:S.goal, reminds:S.reminds, sound:S.sound, sfx:S.sfx}; S = Object.assign(JSON.parse(JSON.stringify(DEF)), k); save(); render(); }},{label:'Отмена', ghost:true}]); }
 });
 document.addEventListener('change', ev => { const el = ev.target;
@@ -2635,6 +5000,9 @@ $('#lesson').addEventListener('click', ev => {
   const a = t.dataset.l;
   if (a==='close'){ closeLesson(); return; }
   if (a==='todaily'){ closeLesson(); startReview('daily'); return; }
+  if (a==='abc'){ const A = ALPHA[S.lang], it = A[t.dataset.k][+t.dataset.i];
+    t.classList.add('on'); setTimeout(() => t.classList.remove('on'), 900);
+    sayQueue(t.dataset.k === 'letters' ? [[it[1], .8], [it[3], .85]] : [[it[3], .8], [it[3], .55]]); return; }
   if (!L) return;
   if (a==='quit'){ sheet('Выйти?', '<p>Прогресс этого урока не сохранится, но ответы уже попали в повторение.</p>',
       [{label:'Продолжить'},{label:'Выйти', ghost:true, fn:closeLesson}]); return; }
@@ -2642,7 +5010,7 @@ $('#lesson').addEventListener('click', ev => {
   if (a==='say'){ say(e.e[0]); return; }
   if (a==='slow'){ say(e.e[0], true); return; }
   if (a==='next'){ next(); return; }
-  if (a==='rule'){ const u = unitOf(e); if (u) sheet('Правило · ' + esc(u.title), ruleHTML(u), [{label:'Понятно'}]); return; }
+  if (a==='rule'){ const u = unitOf(e); if (u && u.rule) sheet('Правило · ' + esc(u.title), ruleHTML(u), [{label:'Понятно'}]); return; }
   if (a==='check'){ if (L.state==='ask') check(); return; }
   if (L.state !== 'ask') return;
   if (a==='sel'){ L.sel = t.dataset.v; document.querySelectorAll('.choice').forEach(c => c.setAttribute('aria-pressed', c===t?'true':'false')); setCheck(true);
@@ -2656,6 +5024,20 @@ $('#lesson').addEventListener('click', ev => {
     inp.value = tgt.slice(0, L.hint); setCheck(true); }
   else if (a==='mL' || a==='mR'){ matchTap(a, t.dataset.v, t); }
 });
+function openAlpha(){
+  const A = ALPHA[S.lang], c = C();
+  const tile = (k, it, i) => `<button class="abc-t ${k==='combos'?'combo':''}" data-l="abc" data-k="${k}" data-i="${i}"><b>${esc(it[0])}</b><span>${esc(it[2])}</span><small>${esc(it[3])} — ${esc(it[4])}</small></button>`;
+  $('#lesson').hidden = false; document.body.classList.add('noscroll');
+  $('#lesson').innerHTML = `<div class="wrap l-head"><button class="x" data-l="close" aria-label="Закрыть">${ICON.x}</button><span class="label">Алфавит · ${esc(c.name)}</span></div>
+    <div class="l-body"><div class="wrap" style="display:grid;gap:14px">
+      <p class="muted" style="margin:0">${A.intro} Русские буквы в скобках — примерное звучание.</p>
+      <div class="abc">${A.letters.map((it,i) => tile('letters', it, i)).join('')}</div>
+      <h2 class="h2" style="margin:10px 0 0">Сочетания букв</h2>
+      <p class="muted" style="margin:0">Как читаются буквы вместе. Нажми — услышишь слово-пример обычно и медленно.</p>
+      <div class="abc wide">${A.combos.map((it,i) => tile('combos', it, i)).join('')}</div>
+    </div></div>`;
+  $('#lesson .l-body').scrollTop = 0;
+}
 setInterval(() => { if (!L && S.tab === 'path') renderPath(); }, 5*60000);
 document.addEventListener('visibilitychange', () => { if (!document.hidden && !L) render(); });
 if (canSpeak) try { speechSynthesis.getVoices(); } catch(e){}
