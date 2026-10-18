@@ -3065,7 +3065,7 @@ const COURSES = {
  en: { name:'Английский', short:'EN', voice:'en-US', inLang:'по-английски', keys:[], levels:[] }
 };
 /* ---------- vocabulary decks: "слово | перевод" ---------- */
-const D = (id, title, w) => ({ id, title, w: P(w), s: [], g: [], rule: '', deck: true });
+const D = (id, title, w) => ({ id, title, w: P(w), s: [], g: [], rule: '', deck: true, lv: 'A2' });
 
 const DECKS = { de: [
 D('de-v1','Главные глаголы',`
@@ -4336,6 +4336,2535 @@ a lot | много
 a few | несколько
 enough | достаточно`)
 ]};
+/* ---------- level decks B1–C2 ---------- */
+const DL = (lv, list) => list.map(d => (d.lv = lv, d));
+const DECKS2 = { de: [
+...DL('B1', [
+D('de-b1-v1','Работа и карьера',`
+der Arbeitgeber | работодатель
+der Arbeitnehmer | работник
+die Firma | фирма
+das Unternehmen | предприятие, компания
+der Betrieb | предприятие, производство
+das Gehalt | оклад, зарплата
+die Steuererklärung | налоговая декларация
+die Teilzeit | неполный рабочий день
+die Vollzeit | полный рабочий день
+die Ausbildung | профессиональное обучение
+der Beruf | профессия
+der Kunde | клиент
+der Auftrag | заказ, поручение
+erfolgreich | успешный
+selbstständig | самостоятельный; работающий на себя
+die Arbeitslosigkeit | безработица
+arbeitslos | безработный
+das Praktikum | стажировка, практика
+der Chef | начальник
+die Kollegin | коллега (женщина)
+befördern | повышать в должности
+die Gehaltserhöhung | повышение зарплаты
+der Feiertag | праздничный день
+die Dienstreise | командировка
+verdienen | зарабатывать`),
+D('de-b1-v2','Здоровье и медицина',`
+die Krankenkasse | больничная касса
+die Versichertenkarte | карта медстраховки
+der Hausarzt | семейный врач
+der Facharzt | врач-специалист
+das Krankenhaus | больница
+die Notaufnahme | приёмный покой
+der Notarzt | врач скорой помощи
+der Krankenwagen | скорая помощь (машина)
+die Spritze | укол
+die Behandlung | лечение
+die Verletzung | травма
+die Wunde | рана
+der Verband | повязка
+die Allergie | аллергия
+die Grippe | грипп
+der Durchfall | диарея
+die Übelkeit | тошнота
+schwindlig | испытывающий головокружение
+sich übergeben | рвать (о человеке)
+verschreiben | выписывать (лекарство)
+die Nebenwirkung | побочное действие
+die Operation | операция
+der Zahnarzt | стоматолог
+husten | кашлять
+sich erkälten | простудиться`),
+D('de-b1-v3','Путешествия и транспорт',`
+die Reise | путешествие
+der Reisepass | загранпаспорт
+das Visum | виза
+der Koffer | чемодан
+das Gepäck | багаж
+der Abflug | вылет
+die Ankunft | прибытие
+die Abfahrt | отправление
+der Anschluss | пересадка, стыковка
+die Rückfahrkarte | обратный билет
+der Fahrplan | расписание
+die Autobahn | автобан
+die Tankstelle | заправка
+tanken | заправляться
+der Führerschein | водительские права
+mieten | арендовать
+die Ferienwohnung | квартира для отдыха
+die Sehenswürdigkeit | достопримечательность
+die Grenze | граница
+der Zoll | таможня
+die Rundfahrt | экскурсия (поездка)
+verpassen | опоздать (на транспорт)
+der Strand | пляж
+das Ausland | заграница
+ins Ausland reisen | ездить за границу`),
+D('de-b1-v4','Дом и быт',`
+der Haushalt | домашнее хозяйство
+putzen | убирать
+staubsaugen | пылесосить
+aufräumen | наводить порядок
+waschen | стирать, мыть
+bügeln | гладить
+spülen | мыть посуду
+die Mülltonne | мусорный бак
+der Abfall | отходы
+die Spülmaschine | посудомоечная машина
+die Waschmaschine | стиральная машина
+der Staubsauger | пылесос
+der Herd | плита
+die Mikrowelle | микроволновка
+der Wasserhahn | кран
+die Steckdose | розетка
+die Glühbirne | лампочка
+der Hausmeister | управляющий домом
+der Umzug | переезд
+einrichten | обставлять
+die Möbel | мебель (мн. ч.)
+der Teppich | ковёр
+der Vorhang | занавеска
+gemütlich | уютный
+renovieren | ремонтировать`),
+D('de-b1-v5','Чувства и отношения',`
+die Liebe | любовь
+die Freundschaft | дружба
+der Streit | ссора
+sich streiten | ссориться
+sich versöhnen | мириться
+die Eifersucht | ревность
+eifersüchtig | ревнивый
+die Trennung | расставание
+sich trennen | расставаться
+die Scheidung | развод
+der Partner | партнёр
+verheiratet | женатый, замужем
+ledig | холостой
+verlobt | помолвленный
+die Sehnsucht | тоска
+das Gefühl | чувство
+die Angst | страх
+die Freude | радость
+der Ärger | досада, неприятность
+die Hoffnung | надежда
+sich Sorgen machen | волноваться
+sich kümmern um | заботиться о
+umarmen | обнимать
+küssen | целовать
+die Geduld | терпение`),
+D('de-b1-v6','Образование',`
+die Schule | школа
+die Universität | университет
+das Studium | учёба в вузе
+studieren | учиться в вузе
+der Student | студент
+der Lehrer | учитель
+die Note | оценка
+das Zeugnis | аттестат, табель
+die Hausaufgabe | домашнее задание
+die Klasse | класс
+das Fach | предмет
+die Vorlesung | лекция
+das Seminar | семинар
+die Bibliothek | библиотека
+das Wörterbuch | словарь
+der Abschluss | окончание; диплом
+die Klausur | контрольная работа
+durchfallen | провалиться (на экзамене)
+üben | упражняться
+die Fremdsprache | иностранный язык
+die Grammatik | грамматика
+die Aussprache | произношение
+der Wortschatz | словарный запас
+auswendig lernen | учить наизусть
+die Ferien | каникулы (мн. ч.)`),
+D('de-b1-v7','Покупки и услуги',`
+das Geschäft | магазин
+das Kaufhaus | универмаг
+der Verkäufer | продавец
+die Quittung | квитанция
+die Garantie | гарантия
+reklamieren | предъявлять претензию
+zurückgeben | возвращать (товар)
+die Lieferung | доставка
+bestellen | заказывать
+der Rabatt | скидка
+der Preis | цена
+das Sonderangebot | спецпредложение
+die Öffnungszeiten | часы работы (мн. ч.)
+geöffnet | открыто
+geschlossen | закрыто
+der Friseur | парикмахер
+die Reinigung | химчистка
+die Werkstatt | мастерская, автосервис
+die Reparatur | ремонт
+der Kundendienst | сервисная служба
+anprobieren | примерять
+die Umkleidekabine | примерочная
+bar bezahlen | платить наличными
+das Bargeld | наличные
+die Kreditkarte | кредитная карта`),
+D('de-b1-v8','Природа и животные',`
+die Landschaft | пейзаж
+die Küste | побережье
+die Insel | остров
+das Tal | долина
+der Hügel | холм
+die Wiese | луг
+der Bauernhof | ферма
+die Pflanze | растение
+das Blatt | лист
+die Wurzel | корень
+der Ast | ветка
+die Kuh | корова
+das Pferd | лошадь
+das Schwein | свинья
+das Schaf | овца
+der Wolf | волк
+der Fuchs | лиса
+der Bär | медведь
+das Insekt | насекомое
+die Biene | пчела
+die Überschwemmung | наводнение
+die Hitze | жара
+die Kälte | холод
+der Sturm | буря
+der Sonnenschein | солнечный свет`)
+]),
+...DL('B2', [
+D('de-b2-v1','Общество и политика',`
+die Demokratie | демократия
+die Partei | партия
+der Bürger | гражданин
+das Parlament | парламент
+der Bundestag | бундестаг
+die Bundesregierung | федеральное правительство
+der Abgeordnete | депутат
+die Opposition | оппозиция
+wählen | голосовать, выбирать
+die Wahlbeteiligung | явка на выборах
+das Gesetz | закон
+die Verfassung | конституция
+die Gerechtigkeit | справедливость
+die Freiheit | свобода
+die Gleichheit | равенство
+die Minderheit | меньшинство
+die Mehrheit | большинство
+die Armut | бедность
+der Reichtum | богатство
+die Arbeitslosenquote | уровень безработицы
+die Rente | пенсия
+der Sozialstaat | социальное государство
+die Einwanderung | иммиграция
+die Debatte | дебаты
+die Reform | реформа`),
+D('de-b2-v2','Экономика и финансы',`
+die Wirtschaft | экономика
+die Inflation | инфляция
+die Börse | биржа
+die Aktie | акция
+der Aktionär | акционер
+investieren | инвестировать
+die Investition | инвестиция
+das Vermögen | состояние, имущество
+die Schulden | долги (мн. ч.)
+der Verlust | убыток
+die Bilanz | баланс
+das Budget | бюджет
+die Krise | кризис
+der Konsum | потребление
+der Verbraucher | потребитель
+der Hersteller | производитель
+der Export | экспорт
+der Import | импорт
+der Handel | торговля
+das Darlehen | заём
+die Hypothek | ипотека
+der Dauerauftrag | постоянное поручение (банк)
+die Mehrwertsteuer | НДС
+der Kontoauszug | выписка со счёта
+der Zinssatz | процентная ставка`),
+D('de-b2-v3','Наука и технологии',`
+die Wissenschaft | наука
+der Wissenschaftler | учёный
+die Forschung | научное исследование
+forschen | исследовать
+die Erfindung | изобретение
+erfinden | изобретать
+die Entdeckung | открытие
+entdecken | открывать, обнаруживать
+das Experiment | эксперимент
+das Labor | лаборатория
+die Technik | техника
+die Entwicklung | развитие, разработка
+entwickeln | разрабатывать
+der Fortschritt | прогресс
+die Software | программное обеспечение
+die Festplatte | жёсткий диск
+der Bildschirm | экран
+die Tastatur | клавиатура
+das Netzwerk | сеть
+der Server | сервер
+der Roboter | робот
+die Raumfahrt | космонавтика
+der Satellit | спутник
+die Strahlung | излучение
+die Genetik | генетика`),
+D('de-b2-v4','СМИ и общение',`
+die Medien | СМИ (мн. ч.)
+das Fernsehen | телевидение
+der Rundfunk | радиовещание
+die Zeitschrift | журнал
+der Journalist | журналист
+die Schlagzeile | заголовок
+die Werbung | реклама
+die Anzeige | объявление
+das Interview | интервью
+die Meinungsfreiheit | свобода мнений
+die Zensur | цензура
+veröffentlichen | публиковать
+die Quelle | источник
+die Falschmeldung | ложное сообщение, фейк
+soziale Netzwerke | социальные сети
+der Beitrag | пост, публикация; взнос
+teilen | делиться
+kommentieren | комментировать
+der Empfänger | получатель
+der Absender | отправитель
+die Kommunikation | коммуникация
+das Gespräch | разговор
+die Diskussion | дискуссия
+sich äußern | высказываться
+übertragen | транслировать`),
+D('de-b2-v5','Право и ведомства',`
+das Gericht | суд
+der Richter | судья
+der Anwalt | адвокат
+die Klage | иск
+klagen | подавать в суд
+der Prozess | судебный процесс
+das Urteil | приговор, решение суда
+die Strafe | наказание
+das Bußgeld | штраф (административный)
+die Polizei | полиция
+die Strafanzeige | заявление в полицию
+der Zeuge | свидетель
+der Beweis | доказательство
+schuldig | виновный
+unschuldig | невиновный
+das Recht | право
+das Verbot | запрет
+die Genehmigung | разрешение
+der Antrag | заявление, ходатайство
+einreichen | подавать (документы)
+der Bescheid | официальное решение (уведомление)
+der Widerspruch | возражение, обжалование
+die Unterschrift | подпись
+das Aktenzeichen | номер дела
+die Aufenthaltserlaubnis | вид на жительство`),
+D('de-b2-v6','Культура и искусство',`
+die Kunst | искусство
+der Künstler | художник, артист
+das Gemälde | картина
+die Skulptur | скульптура
+das Museum | музей
+das Theater | театр
+die Oper | опера
+das Orchester | оркестр
+der Dirigent | дирижёр
+die Bühne | сцена
+der Schauspieler | актёр
+die Rolle | роль
+der Roman | роман
+der Schriftsteller | писатель
+das Gedicht | стихотворение
+der Dichter | поэт
+die Literatur | литература
+der Regisseur | режиссёр
+das Drehbuch | сценарий
+die Premiere | премьера
+der Applaus | аплодисменты
+das Werk | произведение; завод
+die Epoche | эпоха
+das Denkmal | памятник
+die Tradition | традиция`),
+D('de-b2-v7','Психология и характер',`
+die Persönlichkeit | личность
+das Selbstbewusstsein | уверенность в себе
+das Verhalten | поведение
+die Einstellung | отношение, установка
+die Motivation | мотивация
+der Stress | стресс
+die Angewohnheit | привычка
+die Erwartung | ожидание
+die Enttäuschung | разочарование
+das Vertrauen | доверие
+ehrgeizig | честолюбивый
+zielstrebig | целеустремлённый
+empfindlich | чувствительный, обидчивый
+selbstsicher | уверенный в себе
+unsicher | неуверенный
+großzügig | щедрый
+geizig | скупой
+hilfsbereit | готовый помочь
+rücksichtsvoll | внимательный к другим
+egoistisch | эгоистичный
+vernünftig | разумный
+launisch | капризный
+ausgeglichen | уравновешенный
+sich beherrschen | сдерживаться
+überfordert | перегруженный`),
+D('de-b2-v8','Глаголы с предлогами',`
+sich beschäftigen mit | заниматься чем-то
+sich auseinandersetzen mit | разбираться с, вникать в
+abhängen von | зависеть от
+sich bemühen | стараться
+beeinflussen | влиять
+bewältigen | справляться
+ermöglichen | делать возможным
+verhindern | предотвращать
+vermeiden | избегать
+erzielen | достигать (результата)
+sich verlassen auf | полагаться на
+sich einsetzen für | выступать за
+zunehmen | увеличиваться
+abnehmen | уменьшаться; худеть
+sich entscheiden | решаться, выбирать
+überlegen | обдумывать
+vorziehen | предпочитать
+feststellen | устанавливать, констатировать
+voraussetzen | предполагать (как условие)
+bestehen aus | состоять из
+sich wenden an | обращаться к
+umgehen mit | обращаться с
+vergleichen | сравнивать
+unterscheiden | различать
+übernehmen | брать на себя`)
+]),
+...DL('C1', [
+D('de-c1-v1','Абстрактные понятия',`
+die Wahrnehmung | восприятие
+die Vorstellung | представление
+der Zusammenhang | взаимосвязь
+der Gegensatz | противоположность
+die Bedeutung | значение
+die Auswirkung | последствие, влияние
+der Umstand | обстоятельство
+der Anlass | повод
+die Absicht | намерение
+die Herausforderung | вызов, трудная задача
+die Grundlage | основа
+die Gewissheit | уверенность, достоверность
+der Zweifel | сомнение
+die Komplexität | сложность
+die Tendenz | тенденция
+das Phänomen | явление
+der Aspekt | аспект
+der Ansatz | подход
+die Wirklichkeit | действительность
+die Ausnahme | исключение
+die Gesamtheit | совокупность
+das Ausmaß | масштаб
+das Verhältnis | соотношение; отношения
+der Wandel | перемены
+die Nachhaltigkeit | устойчивость (экологическая)`),
+D('de-c1-v2','Деловая лексика',`
+die Geschäftsführung | руководство компании
+der Vorstand | правление
+der Aufsichtsrat | наблюдательный совет
+die Tochtergesellschaft | дочерняя компания
+die Fusion | слияние
+die Übernahme | поглощение
+der Marktanteil | доля рынка
+die Zielvorgabe | целевой показатель
+die Kennzahl | ключевой показатель
+die Kalkulation | калькуляция
+der Kostenvoranschlag | смета
+die Ausschreibung | тендер
+der Auftraggeber | заказчик
+der Zulieferer | поставщик
+die Vereinbarung | соглашение
+der Liefertermin | срок поставки
+die Rechnungsstellung | выставление счетов
+die Umstrukturierung | реструктуризация
+der Personalabbau | сокращение персонала
+die Belegschaft | персонал, коллектив
+der Geschäftsbericht | годовой отчёт
+die Haftung | ответственность (юр.)
+verhandeln | вести переговоры
+die Tagesordnung | повестка дня
+die Wirtschaftlichkeit | рентабельность`),
+D('de-c1-v3','Связки для аргументации',`
+folglich | следовательно
+demnach | согласно этому
+infolgedessen | вследствие этого
+dennoch | тем не менее
+allerdings | однако, правда
+hingegen | напротив
+wohingegen | тогда как
+zumal | тем более что
+sofern | при условии, что
+insofern | в той мере
+indem | тем, что (способ)
+sodass | так что
+ohnehin | и так, всё равно
+schließlich | в конце концов
+zudem | кроме того
+überdies | сверх того
+dementsprechend | соответственно
+nichtsdestotrotz | несмотря на это
+im Gegenteil | напротив
+im Grunde | по сути
+in Bezug auf | в отношении
+angesichts | ввиду
+diesbezüglich | в этой связи
+gleichwohl | тем не менее
+mithin | итак, следовательно`),
+D('de-c1-v4','Эмоции и оттенки',`
+die Erleichterung | облегчение
+die Verlegenheit | смущение
+die Scham | стыд
+die Reue | раскаяние
+die Genugtuung | удовлетворение
+die Empörung | возмущение
+die Verzweiflung | отчаяние
+die Gelassenheit | невозмутимость
+die Zuversicht | уверенность в будущем
+die Bewunderung | восхищение
+der Neid | зависть
+die Abneigung | неприязнь
+die Zuneigung | привязанность
+gereizt | раздражённый
+bedrückt | подавленный
+erleichtert | испытывающий облегчение
+verblüfft | ошеломлённый
+gerührt | растроганный
+beschämt | пристыженный
+verunsichert | растерянный
+begeistert | в восторге
+entsetzt | в ужасе
+verärgert | рассерженный
+fassungslos | потрясённый
+wehmütig | грустный, ностальгический`),
+D('de-c1-v5','Медицина',`
+die Diagnose | диагноз
+die Therapie | терапия
+die Vorsorgeuntersuchung | профилактический осмотр
+der Blutdruck | кровяное давление
+der Kreislauf | кровообращение
+das Immunsystem | иммунная система
+die Entzündung | воспаление
+die Infektion | инфекция
+der Erreger | возбудитель
+die Impfung | прививка
+chronisch | хронический
+akut | острый
+die Genesung | выздоровление
+die Reha | реабилитация
+die Narkose | наркоз
+der Eingriff | вмешательство (операция)
+die Überweisung | направление (к врачу); перевод
+die Krankschreibung | больничный лист
+die Beschwerden | жалобы (мн. ч.)
+die Dosis | доза
+der Bandscheibenvorfall | грыжа межпозвоночного диска
+die Prellung | ушиб
+der Bruch | перелом
+die Wirbelsäule | позвоночник
+der Physiotherapeut | физиотерапевт`),
+D('de-c1-v6','Энергия и климат',`
+die Energiewende | энергетический переход
+erneuerbare Energien | возобновляемые источники энергии
+die Windkraft | ветроэнергетика
+die Solaranlage | солнечная установка
+das Kohlekraftwerk | угольная электростанция
+der Atomausstieg | отказ от атомной энергии
+der Treibhauseffekt | парниковый эффект
+die Erderwärmung | глобальное потепление
+der Ausstoß | выброс
+das Kohlendioxid | углекислый газ
+die Emission | эмиссия, выброс
+der Klimawandel | изменение климата
+die Dürre | засуха
+der Meeresspiegel | уровень моря
+das Artensterben | вымирание видов
+die Abholzung | вырубка лесов
+die Verschmutzung | загрязнение
+der Rohstoff | сырьё
+die Ressource | ресурс
+der Verbrauch | потребление
+der Wasserstoff | водород
+die Wärmepumpe | тепловой насос
+die Dämmung | утепление
+recyceln | перерабатывать
+umweltfreundlich | экологичный`),
+D('de-c1-v7','Официальный язык',`
+die Verordnung | постановление
+die Vorschrift | предписание
+die Richtlinie | директива, руководство
+die Bestimmung | положение, норма
+die Zuständigkeit | компетенция
+der Sachbearbeiter | специалист (в ведомстве)
+das Anliegen | вопрос, просьба
+die Bearbeitung | обработка (заявления)
+der Nachweis | подтверждение (документ)
+die Bescheinigung | справка
+beglaubigen | заверять
+die Kopie | копия
+die Vollmacht | доверенность
+der Vordruck | бланк
+ausstellen | выдавать (документ)
+verlängern | продлевать
+gültig | действительный
+ungültig | недействительный
+die Anhörung | слушание
+die Rückfrage | уточняющий вопрос
+unverzüglich | незамедлительно
+gemäß | согласно
+zwecks | с целью
+hiermit | настоящим
+das Amt | ведомство; должность`),
+D('de-c1-v8','Глаголы C1',`
+ansprechen | затрагивать (тему)
+beanspruchen | требовать; занимать (время)
+bewirken | вызывать (эффект)
+erläutern | разъяснять
+hervorheben | подчёркивать
+in Frage stellen | ставить под сомнение
+nachgehen | заниматься (делом); расследовать
+untermauern | подкреплять (аргументами)
+verdeutlichen | пояснять
+vorantreiben | продвигать
+zurückführen auf | объяснять чем-то
+sich abzeichnen | вырисовываться
+abwägen | взвешивать
+einschätzen | оценивать
+erfassen | охватывать, понимать
+erwägen | рассматривать (возможность)
+gelten als | считаться
+herbeiführen | вызывать, приводить к
+mitwirken | участвовать
+sich niederschlagen in | отражаться в
+umsetzen | реализовывать
+veranlassen | побуждать; распорядиться
+verfügen über | располагать
+widmen | посвящать
+zustande kommen | осуществиться`)
+]),
+...DL('C2', [
+D('de-c2-v1','Идиомы',`
+die Katze im Sack kaufen | купить кота в мешке
+jemandem einen Bären aufbinden | вешать лапшу на уши
+das ist nicht mein Bier | это не моё дело
+ins Gras beißen | сыграть в ящик
+die Kirche im Dorf lassen | не преувеличивать
+auf großem Fuß leben | жить на широкую ногу
+den Faden verlieren | потерять нить
+sich kein Blatt vor den Mund nehmen | говорить без обиняков
+alles in Butter | всё в порядке
+etwas ausbaden müssen | расхлёбывать что-то
+Haare spalten | заниматься буквоедством
+jemandem reinen Wein einschenken | сказать всю правду
+die Flinte ins Korn werfen | опустить руки
+jemandem die Leviten lesen | отчитать кого-то
+aus der Haut fahren | выйти из себя
+unter einer Decke stecken | быть заодно
+auf dem Holzweg sein | заблуждаться
+etwas an die große Glocke hängen | раструбить
+jemanden auf den Arm nehmen | разыгрывать кого-то
+mit dem falschen Fuß aufstehen | встать не с той ноги
+Öl ins Feuer gießen | подливать масла в огонь
+wie die Faust aufs Auge | совсем не подходит
+die Nadel im Heuhaufen suchen | искать иголку в стоге сена
+sich ins Zeug legen | выкладываться
+den Kürzeren ziehen | остаться в проигрыше`),
+D('de-c2-v2','Книжная лексика',`
+die Gepflogenheit | обычай
+der Sachverhalt | положение дел
+die Ambivalenz | двойственность
+die Zäsur | перелом, рубеж
+das Postulat | постулат
+die Prämisse | предпосылка
+der Duktus | стиль, манера
+die Diskrepanz | расхождение
+die Koryphäe | светило (знаток)
+das Paradigma | парадигма
+die Kontroverse | полемика
+die Hybris | гордыня
+die Akribie | педантичная тщательность
+das Desiderat | желаемое; пробел (в науке)
+die Lakonie | лаконичность
+die Ironie | ирония
+die Melancholie | меланхолия
+die Muße | досуг (созерцательный)
+der Zeitgeist | дух времени
+die Weltanschauung | мировоззрение
+die Gesinnung | образ мыслей
+der Anachronismus | анахронизм
+die Quintessenz | суть
+der Inbegriff | воплощение
+die Ägide | эгида, покровительство`),
+D('de-c2-v3','Точные прилагательные',`
+unverhohlen | неприкрытый
+unumgänglich | неизбежный
+unabdingbar | непременный
+beträchtlich | значительный
+geringfügig | незначительный
+eklatant | вопиющий
+subtil | тонкий
+prägnant | ёмкий, чёткий
+pragmatisch | прагматичный
+lapidar | лаконичный, сухой
+weitläufig | обширный; дальний (о родстве)
+eigenwillig | своенравный
+zwiespältig | противоречивый
+zurückhaltend | сдержанный
+unbeholfen | неуклюжий
+gewissenhaft | добросовестный
+schlagfertig | находчивый (в ответах)
+besonnen | рассудительный
+verbissen | упорный, ожесточённый
+anmaßend | высокомерный
+leichtfertig | легкомысленный
+unbedarft | наивный, неопытный
+umständlich | обстоятельный, громоздкий
+beharrlich | настойчивый
+zwangsläufig | неизбежно`),
+D('de-c2-v4','Политика и дипломатия',`
+die Souveränität | суверенитет
+das Abkommen | соглашение
+die Ratifizierung | ратификация
+die Sanktion | санкция
+das Embargo | эмбарго
+der Gipfel | саммит; вершина
+der Botschafter | посол
+die Botschaft | посольство; послание
+das Konsulat | консульство
+der Waffenstillstand | перемирие
+die Abrüstung | разоружение
+die Eskalation | эскалация
+die Deeskalation | деэскалация
+das Bündnis | союз, альянс
+die Koalition | коалиция
+der Koalitionsvertrag | коалиционное соглашение
+die Legislaturperiode | срок полномочий парламента
+das Misstrauensvotum | вотум недоверия
+die Gewaltenteilung | разделение властей
+der Rechtsstaat | правовое государство
+der Lobbyismus | лоббизм
+die Amtszeit | срок полномочий
+zurücktreten | уйти в отставку
+die Stimmenthaltung | воздержание (при голосовании)
+die Diplomatie | дипломатия`),
+D('de-c2-v5','Философия и наука',`
+die Erkenntnis | познание
+die Vernunft | разум
+das Bewusstsein | сознание
+die Ethik | этика
+die Moral | мораль
+das Dilemma | дилемма
+die Kausalität | причинность
+die Theorie | теория
+die Empirie | эмпирика, опыт
+die Methodik | методика
+die Abstraktion | абстракция
+der Diskurs | дискурс
+die Dialektik | диалектика
+die Wahrheit | истина
+die Anschauung | воззрение
+das Sein | бытие
+das Nichts | ничто
+die Existenz | существование
+die Willensfreiheit | свобода воли
+der Determinismus | детерминизм
+die Wahrscheinlichkeit | вероятность
+die Variable | переменная
+die Korrelation | корреляция
+die Erkenntnistheorie | теория познания
+der Trugschluss | ложный вывод`),
+D('de-c2-v6','Разговорный немецкий',`
+die Kohle | бабки (деньги)
+der Kumpel | приятель
+die Bude | хата, комната
+pennen | дрыхнуть
+quatschen | болтать
+nerven | доставать, раздражать
+krass | круто, жёстко
+geil | клёво
+null Bock haben | не иметь никакого желания
+abhängen | тусоваться
+die Glotze | телик
+der Typ | парень, тип
+blöd | глупый
+der Quatsch | чепуха
+klauen | стащить, украсть
+futtern | лопать, есть
+die Klamotten | шмотки (мн. ч.)
+pleite | на мели (без денег)
+mies | паршивый
+schräg | странный
+ätzend | отстойный
+Mach's gut! | Бывай!
+Na und? | Ну и что?
+Echt jetzt? | Серьёзно?
+Keine Ahnung. | Без понятия.`),
+D('de-c2-v7','Редкие глаголы',`
+anprangern | клеймить, осуждать публично
+beschwichtigen | успокаивать, умиротворять
+erschleichen | добиться хитростью
+verschleiern | завуалировать
+aufwiegeln | подстрекать
+bemängeln | указывать на недостатки
+beanstanden | предъявлять претензии
+verharmlosen | преуменьшать опасность
+schönreden | приукрашивать
+herunterspielen | преуменьшать значение
+sich anbiedern | заискивать
+sich entziehen | уклоняться
+ergattern | раздобыть
+vereiteln | сорвать (план)
+bezwecken | преследовать цель
+beipflichten | соглашаться
+eingestehen | признавать
+abschweifen | отклоняться (от темы)
+ausloten | прощупывать, выяснять
+anzweifeln | подвергать сомнению
+verunglimpfen | порочить
+zögern | колебаться
+sich vergewissern | удостовериться
+vorgaukeln | обманывать иллюзией
+auftrumpfen | хвастаться`),
+D('de-c2-v8','Меткие существительные',`
+die Gratwanderung | хождение по лезвию
+der Spagat | баланс между крайностями
+die Zwickmühle | безвыходное положение
+der Zankapfel | яблоко раздора
+die Augenwischerei | очковтирательство
+die Schadenfreude | злорадство
+die Torschlusspanik | паника «пока не поздно»
+das Fingerspitzengefühl | чутьё, такт
+die Vetternwirtschaft | кумовство
+der Kuhhandel | торг за спиной
+die Wichtigtuerei | важничанье
+der Leichtsinn | легкомыслие
+die Ausrede | отговорка
+der Vorwand | предлог
+die Gemengelage | запутанная ситуация
+der Werdegang | жизненный путь, карьера
+die Kehrseite | обратная сторона
+die Faustregel | эмпирическое правило
+der Spielraum | свобода действий
+die Tragweite | значимость, последствия
+der Stellenwert | значимость
+die Fehleinschätzung | неверная оценка
+das Feingefühl | деликатность
+der Ohrwurm | привязчивая мелодия
+die Eselsbrücke | подсказка для запоминания`)
+])
+],
+fr: [
+...DL('B1', [
+D('fr-b1-v1','Работа и карьера',`
+l'employeur | работодатель
+le salarié | наёмный работник
+la société | компания; общество
+le métier | профессия, ремесло
+la profession | профессия
+le temps partiel | неполный рабочий день
+le temps plein | полный рабочий день
+le chômeur | безработный
+gagner sa vie | зарабатывать на жизнь
+l'augmentation | повышение (зарплаты)
+la promotion | повышение в должности
+le client | клиент
+la commande | заказ
+le déplacement professionnel | командировка
+la formation continue | повышение квалификации
+l'apprentissage | обучение профессии
+l'ouvrier | рабочий
+le cadre | руководящий сотрудник
+le syndicat | профсоюз
+la grève | забастовка
+licencier | увольнять
+le licenciement | увольнение
+le retraité | пенсионер
+la retraite | пенсия
+le télétravail | удалённая работа`),
+D('fr-b1-v2','Здоровье и медицина',`
+la mutuelle | дополнительная медстраховка
+la carte vitale | карта медстраховки
+le généraliste | терапевт
+le spécialiste | врач-специалист
+les urgences | отделение скорой помощи
+l'ambulance | скорая помощь
+la piqûre | укол
+le traitement | лечение
+la grippe | грипп
+l'allergie | аллергия
+la nausée | тошнота
+avoir le vertige | испытывать головокружение
+vomir | рвать (о человеке)
+le pansement | повязка
+la cicatrice | шрам
+l'opération | операция
+le dentiste | стоматолог
+tousser | кашлять
+s'enrhumer | простудиться
+guérir | вылечиться
+la guérison | выздоровление
+le comprimé | таблетка
+le sirop | сироп
+l'effet secondaire | побочное действие
+se soigner | лечиться`),
+D('fr-b1-v3','Путешествия и транспорт',`
+le voyage | путешествие
+le visa | виза
+les bagages | багаж
+le décollage | взлёт
+l'atterrissage | посадка (самолёта)
+l'embarquement | посадка (на борт)
+la douane | таможня
+la frontière | граница
+l'horaire | расписание
+le guichet | касса, окошко
+l'autoroute | автострада
+louer une voiture | арендовать машину
+l'essence | бензин
+faire le plein | заправиться
+le gîte | гостевой дом
+l'auberge de jeunesse | хостел
+la croisière | круиз
+le dépliant | буклет
+la visite guidée | экскурсия
+manquer le train | опоздать на поезд
+l'étranger | заграница; иностранец
+le séjour | пребывание
+faire sa valise | собирать чемодан
+le vol direct | прямой рейс
+la carte d'embarquement | посадочный талон`),
+D('fr-b1-v4','Дом и быт',`
+le ménage | уборка
+faire le ménage | убираться
+passer l'aspirateur | пылесосить
+ranger | убирать на место
+laver | мыть
+repasser | гладить
+faire la vaisselle | мыть посуду
+la poubelle | мусорное ведро
+le lave-vaisselle | посудомоечная машина
+l'aspirateur | пылесос
+la cuisinière | плита
+le micro-ondes | микроволновка
+le robinet | кран
+la prise | розетка
+l'ampoule | лампочка
+le concierge | консьерж
+les meubles | мебель
+le locataire | жилец
+la colocation | совместная аренда
+bricoler | мастерить
+la panne de courant | отключение электричества
+la fuite d'eau | протечка
+le plombier | сантехник
+l'électricien | электрик
+chaleureux | уютный, тёплый`),
+D('fr-b1-v5','Чувства и отношения',`
+l'amour | любовь
+l'amitié | дружба
+la dispute | ссора
+se disputer | ссориться
+se réconcilier | мириться
+la jalousie | ревность
+la rupture | разрыв
+se séparer | расставаться
+le divorce | развод
+le conjoint | супруг
+fiancé | помолвленный
+le sentiment | чувство
+la joie | радость
+la colère | гнев
+l'espoir | надежда
+la confiance | доверие
+s'inquiéter | волноваться
+prendre soin de | заботиться о
+embrasser | целовать, обнимать
+tu me manques | я по тебе скучаю
+tomber amoureux | влюбиться
+la tendresse | нежность
+la honte | стыд
+la fierté | гордость
+la solitude | одиночество`),
+D('fr-b1-v6','Образование',`
+le collège | средняя школа (11–15 лет)
+le lycée | старшая школа
+l'université | университет
+les études | учёба
+étudier | учиться
+le professeur | преподаватель
+la note | оценка
+le bulletin | табель
+les devoirs | домашнее задание
+la matière | предмет
+le cours magistral | лекция
+la bibliothèque | библиотека
+le dictionnaire | словарь
+le baccalauréat | экзамен на аттестат зрелости
+la licence | степень бакалавра
+le master | магистратура
+échouer | провалиться
+redoubler | остаться на второй год
+la langue étrangère | иностранный язык
+la grammaire | грамматика
+la prononciation | произношение
+le vocabulaire | словарный запас
+apprendre par cœur | учить наизусть
+les vacances scolaires | школьные каникулы
+la maternelle | детский сад`),
+D('fr-b1-v7','Покупки и услуги',`
+le magasin | магазин
+le grand magasin | универмаг
+la caissière | кассирша
+le ticket de caisse | чек
+la garantie | гарантия
+rembourser | возвращать деньги
+échanger | обменять
+livrer | доставлять
+passer commande | сделать заказ
+la réduction | скидка
+les soldes | распродажа
+la bonne affaire | выгодная покупка
+les horaires d'ouverture | часы работы
+ouvert | открыто
+fermé | закрыто
+le coiffeur | парикмахер
+le pressing | химчистка
+le garagiste | автомеханик
+la réparation | ремонт
+le service client | служба поддержки
+la cabine d'essayage | примерочная
+payer en espèces | платить наличными
+la carte bancaire | банковская карта
+le devis | смета
+le panier | корзина`),
+D('fr-b1-v8','Природа и сельская жизнь',`
+le littoral | побережье
+le bois | лес; древесина
+la falaise | утёс
+le volcan | вулкан
+le désert | пустыня
+la plaine | равнина
+le fleuve | река (впадающая в море)
+la source | источник
+la ferme | ферма
+le paysan | крестьянин
+la récolte | урожай
+la graine | семя
+la racine | корень
+la branche | ветка
+l'abeille | пчела
+l'insecte | насекомое
+le serpent | змея
+la poule | курица (живая)
+le canard | утка
+l'inondation | наводнение
+la sécheresse | засуха
+la tempête | буря
+la canicule | сильная жара
+le tri sélectif | сортировка мусора
+le compost | компост`)
+]),
+...DL('B2', [
+D('fr-b2-v1','Общество и политика',`
+la démocratie | демократия
+le parti | партия
+le citoyen | гражданин
+l'Assemblée nationale | Национальное собрание
+le député | депутат
+le gouvernement | правительство
+le Premier ministre | премьер-министр
+l'opposition | оппозиция
+voter | голосовать
+le scrutin | голосование
+l'élection | выборы
+la loi | закон
+la Constitution | конституция
+la justice | справедливость; правосудие
+la liberté | свобода
+l'égalité | равенство
+la minorité | меньшинство
+la majorité | большинство
+la pauvreté | бедность
+la richesse | богатство
+le taux de chômage | уровень безработицы
+la manifestation | демонстрация
+l'immigration | иммиграция
+le débat | дебаты
+la réforme | реформа`),
+D('fr-b2-v2','Экономика и финансы',`
+l'économie | экономика
+l'inflation | инфляция
+la Bourse | биржа
+l'action | акция; действие
+l'actionnaire | акционер
+investir | инвестировать
+l'investissement | инвестиция
+le patrimoine | имущество, наследие
+les dettes | долги
+la perte | убыток
+le bénéfice | прибыль
+le budget | бюджет
+la crise | кризис
+la consommation | потребление
+le consommateur | потребитель
+le fabricant | производитель
+l'exportation | экспорт
+l'importation | импорт
+le commerce | торговля
+le prêt | заём
+le crédit immobilier | ипотека
+la TVA | НДС
+le relevé de compte | выписка со счёта
+le taux d'intérêt | процентная ставка
+les impôts | налоги`),
+D('fr-b2-v3','Наука и технологии',`
+la science | наука
+le chercheur | исследователь
+la recherche | исследование
+l'invention | изобретение
+inventer | изобретать
+la découverte | открытие
+découvrir | открывать
+l'expérience scientifique | научный эксперимент
+le laboratoire | лаборатория
+le développement | развитие, разработка
+développer | разрабатывать
+le progrès | прогресс
+le logiciel | программа
+le disque dur | жёсткий диск
+l'écran | экран
+le clavier | клавиатура
+le réseau | сеть
+l'intelligence artificielle | искусственный интеллект
+le robot | робот
+l'espace | космос
+le satellite | спутник
+les données | данные
+le mot de passe | пароль
+télécharger | скачивать
+la mise à jour | обновление`),
+D('fr-b2-v4','СМИ и общение',`
+les médias | СМИ
+la télévision | телевидение
+le journal télévisé | теленовости
+le magazine | журнал
+le journaliste | журналист
+le titre | заголовок
+la publicité | реклама
+l'annonce | объявление
+l'interview | интервью
+la liberté de la presse | свобода прессы
+la censure | цензура
+publier | публиковать
+la fausse nouvelle | фейк
+les réseaux sociaux | соцсети
+la publication | публикация
+partager | делиться
+commenter | комментировать
+l'abonné | подписчик
+l'émission | передача
+l'auditeur | слушатель
+le téléspectateur | телезритель
+la chaîne | канал
+diffuser | транслировать
+l'actualité | актуальные новости
+le reportage | репортаж`),
+D('fr-b2-v5','Право и ведомства',`
+le tribunal | суд
+le juge | судья
+l'avocat | адвокат
+la plainte | жалоба, иск
+porter plainte | подать заявление (в полицию)
+le procès | судебный процесс
+le jugement | решение суда
+la peine | наказание
+l'amende | штраф
+la police | полиция
+le témoin | свидетель
+la preuve | доказательство
+coupable | виновный
+innocent | невиновный
+le droit | право
+l'interdiction | запрет
+l'autorisation | разрешение
+la demande | заявление, запрос
+déposer un dossier | подать документы
+le recours | обжалование
+la signature | подпись
+le titre de séjour | вид на жительство
+officiel | официальный
+le notaire | нотариус
+l'arrestation | арест`),
+D('fr-b2-v6','Культура и искусство',`
+l'art | искусство
+l'artiste | художник, артист
+le tableau | картина
+la sculpture | скульптура
+l'exposition | выставка
+l'opéra | опера
+l'orchestre | оркестр
+le chef d'orchestre | дирижёр
+la scène | сцена
+l'acteur | актёр
+le rôle | роль
+le roman | роман
+l'écrivain | писатель
+le poème | стихотворение
+le poète | поэт
+la littérature | литература
+le réalisateur | режиссёр
+le scénario | сценарий
+la première | премьера
+les applaudissements | аплодисменты
+l'œuvre | произведение
+l'époque | эпоха
+le monument | памятник
+la tradition | традиция
+le chef-d'œuvre | шедевр`),
+D('fr-b2-v7','Психология и характер',`
+la personnalité | личность
+la confiance en soi | уверенность в себе
+le comportement | поведение
+l'attitude | отношение, позиция
+la motivation | мотивация
+le stress | стресс
+l'habitude | привычка
+l'attente | ожидание
+la déception | разочарование
+ambitieux | честолюбивый
+déterminé | целеустремлённый
+susceptible | обидчивый
+sûr de soi | уверенный в себе
+peu sûr de soi | неуверенный в себе
+serviable | услужливый
+attentionné | заботливый
+égoïste | эгоистичный
+raisonnable | разумный
+lunatique | переменчивый
+équilibré | уравновешенный
+se maîtriser | сдерживаться
+débordé | перегруженный
+têtu | упрямый
+sensible | чувствительный
+rancunier | злопамятный`),
+D('fr-b2-v8','Глаголы с предлогами',`
+s'occuper de | заниматься
+dépendre de | зависеть от
+s'efforcer de | стараться
+influencer | влиять
+surmonter | преодолевать
+permettre | позволять
+empêcher | мешать, предотвращать
+éviter | избегать
+atteindre | достигать
+compter sur | рассчитывать на
+s'engager | обязаться; участвовать
+augmenter | увеличивать(ся)
+diminuer | уменьшать(ся)
+se décider | решиться
+réfléchir | обдумывать
+préférer | предпочитать
+constater | констатировать
+supposer | предполагать
+consister en | состоять в
+s'adresser à | обращаться к
+comparer | сравнивать
+distinguer | различать
+assumer | брать на себя
+prévoir | предусматривать
+mettre en place | вводить, организовать`)
+]),
+...DL('C1', [
+D('fr-c1-v1','Абстрактные понятия',`
+la perception | восприятие
+la représentation | представление
+le lien | связь
+la contradiction | противоречие
+le sens | смысл
+l'impact | влияние, воздействие
+la circonstance | обстоятельство
+l'intention | намерение
+le défi | вызов
+le fondement | основа
+la certitude | уверенность
+le doute | сомнение
+la complexité | сложность
+la tendance | тенденция
+le phénomène | явление
+l'enjeu | ставка, что на кону
+l'approche | подход
+la réalité | действительность
+l'exception | исключение
+l'ampleur | масштаб
+le rapport | соотношение; доклад
+l'évolution | развитие
+le paradoxe | парадокс
+la cohérence | логичность, связность
+la notion | понятие`),
+D('fr-c1-v2','Деловая лексика',`
+la direction | руководство
+le conseil d'administration | совет директоров
+la filiale | дочерняя компания
+la fusion | слияние
+le rachat | выкуп, поглощение
+la part de marché | доля рынка
+l'objectif | цель
+l'indicateur | показатель
+le chiffre d'affaires | оборот, выручка
+l'appel d'offres | тендер
+le prestataire | подрядчик
+le fournisseur | поставщик
+l'accord | соглашение
+le délai de livraison | срок поставки
+la facturation | выставление счетов
+la restructuration | реструктуризация
+la suppression de postes | сокращение рабочих мест
+le personnel | персонал
+le rapport annuel | годовой отчёт
+la responsabilité | ответственность
+négocier | вести переговоры
+l'ordre du jour | повестка дня
+le compte rendu | протокол, отчёт
+la rentabilité | рентабельность
+le partenariat | партнёрство`),
+D('fr-c1-v3','Связки для аргументации',`
+par conséquent | следовательно
+ainsi | таким образом
+néanmoins | тем не менее
+toutefois | однако
+en revanche | зато, напротив
+tandis que | тогда как
+d'autant plus que | тем более что
+pourvu que | при условии что
+dans la mesure où | в той мере, в какой
+de sorte que | так что
+certes | конечно, правда
+de toute façon | в любом случае
+en fin de compte | в конечном счёте
+de plus | кроме того
+en outre | помимо того
+par ailleurs | кроме того; с другой стороны
+en effet | действительно
+au contraire | напротив
+au fond | по сути
+quant à | что касается
+compte tenu de | учитывая
+à cet égard | в этом отношении
+bien entendu | разумеется
+malgré | несмотря на
+or | однако же (в рассуждении)`),
+D('fr-c1-v4','Эмоции и оттенки',`
+le soulagement | облегчение
+la gêne | смущение
+le remords | угрызения совести
+la satisfaction | удовлетворение
+l'indignation | возмущение
+le désespoir | отчаяние
+la sérénité | безмятежность
+l'admiration | восхищение
+l'envie | зависть; желание
+l'aversion | неприязнь
+l'attachement | привязанность
+agacé | раздражённый
+abattu | подавленный
+soulagé | испытывающий облегчение
+stupéfait | ошеломлённый
+ému | растроганный
+honteux | пристыженный
+désemparé | растерянный
+enthousiaste | в восторге
+horrifié | в ужасе
+contrarié | раздосадованный
+bouleversé | потрясённый
+nostalgique | ностальгический
+mélancolique | меланхоличный
+épanoui | счастливый, расцветший`),
+D('fr-c1-v5','Медицина',`
+le diagnostic | диагноз
+la thérapie | терапия
+le bilan de santé | медосмотр
+la tension artérielle | кровяное давление
+la circulation sanguine | кровообращение
+le système immunitaire | иммунная система
+l'inflammation | воспаление
+l'infection | инфекция
+le virus | вирус
+le vaccin | вакцина
+chronique | хронический
+aigu | острый
+la convalescence | выздоровление
+la rééducation | реабилитация
+l'anesthésie | наркоз
+l'intervention chirurgicale | хирургическое вмешательство
+l'arrêt maladie | больничный
+les symptômes | симптомы
+la dose | доза
+la colonne vertébrale | позвоночник
+la fracture | перелом
+l'entorse | растяжение
+le bleu | синяк
+la hernie discale | грыжа межпозвоночного диска
+le kinésithérapeute | физиотерапевт`),
+D('fr-c1-v6','Энергия и климат',`
+la transition énergétique | энергетический переход
+les énergies renouvelables | возобновляемая энергия
+l'éolienne | ветряк
+le panneau solaire | солнечная панель
+la centrale nucléaire | АЭС
+l'effet de serre | парниковый эффект
+le changement climatique | изменение климата
+les émissions | выбросы
+le dioxyde de carbone | углекислый газ
+le niveau de la mer | уровень моря
+la biodiversité | биоразнообразие
+l'extinction des espèces | вымирание видов
+la déforestation | вырубка лесов
+la matière première | сырьё
+la ressource | ресурс
+l'hydrogène | водород
+la pompe à chaleur | тепловой насос
+l'isolation | утепление
+écologique | экологичный
+l'empreinte carbone | углеродный след
+le gaspillage | расточительство
+la pénurie | дефицит
+épuiser | истощать
+les combustibles fossiles | ископаемое топливо
+la sobriété énergétique | энергосбережение`),
+D('fr-c1-v7','Официальный язык',`
+le décret | указ
+la réglementation | регламент
+la directive | директива
+la disposition | положение (закона)
+la compétence | компетенция
+le fonctionnaire | госслужащий
+la démarche | процедура, шаг
+le justificatif | подтверждающий документ
+l'attestation | справка
+certifier conforme | заверить копию
+la photocopie | копия
+la procuration | доверенность
+le formulaire | бланк
+délivrer | выдавать (документ)
+prolonger | продлевать
+valable | действительный
+périmé | просроченный
+l'audience | слушание
+sans délai | незамедлительно
+conformément à | согласно
+en vue de | с целью
+par la présente | настоящим
+le guichet unique | единое окно
+la préfecture | префектура
+le courrier recommandé | заказное письмо`),
+D('fr-c1-v8','Глаголы C1',`
+aborder | затрагивать (тему)
+engendrer | порождать
+expliciter | разъяснять
+souligner | подчёркивать
+remettre en question | ставить под сомнение
+étayer | подкреплять (аргументы)
+préciser | уточнять
+promouvoir | продвигать
+attribuer à | приписывать
+se dessiner | вырисовываться
+peser le pour et le contre | взвешивать за и против
+évaluer | оценивать
+appréhender | понимать; опасаться
+envisager | рассматривать
+être considéré comme | считаться
+entraîner | влечь за собой
+contribuer à | способствовать
+se traduire par | выражаться в
+mettre en œuvre | реализовывать
+inciter | побуждать
+disposer de | располагать
+consacrer | посвящать
+aboutir à | привести к
+relever | отмечать
+s'avérer | оказываться`)
+]),
+...DL('C2', [
+D('fr-c2-v1','Идиомы',`
+avoir le cafard | хандрить
+poser un lapin | не прийти на встречу
+coûter les yeux de la tête | стоить бешеных денег
+avoir un poil dans la main | быть лентяем
+casser les pieds | надоедать
+tomber dans les pommes | упасть в обморок
+mettre son grain de sel | вставить свои пять копеек
+raconter des salades | сочинять, врать
+avoir la flemme | лень (что-то делать)
+c'est la fin des haricots | всё пропало
+appeler un chat un chat | называть вещи своими именами
+avoir d'autres chats à fouetter | есть дела поважнее
+se mettre le doigt dans l'œil | глубоко ошибаться
+prendre ses jambes à son cou | дать дёру
+tirer les vers du nez | выведать
+avoir la tête dans les nuages | витать в облаках
+faire la grasse matinée | долго спать утром
+être dans la lune | быть рассеянным
+mettre la puce à l'oreille | насторожить
+avoir du pain sur la planche | дел по горло
+revenir à ses moutons | вернуться к теме
+ce n'est pas la mer à boire | это не так уж сложно
+il pleut des cordes | льёт как из ведра
+donner sa langue au chat | сдаваться (не угадать)
+les doigts dans le nez | проще простого`),
+D('fr-c2-v2','Книжная лексика',`
+l'apanage | исключительная привилегия
+l'aléa | случайность, риск
+l'ambivalence | двойственность
+le clivage | раскол
+le postulat | постулат
+la prémisse | предпосылка
+l'écueil | подводный камень
+la divergence | расхождение
+la sommité | светило (знаток)
+le paradigme | парадигма
+la polémique | полемика
+l'orgueil | гордыня
+la minutie | тщательность
+la lacune | пробел
+la concision | краткость
+l'ironie | ирония
+la mélancolie | меланхолия
+l'oisiveté | праздность
+l'air du temps | дух времени
+la vision du monde | мировоззрение
+l'anachronisme | анахронизм
+la quintessence | суть
+l'égide | эгида
+la vicissitude | превратность
+l'euphémisme | эвфемизм`),
+D('fr-c2-v3','Точные прилагательные',`
+flagrant | вопиющий
+inéluctable | неизбежный
+indispensable | необходимый
+considérable | значительный
+dérisoire | ничтожный
+subtil | тонкий
+percutant | яркий, ёмкий
+pragmatique | прагматичный
+laconique | лаконичный
+farfelu | чудаковатый
+ambigu | двусмысленный
+réservé | сдержанный
+maladroit | неуклюжий
+consciencieux | добросовестный
+perspicace | проницательный
+pondéré | рассудительный
+acharné | упорный
+arrogant | высокомерный
+désinvolte | развязный, беспечный
+naïf | наивный
+fastidieux | утомительный, скучный
+opiniâtre | упорный, настойчивый
+incontournable | обязательный, неизбежный
+saugrenu | нелепый
+éphémère | мимолётный`),
+D('fr-c2-v4','Политика и дипломатия',`
+la souveraineté | суверенитет
+le traité | договор
+la ratification | ратификация
+la sanction | санкция
+l'embargo | эмбарго
+le sommet | саммит; вершина
+l'ambassadeur | посол
+l'ambassade | посольство
+le consulat | консульство
+le cessez-le-feu | прекращение огня
+le désarmement | разоружение
+l'escalade | эскалация
+l'alliance | союз
+la coalition | коалиция
+la législature | срок полномочий парламента
+la motion de censure | вотум недоверия
+la séparation des pouvoirs | разделение властей
+l'État de droit | правовое государство
+le lobbying | лоббизм
+le mandat | мандат, срок полномочий
+remettre sa démission | подать в отставку
+l'abstention | воздержание (при голосовании)
+le référendum | референдум
+la diplomatie | дипломатия
+les pourparlers | переговоры`),
+D('fr-c2-v5','Философия и наука',`
+la connaissance | знание, познание
+la raison | разум
+la conscience | сознание; совесть
+l'éthique | этика
+la morale | мораль
+le dilemme | дилемма
+la causalité | причинность
+la théorie | теория
+l'empirisme | эмпиризм
+la méthodologie | методология
+l'abstraction | абстракция
+le discours | дискурс, речь
+la dialectique | диалектика
+la vérité | истина
+l'être | бытие
+le néant | ничто
+l'existence | существование
+le libre arbitre | свобода воли
+le déterminisme | детерминизм
+la probabilité | вероятность
+la variable | переменная
+la corrélation | корреляция
+l'épistémologie | эпистемология
+l'hypothèse | гипотеза
+la démonstration | доказательство`),
+D('fr-c2-v6','Разговорный французский',`
+le fric | бабки
+le pote | приятель
+la bagnole | тачка
+bosser | вкалывать
+le boulot | работа
+bouffer | жрать
+la bouffe | еда, жратва
+crevé | вымотанный
+le mec | парень
+la nana | девушка
+ouf | чокнутый; ну и ну
+kiffer | кайфовать, обожать
+relou | надоедливый
+chelou | странный
+ça me saoule | это меня достало
+c'est nul | это отстой
+grave | очень, жёстко
+le flic | коп
+les fringues | шмотки
+fauché | на мели
+piquer | стащить
+se marrer | ржать, смеяться
+T'inquiète ! | Не парься!
+Ça roule ? | Как оно?
+J'en ai marre. | Мне надоело.`),
+D('fr-c2-v7','Редкие глаголы',`
+dénoncer | разоблачать, осуждать
+apaiser | успокаивать
+dissimuler | скрывать
+attiser | разжигать
+déplorer | сетовать
+minimiser | преуменьшать
+enjoliver | приукрашивать
+se dérober | уклоняться
+déjouer | сорвать (план)
+viser à | быть направленным на
+acquiescer | соглашаться
+avouer | признаваться
+s'égarer | отклоняться; заблудиться
+sonder | прощупывать
+contester | оспаривать
+dénigrer | порочить
+hésiter | колебаться
+s'assurer | удостовериться
+leurrer | обманывать
+se vanter | хвастаться
+entraver | препятствовать
+pallier | восполнять
+susciter | вызывать
+endosser | брать на себя
+tergiverser | увиливать, тянуть время`),
+D('fr-c2-v8','Меткие существительные',`
+le casse-tête | головоломка
+la corde raide | рискованное положение
+l'impasse | тупик
+la pomme de discorde | яблоко раздора
+la poudre aux yeux | пыль в глаза
+la jubilation | ликование
+le flair | чутьё
+le népotisme | кумовство
+le marchandage | торг
+la vantardise | хвастовство
+l'insouciance | беспечность
+le prétexte | предлог
+l'échappatoire | лазейка, отговорка
+le sophisme | ложное рассуждение
+l'imbroglio | путаница
+la récompense | награда
+le parcours | путь, карьера
+le revers de la médaille | обратная сторона медали
+la règle d'or | золотое правило
+la marge de manœuvre | свобода действий
+la portée | значимость, охват
+le poids | вес, значимость
+l'erreur d'appréciation | ошибка оценки
+le tact | такт
+la mauvaise foi | недобросовестность`)
+])
+],
+en: [
+...DL('B1', [
+D('en-b1-v1','Работа и карьера',`
+employer | работодатель
+employee | сотрудник
+company | компания
+career | карьера
+profession | профессия
+part-time | неполный рабочий день
+full-time | полный рабочий день
+unemployed | безработный
+unemployment | безработица
+to earn | зарабатывать
+pay rise | повышение зарплаты
+promotion | повышение в должности
+client | клиент
+order | заказ
+business trip | командировка
+apprenticeship | обучение профессии
+worker | рабочий
+trade union | профсоюз
+strike | забастовка
+to fire | увольнять
+to resign | уволиться по собственному желанию
+retirement | выход на пенсию
+pension | пенсия (выплата)
+remote work | удалённая работа
+workload | нагрузка`),
+D('en-b1-v2','Здоровье и медицина',`
+health insurance | медстраховка
+GP | терапевт, семейный врач
+specialist | специалист
+emergency room | приёмное отделение
+ambulance | скорая помощь
+injection | укол
+treatment | лечение
+flu | грипп
+allergy | аллергия
+nausea | тошнота
+dizzy | испытывающий головокружение
+to be sick | рвать; болеть
+bandage | повязка
+scar | шрам
+surgery | операция
+dentist | стоматолог
+to cough | кашлять
+to catch a cold | простудиться
+to recover | выздоравливать
+recovery | выздоровление
+pill | таблетка
+prescription | рецепт
+side effect | побочное действие
+injury | травма
+appointment | запись (к врачу)`),
+D('en-b1-v3','Путешествия и транспорт',`
+journey | поездка, путь
+visa | виза
+check-in | регистрация
+boarding pass | посадочный талон
+customs | таможня
+timetable | расписание
+ticket office | касса
+motorway | автострада
+petrol | бензин
+petrol station | заправка
+to rent a car | арендовать машину
+driving licence | водительские права
+youth hostel | хостел
+cruise | круиз
+brochure | буклет
+guided tour | экскурсия
+to miss the train | опоздать на поезд
+stay | пребывание
+to pack | собирать вещи
+direct flight | прямой рейс
+connection | пересадка; связь
+return ticket | обратный билет
+single ticket | билет в одну сторону
+accommodation | жильё
+destination | пункт назначения`),
+D('en-b1-v4','Дом и быт',`
+housework | работа по дому
+to clean | убирать, чистить
+to hoover | пылесосить
+to tidy up | наводить порядок
+to do the washing | стирать
+to iron | гладить
+to do the dishes | мыть посуду
+bin | мусорное ведро
+dishwasher | посудомоечная машина
+washing machine | стиральная машина
+vacuum cleaner | пылесос
+cooker | плита
+microwave | микроволновка
+tap | кран
+socket | розетка
+light bulb | лампочка
+furniture | мебель
+tenant | жилец
+flatmate | сосед по квартире
+DIY | ремонт своими руками
+power cut | отключение электричества
+leak | протечка
+plumber | сантехник
+electrician | электрик
+cosy | уютный`),
+D('en-b1-v5','Чувства и отношения',`
+love | любовь
+friendship | дружба
+argument | ссора; аргумент
+to argue | спорить, ссориться
+to make up | мириться
+jealousy | ревность
+jealous | ревнивый
+break-up | расставание
+to break up | расставаться
+divorce | развод
+partner | партнёр
+married | женатый, замужем
+single | холостой, одинокий
+engaged | помолвленный
+feeling | чувство
+fear | страх
+joy | радость
+hope | надежда
+trust | доверие
+to worry | волноваться
+to take care of | заботиться о
+to hug | обнимать
+to kiss | целовать
+to miss someone | скучать по кому-то
+to fall in love | влюбиться`),
+D('en-b1-v6','Образование',`
+school | школа
+university | университет
+degree | диплом, учёная степень
+to study | учиться
+student | студент
+teacher | учитель
+mark | оценка
+report card | табель
+homework | домашнее задание
+subject | предмет
+lecture | лекция
+library | библиотека
+dictionary | словарь
+exam | экзамен
+to pass an exam | сдать экзамен
+to fail | провалить
+foreign language | иностранный язык
+grammar | грамматика
+pronunciation | произношение
+vocabulary | словарный запас
+to learn by heart | учить наизусть
+term | семестр, четверть
+kindergarten | детский сад
+graduate | выпускник
+scholarship | стипендия`),
+D('en-b1-v7','Покупки и услуги',`
+department store | универмаг
+shop assistant | продавец
+guarantee | гарантия
+refund | возврат денег
+to exchange | обменять
+to deliver | доставлять
+to order | заказывать
+special offer | спецпредложение
+opening hours | часы работы
+open | открыто
+closed | закрыто
+hairdresser | парикмахер
+dry cleaner's | химчистка
+mechanic | автомеханик
+repair | ремонт
+changing room | примерочная
+to pay in cash | платить наличными
+credit card | кредитная карта
+estimate | смета
+fee | плата, сбор
+basket | корзина
+queue | очередь
+bargain | выгодная покупка
+to complain | жаловаться
+second-hand | подержанный`),
+D('en-b1-v8','Природа и экология',`
+coast | побережье
+island | остров
+valley | долина
+hill | холм
+cliff | утёс
+desert | пустыня
+farm | ферма
+farmer | фермер
+harvest | урожай
+seed | семя
+root | корень
+branch | ветка
+insect | насекомое
+bee | пчела
+snake | змея
+flood | наводнение
+drought | засуха
+heatwave | сильная жара
+environment | окружающая среда
+pollution | загрязнение
+to recycle | перерабатывать
+rubbish | мусор
+climate | климат
+to protect | защищать
+wildlife | дикая природа`)
+]),
+...DL('B2', [
+D('en-b2-v1','Общество и политика',`
+democracy | демократия
+party | партия; вечеринка
+citizen | гражданин
+parliament | парламент
+government | правительство
+prime minister | премьер-министр
+opposition | оппозиция
+to vote | голосовать
+election | выборы
+law | закон
+constitution | конституция
+justice | справедливость
+freedom | свобода
+equality | равенство
+minority | меньшинство
+majority | большинство
+poverty | бедность
+wealth | богатство
+unemployment rate | уровень безработицы
+protest | протест
+immigration | иммиграция
+debate | дебаты
+reform | реформа
+welfare | социальное обеспечение
+policy | политика (курс)`),
+D('en-b2-v2','Экономика и финансы',`
+economy | экономика
+inflation | инфляция
+stock exchange | биржа
+share | акция; доля
+shareholder | акционер
+to invest | инвестировать
+investment | инвестиция
+assets | активы
+debt | долг
+loss | убыток
+profit | прибыль
+budget | бюджет
+crisis | кризис
+consumption | потребление
+consumer | потребитель
+manufacturer | производитель
+export | экспорт
+import | импорт
+trade | торговля
+loan | заём
+mortgage | ипотека
+VAT | НДС
+bank statement | выписка со счёта
+interest rate | процентная ставка
+tax | налог`),
+D('en-b2-v3','Наука и технологии',`
+science | наука
+scientist | учёный
+research | исследование
+invention | изобретение
+to invent | изобретать
+discovery | открытие
+to discover | открывать
+experiment | эксперимент
+laboratory | лаборатория
+development | развитие, разработка
+progress | прогресс
+software | программное обеспечение
+hard drive | жёсткий диск
+network | сеть
+artificial intelligence | искусственный интеллект
+robot | робот
+space | космос
+satellite | спутник
+data | данные
+device | устройство
+to install | устанавливать
+to store | хранить
+engineering | инженерия
+breakthrough | прорыв
+innovation | инновация`),
+D('en-b2-v4','СМИ и общение',`
+media | СМИ
+television | телевидение
+the news | новости
+magazine | журнал
+journalist | журналист
+headline | заголовок
+advertising | реклама
+advert | рекламное объявление
+press freedom | свобода прессы
+censorship | цензура
+to publish | публиковать
+source | источник
+fake news | фейковые новости
+social media | соцсети
+post | пост, публикация
+to share | делиться
+to comment | комментировать
+follower | подписчик
+broadcast | трансляция
+listener | слушатель
+viewer | зритель
+channel | канал
+current affairs | текущие события
+coverage | освещение (в СМИ)
+to express oneself | высказываться`),
+D('en-b2-v5','Право и ведомства',`
+court | суд
+judge | судья
+lawyer | юрист, адвокат
+lawsuit | иск
+to sue | подать в суд
+trial | судебный процесс
+verdict | вердикт
+sentence | приговор; предложение
+fine | штраф
+police | полиция
+witness | свидетель
+evidence | доказательства
+guilty | виновный
+innocent | невиновный
+rights | права
+ban | запрет
+permission | разрешение
+application | заявление; приложение
+to submit | подавать (документы)
+appeal | апелляция
+signature | подпись
+residence permit | вид на жительство
+official | официальный
+notary | нотариус
+arrest | арест`),
+D('en-b2-v6','Культура и искусство',`
+art | искусство
+artist | художник
+painting | картина
+sculpture | скульптура
+exhibition | выставка
+opera | опера
+orchestra | оркестр
+conductor | дирижёр
+stage | сцена
+actor | актёр
+role | роль
+novel | роман
+writer | писатель
+poem | стихотворение
+poet | поэт
+literature | литература
+director | режиссёр; директор
+script | сценарий
+premiere | премьера
+applause | аплодисменты
+masterpiece | шедевр
+era | эпоха
+monument | памятник
+tradition | традиция
+audience | публика`),
+D('en-b2-v7','Психология и характер',`
+personality | личность
+self-confidence | уверенность в себе
+behaviour | поведение
+attitude | отношение
+motivation | мотивация
+stress | стресс
+habit | привычка
+expectation | ожидание
+disappointment | разочарование
+ambitious | честолюбивый
+determined | целеустремлённый
+sensitive | чувствительный
+self-assured | уверенный в себе
+insecure | неуверенный
+generous | щедрый
+mean | скупой; злой
+helpful | готовый помочь
+considerate | внимательный к другим
+selfish | эгоистичный
+reasonable | разумный
+moody | переменчивый
+balanced | уравновешенный
+stubborn | упрямый
+overwhelmed | перегруженный, подавленный
+resilient | стойкий`),
+D('en-b2-v8','Фразовые глаголы',`
+to deal with | справляться с
+to depend on | зависеть от
+to look forward to | с нетерпением ждать
+to put off | откладывать
+to give up | бросать, сдаваться
+to carry on | продолжать
+to find out | выяснять
+to figure out | разобраться
+to come up with | придумать
+to run out of | закончиться (о запасе)
+to get along with | ладить с
+to turn down | отклонять
+to set up | устраивать, основывать
+to point out | указывать
+to rely on | полагаться на
+to influence | влиять
+to avoid | избегать
+to achieve | достигать
+to prevent | предотвращать
+to increase | увеличивать
+to decrease | уменьшать
+to compare | сравнивать
+to distinguish | различать
+to take over | брать на себя; поглощать
+to bring up | воспитывать; поднимать (тему)`)
+]),
+...DL('C1', [
+D('en-c1-v1','Абстрактные понятия',`
+perception | восприятие
+notion | понятие
+link | связь
+contradiction | противоречие
+significance | значимость
+impact | влияние
+circumstance | обстоятельство
+intention | намерение
+challenge | вызов
+foundation | основа
+certainty | уверенность
+doubt | сомнение
+complexity | сложность
+tendency | тенденция
+phenomenon | явление
+approach | подход
+reality | действительность
+exception | исключение
+extent | степень, масштаб
+proportion | соотношение
+transformation | преобразование
+paradox | парадокс
+coherence | связность
+outcome | результат, исход
+implication | следствие, подтекст`),
+D('en-c1-v2','Деловая лексика',`
+board of directors | совет директоров
+subsidiary | дочерняя компания
+merger | слияние
+acquisition | поглощение
+market share | доля рынка
+target | цель
+key performance indicator | ключевой показатель (KPI)
+turnover | оборот
+tender | тендер
+contractor | подрядчик
+supplier | поставщик
+agreement | соглашение
+lead time | срок поставки
+invoicing | выставление счетов
+restructuring | реструктуризация
+redundancy | сокращение (штата)
+staff | персонал
+annual report | годовой отчёт
+liability | ответственность (юр.)
+to negotiate | вести переговоры
+agenda | повестка дня
+minutes | протокол (совещания)
+profitability | рентабельность
+stakeholder | заинтересованная сторона
+partnership | партнёрство`),
+D('en-c1-v3','Связки для аргументации',`
+consequently | следовательно
+thus | таким образом
+nevertheless | тем не менее
+however | однако
+on the other hand | с другой стороны
+whereas | тогда как
+all the more so | тем более
+provided that | при условии что
+insofar as | в той мере, в какой
+so that | так чтобы
+admittedly | надо признать
+in any case | в любом случае
+ultimately | в конечном счёте
+moreover | более того
+furthermore | кроме того
+in addition | вдобавок
+indeed | действительно
+on the contrary | напротив
+essentially | по сути
+as for | что касается
+given that | учитывая, что
+in this respect | в этом отношении
+notwithstanding | несмотря на
+despite | несмотря на
+hence | отсюда, поэтому`),
+D('en-c1-v4','Эмоции и оттенки',`
+relief | облегчение
+embarrassment | смущение
+shame | стыд
+regret | сожаление
+satisfaction | удовлетворение
+outrage | возмущение
+despair | отчаяние
+serenity | безмятежность
+admiration | восхищение
+envy | зависть
+aversion | неприязнь
+affection | привязанность
+irritated | раздражённый
+depressed | подавленный
+relieved | испытывающий облегчение
+astonished | изумлённый
+moved | растроганный
+ashamed | пристыженный
+bewildered | сбитый с толку
+thrilled | в восторге
+horrified | в ужасе
+annoyed | раздосадованный
+devastated | опустошённый
+nostalgic | ностальгический
+content | довольный`),
+D('en-c1-v5','Медицина',`
+diagnosis | диагноз
+therapy | терапия
+check-up | медосмотр
+blood pressure | кровяное давление
+circulation | кровообращение
+immune system | иммунная система
+inflammation | воспаление
+infection | инфекция
+virus | вирус
+vaccine | вакцина
+chronic | хронический
+acute | острый
+convalescence | выздоровление
+rehabilitation | реабилитация
+anaesthetic | наркоз
+operation | операция
+sick note | больничный лист
+symptoms | симптомы
+dose | доза
+spine | позвоночник
+fracture | перелом
+sprain | растяжение
+bruise | синяк
+slipped disc | грыжа межпозвоночного диска
+physiotherapist | физиотерапевт`),
+D('en-c1-v6','Энергия и климат',`
+energy transition | энергетический переход
+renewable energy | возобновляемая энергия
+wind turbine | ветряк
+solar panel | солнечная панель
+nuclear power plant | АЭС
+greenhouse effect | парниковый эффект
+climate change | изменение климата
+emissions | выбросы
+carbon dioxide | углекислый газ
+sea level | уровень моря
+biodiversity | биоразнообразие
+extinction | вымирание
+deforestation | вырубка лесов
+raw material | сырьё
+resource | ресурс
+hydrogen | водород
+heat pump | тепловой насос
+insulation | утепление
+eco-friendly | экологичный
+carbon footprint | углеродный след
+waste | отходы; расточительство
+shortage | нехватка
+to deplete | истощать
+fossil fuels | ископаемое топливо
+sustainability | устойчивость`),
+D('en-c1-v7','Официальный язык',`
+regulation | правило, регламент
+directive | директива
+provision | положение (закона)
+authority | орган власти; полномочия
+civil servant | госслужащий
+procedure | процедура
+proof | подтверждение
+certificate | справка, сертификат
+to certify | заверять
+copy | копия
+power of attorney | доверенность
+form | бланк, форма
+to issue | выдавать (документ)
+to extend | продлевать
+valid | действительный
+expired | просроченный
+hearing | слушание
+without delay | незамедлительно
+in accordance with | в соответствии с
+with a view to | с целью
+hereby | настоящим
+registered letter | заказное письмо
+due date | срок
+compliance | соблюдение (норм)
+eligible | имеющий право`),
+D('en-c1-v8','Глаголы C1',`
+to address | рассматривать (вопрос)
+to generate | порождать
+to clarify | прояснять
+to emphasise | подчёркивать
+to question | ставить под сомнение
+to substantiate | обосновывать
+to specify | уточнять
+to promote | продвигать
+to attribute to | приписывать
+to emerge | появляться, возникать
+to weigh up | взвешивать
+to assess | оценивать
+to comprehend | понимать
+to envisage | предусматривать
+to be regarded as | считаться
+to entail | влечь за собой
+to contribute to | способствовать
+to result in | приводить к
+to implement | реализовывать
+to encourage | поощрять
+to possess | обладать
+to devote | посвящать
+to undermine | подрывать
+to highlight | выделять
+to turn out | оказываться`)
+]),
+...DL('C2', [
+D('en-c2-v1','Идиомы',`
+to let the cat out of the bag | выдать секрет
+to bite the bullet | стиснуть зубы и сделать
+to beat around the bush | ходить вокруг да около
+to cost an arm and a leg | стоить бешеных денег
+to hit the nail on the head | попасть в точку
+to pull someone's leg | разыгрывать кого-то
+to spill the beans | проболтаться
+once in a blue moon | очень редко
+the last straw | последняя капля
+to burn the midnight oil | работать допоздна
+a piece of cake | проще простого
+to break the ice | растопить лёд
+under the weather | неважно себя чувствовать
+to call it a day | закончить на сегодня
+to cut corners | халтурить
+to get cold feet | струсить
+to see eye to eye | быть единодушными
+to sit on the fence | занимать выжидательную позицию
+to jump on the bandwagon | примкнуть к модному
+it's not my cup of tea | это не моё
+to keep someone at arm's length | держать на расстоянии
+to add insult to injury | усугубить ситуацию
+to go the extra mile | сделать больше, чем нужно
+a blessing in disguise | нет худа без добра
+to throw in the towel | сдаться`),
+D('en-c2-v2','Книжная лексика',`
+prerogative | прерогатива
+vicissitude | превратность
+ambivalence | двойственность
+rift | раскол
+premise | предпосылка
+pitfall | подводный камень
+discrepancy | расхождение
+luminary | светило
+paradigm | парадигма
+controversy | полемика
+hubris | высокомерие
+meticulousness | скрупулёзность
+gap | пробел
+brevity | краткость
+irony | ирония
+melancholy | меланхолия
+idleness | праздность
+zeitgeist | дух времени
+worldview | мировоззрение
+anachronism | анахронизм
+quintessence | суть
+auspices | эгида
+euphemism | эвфемизм
+dichotomy | дихотомия
+epitome | воплощение`),
+D('en-c2-v3','Точные прилагательные',`
+blatant | вопиющий
+inevitable | неизбежный
+indispensable | необходимый
+considerable | значительный
+negligible | ничтожный
+subtle | тонкий
+succinct | сжатый, ёмкий
+pragmatic | прагматичный
+laconic | лаконичный
+eccentric | чудаковатый
+ambiguous | двусмысленный
+reticent | сдержанный, скрытный
+clumsy | неуклюжий
+conscientious | добросовестный
+shrewd | проницательный
+level-headed | рассудительный
+relentless | неустанный
+arrogant | высокомерный
+nonchalant | беспечный
+naive | наивный
+tedious | утомительный
+tenacious | упорный
+far-fetched | надуманный
+absurd | нелепый
+ephemeral | мимолётный`),
+D('en-c2-v4','Политика и дипломатия',`
+sovereignty | суверенитет
+treaty | договор
+ratification | ратификация
+sanctions | санкции
+embargo | эмбарго
+summit | саммит
+ambassador | посол
+embassy | посольство
+consulate | консульство
+ceasefire | прекращение огня
+disarmament | разоружение
+escalation | эскалация
+alliance | союз
+coalition | коалиция
+legislative term | срок полномочий
+vote of no confidence | вотум недоверия
+separation of powers | разделение властей
+rule of law | верховенство права
+lobbying | лоббизм
+mandate | мандат
+to step down | уйти в отставку
+abstention | воздержание (при голосовании)
+referendum | референдум
+diplomacy | дипломатия
+compromise | компромисс`),
+D('en-c2-v5','Философия и наука',`
+knowledge | знание
+reason | разум; причина
+consciousness | сознание
+ethics | этика
+morality | мораль
+dilemma | дилемма
+causality | причинность
+theory | теория
+empiricism | эмпиризм
+methodology | методология
+abstraction | абстракция
+discourse | дискурс
+dialectics | диалектика
+truth | истина
+being | бытие
+nothingness | небытие
+existence | существование
+free will | свобода воли
+determinism | детерминизм
+probability | вероятность
+variable | переменная
+correlation | корреляция
+epistemology | эпистемология
+hypothesis | гипотеза
+fallacy | логическая ошибка`),
+D('en-c2-v6','Разговорный английский',`
+dosh | бабки
+mate | приятель
+wheels | тачка
+to crash | переночевать; вырубиться
+knackered | вымотанный
+grub | жратва
+bloke | мужик
+to chill | расслабляться
+awesome | потрясающий
+lame | отстойный
+weird | странный
+broke | на мели
+to nick | стащить
+cop | коп
+gear | шмотки, снаряжение
+gutted | очень расстроенный
+to hang out | тусоваться
+no way | ни за что; не может быть
+my bad | моя вина
+to bail | слиться, уйти
+sick | крутой (сленг)
+cheers | спасибо; будем!
+to fancy | хотеть; нравиться
+to be up for it | быть готовым (что-то сделать)
+What's up? | Как дела? Что случилось?`),
+D('en-c2-v7','Редкие глаголы',`
+to denounce | осуждать
+to appease | умиротворять
+to conceal | скрывать
+to stir up | разжигать
+to deplore | сетовать
+to downplay | преуменьшать
+to embellish | приукрашивать
+to evade | уклоняться
+to thwart | сорвать (план)
+to aim at | быть направленным на
+to acquiesce | молча соглашаться
+to confess | признаваться
+to digress | отклоняться от темы
+to probe | прощупывать
+to dispute | оспаривать
+to disparage | принижать
+to hesitate | колебаться
+to ascertain | удостовериться
+to deceive | обманывать
+to boast | хвастаться
+to hinder | препятствовать
+to alleviate | облегчать
+to elicit | вызывать (реакцию)
+to procrastinate | откладывать на потом
+to scrutinise | тщательно изучать`),
+D('en-c2-v8','Меткие существительные',`
+conundrum | головоломка
+tightrope | рискованное положение
+deadlock | тупик
+bone of contention | яблоко раздора
+eyewash | очковтирательство
+schadenfreude | злорадство
+knack | сноровка
+nepotism | кумовство
+horse-trading | торг за спиной
+bragging | хвастовство
+recklessness | безрассудство
+pretext | предлог
+loophole | лазейка
+red herring | ложный след
+muddle | путаница
+reward | награда
+track record | послужной список
+downside | обратная сторона
+rule of thumb | эмпирическое правило
+leeway | свобода действий
+scope | охват, рамки
+weight | вес, значимость
+misjudgement | ошибочная оценка
+tact | такт
+bad faith | недобросовестность`)
+])
+]};
+for (const l in DECKS2) DECKS[l].push(...DECKS2[l]);
 /* ---------- alphabets: [буква, как читается название (для озвучки), по-русски, пример, перевод] ---------- */
 const AL = t => t.trim().split('\n').map(l => l.split('|').map(x => x.trim()));
 const ALPHA = {
@@ -4490,11 +7019,11 @@ for (const lang in COURSES){ ENTRY[lang] = {}; UNITS[lang] = [];
 /* ---------- state ---------- */
 const KEY = 'polyglot-de-fr-v1';
 const DEF = { lang:'de', tab:'path', goal:20, reminds:['09:00','16:00','21:00'], sound:true, sfx:true, prog:{de:{},fr:{},en:{}}, xp:{},
-  streak:{n:0,last:null}, miss:{de:{},fr:{},en:{}}, srs:{de:{},fr:{},en:{}}, total:0, lessons:0, filter:{de:'all',fr:'all',en:'all'}, dailyDone:{} };
+  streak:{n:0,last:null}, miss:{de:{},fr:{},en:{}}, srs:{de:{},fr:{},en:{}}, total:0, lessons:0, filter:{de:'all',fr:'all',en:'all'}, wfilter:{de:'all',fr:'all',en:'all'}, dailyDone:{} };
 let S = JSON.parse(JSON.stringify(DEF));
 try { const r = localStorage.getItem(KEY); if (r) S = Object.assign(S, JSON.parse(r)); } catch(e){}
 delete S.hearts; delete S.hAt; delete S.remind;
-for (const k of ['srs','filter','dailyDone','miss','prog']) S[k] = Object.assign(JSON.parse(JSON.stringify(DEF[k])), S[k] || {});
+for (const k of ['srs','filter','wfilter','dailyDone','miss','prog']) S[k] = Object.assign(JSON.parse(JSON.stringify(DEF[k])), S[k] || {});
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){} };
 
 const dk = (d=new Date()) => d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
@@ -4670,21 +7199,31 @@ function renderPath(){
   $('#main').innerHTML = h;
 }
 function deckStat(d){ const n = d.w.filter(e => known(e[0])).length; return { n, total:d.w.length }; }
+const WLV = ['A2','B1','B2','C1','C2'];
+const WLVN = { A2:'Основа · A1–A2', B1:'Средний уровень', B2:'Выше среднего', C1:'Продвинутый уровень', C2:'Свободное владение' };
 function renderWords(){
   const c = C(), decks = DECKS[S.lang] || [];
+  let f = S.wfilter[S.lang] || 'all';
   const all = decks.reduce((a,d) => a + d.w.length, 0), kn = decks.reduce((a,d) => a + deckStat(d).n, 0);
   let h = `<h2 class="h2">Слова · ${c.name.toLowerCase()}</h2>
    <p class="muted" style="margin:-4px 0 14px">${kn} из ${all} слов изучено. Учи новые слова по темам и проверяй себя — изученные попадают в ежедневное повторение.</p>
    <button class="abc-card" data-act="abc">${ICON.abc}<span><b>Алфавит и звуки</b><small>Нажми на букву — услышишь, как она звучит</small></span></button>`;
   if (!hasPath()) h += dailyCard();
-  h += `<div class="decks">`;
-  for (const d of decks){ const st = deckStat(d), left = st.total - st.n;
-    h += `<article class="deck"><div class="deck-head"><h3>${esc(d.title)}</h3><span class="box">${st.n} / ${st.total}</span></div>
-      <div class="bar"><i style="width:${Math.round(st.n/st.total*100)}%"></i></div>
-      <p class="preview">${d.w.slice(0,4).map(x => esc(x[0])).join(' · ')} …</p>
-      <div class="deck-btns"><button class="btn" data-act="deck" data-d="${d.id}" ${left?'':'disabled'}>${left ? 'Учить ' + Math.min(8,left) + ' новых' : 'Все изучены'}</button>
-      <button class="btn ghost" data-act="quiz" data-d="${d.id}">Проверить себя</button></div></article>`; }
-  h += `</div>`;
+  h += `<div class="filters" role="group" aria-label="Уровень">${[['all','Все уровни'], ...WLV.map(l => [l,l])].map(([k,n]) =>
+    `<button data-act="wfilter" data-v="${k}" aria-pressed="${f===k}">${n}</button>`).join('')}</div>`;
+  for (const lv of WLV){
+    if (f !== 'all' && f !== lv) continue;
+    const ds = decks.filter(d => d.lv === lv); if (!ds.length) continue;
+    const tw = ds.reduce((a,d) => a + d.w.length, 0), tk = ds.reduce((a,d) => a + deckStat(d).n, 0);
+    h += `<section class="level"><div class="lvl-head"><span class="lvl-code">${lv}</span><div><b>${WLVN[lv]}</b><small>${ds.length} ${plural(ds.length,'тема','темы','тем')} · ${tk} из ${tw} слов изучено</small></div></div><div class="decks">`;
+    for (const d of ds){ const st = deckStat(d), left = st.total - st.n;
+      h += `<article class="deck"><div class="deck-head"><h3>${esc(d.title)}</h3><span class="box">${st.n} / ${st.total}</span></div>
+        <div class="bar"><i style="width:${Math.round(st.n/st.total*100)}%"></i></div>
+        <p class="preview">${d.w.slice(0,4).map(x => esc(x[0])).join(' · ')} …</p>
+        <div class="deck-btns"><button class="btn" data-act="deck" data-d="${d.id}" ${left?'':'disabled'}>${left ? 'Учить ' + Math.min(8,left) + ' новых' : 'Все изучены'}</button>
+        <button class="btn ghost" data-act="quiz" data-d="${d.id}">Проверить себя</button></div></article>`; }
+    h += `</div></section>`;
+  }
   $('#main').innerHTML = h;
 }
 function learnedKeys(){ return Object.keys(S.srs[S.lang]).filter(k => ENTRY[S.lang][k]); }
@@ -4983,6 +7522,7 @@ document.addEventListener('click', ev => {
   if (a==='lang'){ S.lang = v; save(); render(); }
   else if (a==='tab'){ S.tab = v; save(); render(); window.scrollTo(0,0); }
   else if (a==='filter'){ S.filter[S.lang] = v; save(); render(); }
+  else if (a==='wfilter'){ S.wfilter[S.lang] = v; save(); render(); }
   else if (a==='start'){ startLesson(t.dataset.u, +t.dataset.li); }
   else if (a==='daily' || a==='miss' || a==='free'){ startReview(a); }
   else if (a==='deck' || a==='quiz'){ startDeck(t.dataset.d, a==='quiz'); }
